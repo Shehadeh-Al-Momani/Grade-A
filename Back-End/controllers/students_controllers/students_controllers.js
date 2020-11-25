@@ -43,10 +43,20 @@ const filter_s = (req, res) => {
     })
 };
 
+const history_s = (req, res) => {
+    let sql = `SELECT * FROM courses Where student_id =?`;
+    let data = req.params.id;
+    db.query(sql, data, (err, result) => {
+        if (err) throw err;
+        res.json(result);
+    })
+};
+
 module.exports = {
     courses_s,
     courseDetails_s,
     categories_s,
     search_s,
     filter_s,
+    history_s,
 };
