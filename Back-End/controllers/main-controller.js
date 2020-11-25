@@ -9,4 +9,4 @@ module.exports={
     filter_s,
     history_s,
     
-}
+};
