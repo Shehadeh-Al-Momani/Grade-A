@@ -44,7 +44,7 @@ const filter_s = (req, res) => {
 };
 
 const history_s = (req, res) => {
-    let sql = `SELECT * FROM courses Where student_id =?`;
+    let sql = `SELECT * FROM courses JOIN registration ON courses.id=registration.course_id AND registration.student_id =?`;
     let data = req.params.id;
     db.query(sql, data, (err, result) => {
         if (err) throw err;
