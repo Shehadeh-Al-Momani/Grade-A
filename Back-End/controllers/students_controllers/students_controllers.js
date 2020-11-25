@@ -1,62 +1,64 @@
 const db = require('../../db');
 
-const courses_s = (req, res) => {
-    let sql = 'SELECT * FROM courses';
-    db.query(sql, (err, result) => {
+const getAllCourses = (req, res) => {
+    const query = 'SELECT * FROM courses';
+    db.query(query, (err, result) => {
         if (err) throw err;
         res.json(result);
     })
 };
 
-const courseDetails_s = (req, res) => {
-    let sql = 'SELECT * FROM courses WHERE id=?';
-    let data = req.params.id;
-    db.query(sql, data, (err, result) => {
+const courseDetails = (req, res) => {
+    const query = 'SELECT * FROM courses WHERE id=?';
+    const data = req.params.id;
+    db.query(query, data, (err, result) => {
         if (err) throw err;
         res.json(result);
     })
 };
 
-const categories_s = (req, res) => {
-    let sql = 'SELECT * FROM categories';
-    db.query(sql, (err, result) => {
+const getAllCategories = (req, res) => {
+    const query = 'SELECT * FROM categories';
+    db.query(query, (err, result) => {
         if (err) throw err;
         res.json(result);
     })
 };
 
-const search_s = (req, res) => {
-    let data = req.params.id;
-    let sql = `SELECT * FROM courses WHERE name LIKE'%${data}%'`;
-    db.query(sql, data, (err, result) => {
+const searchCourses = (req, res) => {
+    const data = req.params.id;
+    const query = `SELECT * FROM courses WHERE name LIKE'%${data}%'`;
+    db.query(query, data, (err, result) => {
         if (err) throw err;
         res.json(result);
     })
 };
 
-const filter_s = (req, res) => {
-    let sql = `SELECT * FROM courses JOIN rating WHERE rating.rating_value > ?`;
-    let data = req.params.id;
-    db.query(sql, data, (err, result) => {
+const filterCourses = (req, res) => {
+    const query = `SELECT * FROM courses JOIN rating ON rating.course_id=courses.id AND rating.rating_value > ?`;
+    const data = req.params.id;
+    db.query(query, data, (err, result) => {
         if (err) throw err;
         res.json(result);
     })
 };
 
-const history_s = (req, res) => {
-    let sql = `SELECT * FROM courses JOIN registration ON courses.id=registration.course_id AND registration.student_id =?`;
-    let data = req.params.id;
-    db.query(sql, data, (err, result) => {
+const historyCourses = (req, res) => {
+    const query = `SELECT * FROM courses JOIN registration ON courses.id=registration.course_id AND registration.student_id =?`;
+    const data = req.params.id;
+    db.query(query, data, (err, result) => {
         if (err) throw err;
         res.json(result);
     })
 };
 
 module.exports = {
-    courses_s,
-    courseDetails_s,
-    categories_s,
-    search_s,
-    filter_s,
-    history_s,
+    getAllCourses,
+    courseDetails,
+    getAllCategories,
+    searchCourses,
+    filterCourses,
+    historyCourses,
+
 };
+
