@@ -34,10 +34,19 @@ const search_s = (req, res) => {
     })
 };
 
+const filter_s = (req, res) => {
+    let sql = `SELECT * FROM courses JOIN rating WHERE rating.rating_value > ?`;
+    let data = req.params.id;
+    db.query(sql, data, (err, result) => {
+        if (err) throw err;
+        res.json(result);
+    })
+};
+
 module.exports = {
     courses_s,
     courseDetails_s,
     categories_s,
     search_s,
+    filter_s,
 };
-

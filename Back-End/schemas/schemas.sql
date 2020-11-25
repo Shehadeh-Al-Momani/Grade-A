@@ -103,3 +103,6 @@ INSERT INTO courses (name,price,description,instructor_id,created_at,category_id
 ('Swift 5',9.99,'From Beginner to iOS App Developer with Just One Course! Fully Updated with a Comprehensive Module Dedicated to SwiftUI!',4,now(),6),
 ('Flutter',9.99,'Officially created in collaboration with the Google Flutter team.',4,now(),6);
 
+INSERT INTO rating (student_id,course_id,rating_value) values(5,1,4),(5,2,4.5),(5,3,4),(6,4,4.5),(6,5,4),(6,6,4.5),(7,7,4),(7,8,4.5),(7,9,4),(8,10,4.5),(8,11,4),(8,1,4.5),(9,2,4),(9,3,4),(9,4,4);
+
+

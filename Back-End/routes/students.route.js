@@ -1,5 +1,5 @@
 const studentsRouter = require("express").Router();
-const {courses_s,courseDetails_s,categories_s,search_s} = require('../controllers/main-controller')
+const {courses_s,courseDetails_s,categories_s,search_s,filter_s} = require('../controllers/main-controller')
 
 // // View all courses
 studentsRouter.get('/courses',courses_s)
@@ -12,7 +12,7 @@ studentsRouter.get('/categories',categories_s)
 // // Search for courses
 studentsRouter.get('/search/:id',search_s)
 // // Filter courses
-// studentsRouter.get('/filter/:id',filter_s)
+studentsRouter.get('/filter/:id',filter_s)
 // // View student's courses history
 // studentsRouter.get('/history/:id',history_s)
 // // Evaluation(Star rating)
