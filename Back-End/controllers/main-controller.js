@@ -7,4 +7,5 @@ module.exports = {
     evaluate_s, 
     getRating_s,
     
-}
+};
+
