@@ -5,5 +5,6 @@ module.exports = {
     categoryCourses_s,
     addCourse_s, 
     evaluate_s, 
-    getRating_s
+    getRating_s,
+    
 }
