@@ -1,7 +1,9 @@
 const studentsRouter = require("express").Router();
-const {categoryCourses_s} = require('../controllers/main-controller')
+const {categoryCourses_s, addCourse_s} = require('../controllers/main-controller')
 
 studentsRouter.get('/category_courses/:id', categoryCourses_s)
+studentsRouter.post('/add_course/:id', addCourse_s) //send request with course_id in params and student_id in body
+
 // Search for courses
 
 // // View all courses

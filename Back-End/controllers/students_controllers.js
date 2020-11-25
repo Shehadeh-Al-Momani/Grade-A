@@ -10,8 +10,22 @@ const categoryCourses_s = (req, res) => {
 })
 }
 
+const addCourse_s = (req, res) => {
+    console.log("REQ PARAMS: ", req.params.id)
+    console.log("REQ BODY: ",req.body)
+    let sql = `INSERT INTO registration (student_id, course_id) 
+    VALUES ("${req.body.student_id}", "${req.params.id}")`
+    let query = db.query(sql, (err, result) => {
+        if (err) throw err
+        console.log("addCourse_s called")
+        res.send("addCourse_s called")
+        // res.json(result)
+    })
+}
+
 module.exports = {
-    categoryCourses_s
+    categoryCourses_s, 
+    addCourse_s
 
 
 }
