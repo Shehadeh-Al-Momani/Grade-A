@@ -1,20 +1,20 @@
 const studentsRouter = require("express").Router();
-const {courses_s,courseDetails_s,categories_s,search_s,filter_s,history_s} = require('../controllers/main-controller')
+const {getAllCourses,courseDetails,getAllCategories,searchCourses,filterCourses,historyCourses} = require('../controllers/main-controller')
 
 // // View all courses
-studentsRouter.get('/courses',courses_s)
+studentsRouter.get('/courses',getAllCourses)
 // // View a specific course's details
-studentsRouter.get('/details/:id',courseDetails_s)
+studentsRouter.get('/details/:id',courseDetails)
 // // View all categories
-studentsRouter.get('/categories',categories_s)
+studentsRouter.get('/categories',getAllCategories)
 // // View courses by category
 // studentsRouter.get('/category_courses/:id',categoryCourses_s)
 // // Search for courses
-studentsRouter.get('/search/:id',search_s)
+studentsRouter.get('/search/:id',searchCourses)
 // // Filter courses
-studentsRouter.get('/filter/:id',filter_s)
+studentsRouter.get('/filter/:id',filterCourses)
 // // View student's courses history
-studentsRouter.get('/history/:id',history_s)
+studentsRouter.get('/history/:id',historyCourses)
 // // Evaluation(Star rating)
 // studentsRouter.add('/evaluate/:id',evaluate_s)
 // // Show all rating courses
@@ -27,3 +27,4 @@ studentsRouter.get('/history/:id',history_s)
 // studentsRouter.get('/',)
 
 module.exports = studentsRouter;
+
