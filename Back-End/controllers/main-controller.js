@@ -1,21 +1,21 @@
 const db = require('../db');
 
-const {getCategoryCourses, addCourse, evaluate, getRating} = require('./students_controllers');
-const {getAllCourses,courseDetails,getAllCategories,searchCourses,filterCourses,historyCourses} = require('./students_controllers/students_controllers')
+const { getAllCourses,courseDetails,searchCourses,filterCourses,historyCourses,enrollmentCourse} = require('./students_controllers/courses_controllers');
+const { getAllCategories, getCategoryCourses } = require('./students_controllers/categories_controllers');
+const { evaluate, getRating } = require('./students_controllers/rating_controllers');
+const {} = require('./students_controllers/integration_controllers');
 
-module.exports={
+module.exports = {
     getAllCourses,
     courseDetails,
     getAllCategories,
     searchCourses,
     filterCourses,
     historyCourses,
+    enrollmentCourse,
     getCategoryCourses,
-    addCourse, 
     evaluate,
-    getRating,   
-    getCategoryCourses,
-    addCourse, 
-    evaluate, 
-    getRating,
+    getRating
 };
+
+
