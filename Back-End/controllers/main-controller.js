@@ -4,7 +4,7 @@ const { getAllCourses,courseDetails,searchCourses,filterCourses,historyCourses,e
 const { getAllCategories, getCategoryCourses } = require('./students_controllers/categories_controllers');
 const { evaluate, getRating } = require('./students_controllers/rating_controllers');
 const {} = require('./students_controllers/integration_controllers');
-
+const {registeredCoursesInstructor} = require("./instructors_controllers/courses_controllers")
 module.exports = {
     getAllCourses,
     courseDetails,
@@ -15,7 +15,8 @@ module.exports = {
     enrollmentCourse,
     getCategoryCourses,
     evaluate,
-    getRating
+    getRating, 
+    registeredCoursesInstructor
 };
 
 
