@@ -15,6 +15,6 @@ adminRouter.put('/disable_student/:id',disable_user)
 // // View all instructors accounts details
 adminRouter.get('/instructors_details',instructors_details)
 // // Disable instructors accounts
-// adminRouter.update('/admin/disable_instructor/:id',disable_instructor)
+adminRouter.put('/disable_instructor/:id',disable_user)
 
 module.exports = adminRouter;
