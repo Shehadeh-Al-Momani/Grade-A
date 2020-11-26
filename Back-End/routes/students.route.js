@@ -1,5 +1,12 @@
 const studentsRouter = require("express").Router();
-const {getAllCourses,courseDetails,getAllCategories,searchCourses,filterCourses,historyCourses} = require('../controllers/main-controller')
+
+const {getAllCourses,courseDetails,getAllCategories,searchCourses,filterCourses,historyCourses,getCategoryCourses, addCourse, evaluate, getRating} = require('../controllers/main-controller')
+
+ 
+studentsRouter.get('/category_courses/:id', getCategoryCourses)
+studentsRouter.post('/add_course/:id', addCourse) //send request with "course_id" in params and "student_id" in body
+studentsRouter.post('/evaluate/:id', evaluate) //send "course_id" in params, "student_id" in body, and "rating" in body
+studentsRouter.get('/rating/:id',getRating) // id = "rating_value"
 
 // // View all courses
 studentsRouter.get('/courses',getAllCourses)
