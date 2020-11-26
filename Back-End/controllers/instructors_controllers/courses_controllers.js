@@ -1,7 +1,6 @@
 const db = require('../../db');
 
 const registeredCoursesInstructor = (req, res) => {
-    console.log("registeredCoursesInstructor")
     const query = `SELECT COUNT(*) FROM courses c JOIN registration r ON c.id = r.course_id AND instructor_id = ?`;
     const data = req.params.id;
     db.query(query, data, (err, result) => {
