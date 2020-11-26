@@ -9,7 +9,7 @@ const adminRouter = require("express").Router();
 // // View all students accounts details
 // adminRouter.get('/admin/students_details/:id',students_details)
 // // Disable students accounts
-// adminRouter.update('/admin/disable_student/:id',disable_student)
+// adminRouter.put('/admin/disable_student/:id',disable_student)
 // // View all instructors accounts details
 // adminRouter.get('/admin/instructors_details/:id',instructors_details)
 // // Disable instructors accounts
