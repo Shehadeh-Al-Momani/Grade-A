@@ -1,6 +1,6 @@
 const db = require('../db');
 
-const categoryCourses_s = (req, res) => {
+const getCategoryCourses = (req, res) => {
     const query = `SELECT * FROM courses WHERE category_id = ?`;
     const data = req.params.id;
     db.query(query, data, (err, result) => {
@@ -9,7 +9,7 @@ const categoryCourses_s = (req, res) => {
     })
 }
 
-const addCourse_s = (req, res) => {
+const addCourse = (req, res) => {
     const query = `INSERT INTO registration (student_id, course_id) VALUES (?,?)`;
     const data = [req.body.student_id,req.params.id];
     db.query(query,data, (err, result) => {
@@ -19,7 +19,7 @@ const addCourse_s = (req, res) => {
     })
 }
 
-const evaluate_s = (req, res) => {
+const evaluate = (req, res) => {
     const query = `INSERT INTO rating (student_id, course_id, rating_value) VALUES (?, ?, ?)`;
     const data = [req.body.student_id,req.params.id,req.body.rating];
     db.query(query,data, (err, result) => {
@@ -29,7 +29,7 @@ const evaluate_s = (req, res) => {
     })
 }
 
-const getRating_s = (req, res) => {
+const getRating = (req, res) => {
     const query = `SELECT * FROM rating WHERE rating_value = ?`;
     const data = req.params.id;
     db.query(query,data, (err, result) => {
@@ -39,9 +39,9 @@ const getRating_s = (req, res) => {
 }
 
 module.exports = {
-    categoryCourses_s,
-    addCourse_s,
-    evaluate_s,
-    getRating_s
+    getCategoryCourses,
+    addCourse,
+    evaluate,
+    getRating
 };
 
