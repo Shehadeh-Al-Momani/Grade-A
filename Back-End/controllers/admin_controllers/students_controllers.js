@@ -10,7 +10,7 @@ const students_details = (req, res) => {
     })
 }
 
-const disable_student = (req, res) => {
+const disable_user = (req, res) => {
     const query = `UPDATE users SET isDisabled = 1 WHERE id = ?`
     const data = req.params.id 
     db.query(query, data, (err, result) => {
@@ -21,6 +21,6 @@ const disable_student = (req, res) => {
 
 module.exports = {
     students_details, 
-    disable_student
+    disable_user,
 };
 

@@ -6,7 +6,8 @@ const { evaluate, getRating } = require('./students_controllers/rating_controlle
 const {} = require('./students_controllers/integration_controllers');
 const {registeredCoursesInstructor} = require("./instructors_controllers/courses_controllers")
 const {students_details} = require('./admin_controllers/students_controllers')
-const {disable_student} = require('./admin_controllers/students_controllers')
+const {disable_user} = require('./admin_controllers/students_controllers')
+const {instructors_details} = require('./admin_controllers/instructors_controllers')
 module.exports = {
     getAllCourses,
     courseDetails,
@@ -20,7 +21,8 @@ module.exports = {
     getRating, 
     registeredCoursesInstructor, 
     students_details, 
-    disable_student
+    disable_user, 
+    instructors_details
 };
 
 
