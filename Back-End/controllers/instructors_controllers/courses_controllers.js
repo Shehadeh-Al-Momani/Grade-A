@@ -19,8 +19,18 @@ const addCourse = (req, res) => {
     })
 };
 
+const updateCourse = (req, res) => {
+    const query = `UPDATE courses SET price = ? WHERE id = ?`;
+    const data = [req.params.i,req.params.id ];
+    db.query(query, data, (err, result) => {
+        if (err) throw err;
+        res.json(result);
+    })
+};
+
 module.exports = {
     visiblityCourse,
     addCourse,
+    updateCourse,
 };
 
