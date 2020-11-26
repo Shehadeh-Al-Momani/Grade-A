@@ -107,15 +107,4 @@ INSERT INTO rating (student_id,course_id,rating_value) values(5,1,4),(5,2,4.5),(
 
 INSERT INTO registration (student_id,course_id) values(5,1),(5,2),(5,11),(6,3),(6,4),(6,12),(7,5),(7,10),(8,6),(8,7),(9,8),(9,9); 
 
-ALTER TABLE courses ADD student_id int,ADD FOREIGN KEY (student_id) REFERENCES users (id);
-
-UPDATE courses SET student_id =5 WHERE id=1 OR id=2 OR id=11;
-UPDATE courses SET student_id =6 WHERE id=3 OR id=4 OR id=12;
-UPDATE courses SET student_id =7 WHERE id=5 OR id=10;
-UPDATE courses SET student_id =8 WHERE id=6 OR id=7;
-UPDATE courses SET student_id =9 WHERE id=8 OR id=9;
-
-SELECT * FROM courses JOIN users ON courses.student_id=users.id 
-JOIN registration ON registration.student_id=6
-
-SELECT * FROM courses Where student_id =7;
+  
