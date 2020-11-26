@@ -1,5 +1,5 @@
 const adminRouter = require("express").Router();
-const {students_details} = require('../controllers/main-controller')
+const {students_details, disable_student: disable_user} = require('../controllers/main-controller')
 
 
 // // View all courses
@@ -11,7 +11,7 @@ const {students_details} = require('../controllers/main-controller')
 // // View all students accounts details
 adminRouter.get('/students_details',students_details)
 // // Disable students accounts
-// adminRouter.put('/admin/disable_student/:id',disable_student)
+adminRouter.put('/disable_student/:id',disable_user)
 // // View all instructors accounts details
 // adminRouter.get('/admin/instructors_details/:id',instructors_details)
 // // Disable instructors accounts
