@@ -1,10 +1,14 @@
 const instructorsRouter = require("express").Router();
+const { visiblityCourse, addCourse,updateCourse,courseRating } = require("../controllers/main-controller");
+
+// Show a hidden course
+instructorsRouter.put('/visiblity/:id',visiblityCourse)
 
 // Add courses
-// instructorsRouter.add('/course/',addCourse)
+instructorsRouter.post('/course/',addCourse)
 
 // Update courses
-// instructorsRouter.update('/course/',updateCourse)
+instructorsRouter.put('/course:id/:i',updateCourse) // id = courses.id , i = courses.price
 
 // View all courses
 // instructorsRouter.get('/courses/',courses)
@@ -12,11 +16,8 @@ const instructorsRouter = require("express").Router();
 // View total number of courses registered
 // instructorsRouter.get('/registeredCourses/:id',registeredCoursesInstructor)
 
-// Show a hidden course
-// instructorsRouter.update('/view/:id',visiblity)
-
 // View course rating
-// instructorsRouter.get('/',)
+instructorsRouter.get('/course_rating/:id',courseRating) // id = courses.id 
 
 // Add live videos
 // instructorsRouter.get('/',)
