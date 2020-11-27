@@ -5,7 +5,10 @@ const { getAllCategories, getCategoryCourses } = require('./students_controllers
 const { evaluate, getRating } = require('./students_controllers/rating_controllers');
 const { } = require('./students_controllers/integration_controllers');
 
-const { visiblityCourse, addCourse,updateCourse,courseRating } = require('./instructors_controllers/courses_controllers');
+const { visiblityCourse, addCourse,updateCourse } = require('./instructors_controllers/courses_controllers');
+const { courseRating } = require('./instructors_controllers/rating_controllers');
+
+const { addCategory } = require('./admin_controllers/categories_controllers');
 
 module.exports = {
     getAllCourses,
@@ -22,6 +25,7 @@ module.exports = {
     addCourse,
     updateCourse,
     courseRating,
+    addCategory,
 };
 
 
