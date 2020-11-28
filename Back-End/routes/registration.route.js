@@ -1,5 +1,11 @@
-const registrationRouter = require("express").Router();
+const express = require('express');
+const {register} =require('../controllers/registration_controllers/register_controllers')
+const registerRouter = express.Router();
 
 
-module.exports = registrationRouter;
+registerRouter.post("/register/:role",register);
+
+
+module.exports = registerRouter;
+
 
