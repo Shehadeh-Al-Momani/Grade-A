@@ -3,7 +3,7 @@ require("dotenv").config();
 const bcrypt = require('bcrypt');
 
 const  register = async (req,res)=>{
-    let user_name=req.body.user_name;
+    let name=req.body.name;
     let adress = req.body.adress;
     let email =req.body.email;
     let password =req.body.password;  
@@ -19,20 +19,20 @@ const  register = async (req,res)=>{
 
      
       //Checking if there is  same data in database with the request data
-    const query = await `SELECT * FROM users WHERE email ='${email}' OR  name = '${user_name}' `;
+    const query = await `SELECT * FROM users WHERE email ='${email}' OR  name = '${name}' `;
     connection.query(query,async(err,result)=>{
         console.log(result)
        if(err) throw err;
        if(result.length===1){
             if(result[0].email===email) return res.json("Email is used..");
-            if(result[0].user_name===user_name)return res.json("User name is used..");
+            if(result[0].name===name)return res.json("User name is used..");
        };
 
      //hashing the password 
      password = await bcrypt.hash(password,parseInt(process.env.SALT));
 
      // Adding new user to Database
-     const newUser =`INSERT INTO users (name,adress,email,password,phone,role_id) VALUES('${user_name}','${adress}','${email}','${password}','${phone}','${role_id}');`
+     const newUser =`INSERT INTO users (name,adress,email,password,phone,role_id) VALUES('${name}','${adress}','${email}','${password}','${phone}','${role_id}');`
      connection.query(newUser,(err,result)=>{if(err) throw err});
 
       // if everything is good get this res..
