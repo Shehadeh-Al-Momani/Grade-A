@@ -1,17 +1,8 @@
-const adminRouter = require('express').Router();
-const {
-	students_details,
-	disable_user,
-	instructors_details,
-} = require('../controllers/main-controller');
+const adminRouter = require("express").Router();
+const { addCategory, students_details, disable_user, instructors_details} = require('../controllers/main-controller');
 
-// // View all courses
-// adminRouter.get('/admin/courses',courses_a)
-// // Hide courses
-// adminRouter.update('/admin/course/:id',hideCourse_a)
-// // Add new categories
-// adminRouter.add('/admin/category',addCategory_a)
-// // View all students accounts details
+adminRouter.post('/category',addCategory) // req.body.name
+
 adminRouter.get('/students_details', students_details);
 // // Disable students accounts
 adminRouter.put('/disable_student/:id', disable_user);
