@@ -38,7 +38,7 @@ const adminPermission = async (req,res,next)=>{
            res.json("You don't have the permission")
         }
       }
-    }
+    };
 
 //student permission
   const studentPermission = async (req,res,next)=>{
@@ -51,9 +51,7 @@ const adminPermission = async (req,res,next)=>{
            res.json("You don't have the permission")
         }
       }
-    }
-
-
+    };
 
 module.exports = {
     authentication,

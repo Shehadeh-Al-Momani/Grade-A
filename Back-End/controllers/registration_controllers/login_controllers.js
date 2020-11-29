@@ -22,7 +22,7 @@ const login = async (req,res)=>{
                 const options ={
                     expiresIn:process.env.TOKEN_EXPIRATION
                 };
-
+                
                 //putting token to login account
                 token =jwt.sign(payload,process.env.SECRET,options);
                 res.header('x-auth',token).json(token);
@@ -30,8 +30,7 @@ const login = async (req,res)=>{
                 return res.json("Invalid Email or password..");
             }
         }else return res.json("Invalid Email or password..")               
-    })
-
+    });
 };
 
 module.exports = {

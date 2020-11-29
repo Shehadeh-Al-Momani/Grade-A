@@ -17,7 +17,6 @@ const  register = async (req,res)=>{
         role_id = 3
      };
 
-     
       //Checking if there is  same data in database with the request data
     const query = await `SELECT * FROM users WHERE email ='${email}' OR  name = '${name}' `;
     connection.query(query,async(err,result)=>{
