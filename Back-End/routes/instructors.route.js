@@ -1,5 +1,7 @@
-const instructorsRouter = require("express").Router();
-const {registeredCoursesInstructor} = require('../controllers/main-controller')
+const instructorsRouter = require('express').Router();
+const {
+	registeredCoursesInstructor,
+} = require('../controllers/main-controller');
 
 // Add courses
 // instructorsRouter.add('/course/',addCourse)
@@ -11,7 +13,7 @@ const {registeredCoursesInstructor} = require('../controllers/main-controller')
 // instructorsRouter.get('/courses/',courses)
 
 // View total number of courses registered
-instructorsRouter.get('/registeredCourses/:id', registeredCoursesInstructor)
+instructorsRouter.get('/registeredCourses/:id', registeredCoursesInstructor);
 
 // Show a hidden course
 // instructorsRouter.update('/view/:id',visiblity)
@@ -26,5 +28,3 @@ instructorsRouter.get('/registeredCourses/:id', registeredCoursesInstructor)
 // instructorsRouter.get('/',)
 
 module.exports = instructorsRouter;
-
-
