@@ -13,3 +13,51 @@ const authentication = async (req, res, next) => {
     throw err;
   }
 };
+
+//Admin permission middleware
+const adminPermission = async (req,res,next)=>{
+    const token = res.headers('x-auth');    
+      await jwt.verify(token,process.env.SECRET),(err,result)=>{
+        if (err) throw err;
+        if(result.role_id===1){
+          next()
+        }else{
+           res.json("You don't have the permission")
+        }
+      }
+    };
+
+//instructor  permission middleware
+ const instructorPermission = async (req,res,next)=>{
+    const token = res.headers('x-auth');    
+      await jwt.verify(token,process.env.SECRET),(err,result)=>{
+        if (err) throw err;
+        if(result.role_id===2){
+          next()
+        }else{
+           res.json("You don't have the permission")
+        }
+      }
+    }
+
+//student permission
+  const studentPermission = async (req,res,next)=>{
+    const token = res.headers('x-auth');    
+      await jwt.verify(token,process.env.SECRET),(err,result)=>{
+        if (err) throw err;
+        if(result.role_id===3){
+          next()
+        }else{
+           res.json("You don't have the permission")
+        }
+      }
+    }
+
+
+
+module.exports = {
+    authentication,
+    adminPermission,
+    instructorPermission,
+    studentPermission
+    }
