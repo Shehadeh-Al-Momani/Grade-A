@@ -58,4 +58,4 @@ module.exports = {
     adminPermission,
     instructorPermission,
     studentPermission
-    }
+    };
