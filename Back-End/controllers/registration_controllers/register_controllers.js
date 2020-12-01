@@ -14,23 +14,29 @@ const  register =(req,res)=>{
 
       //Checking if there is  same data in database with the request data
     const query = `SELECT * FROM users WHERE email ='${email}' OR  name = '${name}' `;
-    connection.query(query,async(err,result)=>{
+    connection.query(query,(err,result)=>{
        if(err) throw err;
        if(result.length){
             if(result[0].email===email){
-              return res.json("Email is used..")
+              res.json("Email is used..")
             };
             if(result[0].name===name){
-              return res.json("User name is used..")
+              res.json("User name is used..")
             }; 
        };
 
      //hashing the password 
-     password = await bcrypt.hash(password,parseInt(process.env.SALT));
-
+     const hashPassword =  bcrypt.hashSync(password,Number(process.env.SALT),(err,result)=>{
+       if(err) throw err
+     });
+      console.log(hashPassword)
+      console.log(password)
      // Adding new user to Database
-     const newUser =`INSERT INTO users (name,adress,email,password,phone,role_id) VALUES('${name}','${adress}','${email}','${password}','${phone}','${role_id}');`
-     connection.query(newUser,(err,result)=>{if(err) throw err});
+     
+     //const query =`INSERT INTO users (name,adress,email,password,phone,role_id) VALUES('${name}','${adress}','${email}','${hashPassword}','${phone}','${role_id}');`
+     const query =`INSERT INTO users (name,adress,email,password,phone,role_id) VALUES(?,?,?,?,?,?)`
+     const data=[name,adress,email,hashPassword,phone,role_id]
+     connection.query(query,data,(err,result)=>{if(err) throw err});
 
       // if everything is good get this res..
       res.json("Your account has been successfully created.")
