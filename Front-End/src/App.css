@@ -14,18 +14,19 @@
     font-size: 15px;
     color: #54534F;
     box-shadow: 1px 1px 5px ;
-    
-
 }
+
 .logo{
     height: 30px;
     width: 100px;
     margin-left: 18px;
     margin-bottom: 8px;
 }
+
 .logo:hover{
     cursor: pointer;
 }
+
 .search{
     border: 1px solid ;
     width: 60%;
@@ -34,13 +35,13 @@
     align-items: center;
     border-radius: 40px;
     padding-left: 15px;
-
 }
 
 .search img{
     height: 30px;
     width: 30px;
 }
+
 .search input{
     width: 90%;
     height: 60%;
@@ -48,7 +49,6 @@
     outline: none;
     border: none;
 }
-
 
 .navbar h4:hover{
     color:#84a5e8;
@@ -59,10 +59,12 @@
     color: black;
     cursor: pointer;
 }
+
 .sign:hover{
     background-color: #18294d;
     cursor: pointer;
 }
+
 .log{
     width: 6%;
     height: 40px;
@@ -87,28 +89,30 @@
     font-weight: bold;
 }
 
-
 /* -------------------------------------------------- Interface -----------------------------------------*/
-
 
 .wlc{
     margin-top: 3px;
+}
 
+.wlc img{
+    height: 400px;
+    position: relative;
 }
 
 .innerTxt{
-    
     color:#54534F;
     font-weight: bolder;
     font-size: 25px;
     padding:70px;
     padding-left: 100px;
-
 }
+
 .innerTxt h4{
     margin-top: 20px;
     font-size: 20px;
 }
+
 .innerTxt button{
     margin-top: 20px;
     height: 60px;
@@ -120,12 +124,12 @@
     border: none;
     border-radius: 3px;
 }
+
 .innerTxt button:hover{
     background-color: #18294d;
     color: white;
     cursor: pointer;
 }
-
 
 /* ----------------------------------------------- Goals ----------------------------------------------*/
 
@@ -139,6 +143,7 @@
     color: #54534F;
     height: 420px;
 }
+
 .goals h1{
     margin-left: 30%;
     margin-top: 70px;
@@ -165,13 +170,14 @@
     font-size: 17px;
     font-weight: bolder;
 }
+
 .box h2{
     margin-bottom: 12px;
     margin-top: -10px;
     font-size: 23px;
-    letter-spacing: 2px;
-    
+    letter-spacing: 2px;    
 }
+
 .box h4{
     line-height: 25px;
     font-size: 18px;
@@ -188,28 +194,30 @@
     font-weight: 900;
     color: #3C3B37;
 }
+
 .cards{
     color: #3C3B37;
     width: 85%;
     margin-left: 7%;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    
+    flex-wrap: wrap;   
 }
+
 .card{
     margin-bottom:10px;
     margin-right: 2px;
     border: 1px solid silver;
     height: 480px;
 }
+
 .card:hover{
     cursor: pointer;
 }
+
 .card img{
     height: 410px;
-    width: 400px;
-    
+    width: 400px;   
 }
 
 /* ---------------------------------------------------- Become Instructor -----------------------*/
@@ -220,12 +228,11 @@
     display: flex;
     align-items: center;
     background-color: #c5e0ed;
-    
 }
+
 .smile img{
     height: 400px;
     margin-left: 20%;
-
 }
 
 .smile div{
@@ -252,7 +259,6 @@
 .smile button:hover{
     cursor: pointer;
     background-color: #18294d;
-    
 }
 
 /* ---------------------------------------- Team -----------------------------------------------*/
@@ -264,6 +270,7 @@
     align-items: center;
     color: #3C3B37;
 }
+
 .team h1{
     margin-bottom: 40px;
     font-size: 40px;
@@ -275,7 +282,6 @@
     width: 65%;
     display: flex;
     justify-content: space-between;
-
 }
 
 .team img{
