@@ -35,13 +35,15 @@ const Navbar = () => {
   return (
     <Router>
       <nav className='navbar'>
-      <div className='search'>
-        <img src={search}></img>
-        <Link to='/result'>
-          <input to='/result' placeholder='Search for anything'
-            onKeyPress={(e) => { if (e.key === 'Enter') searchCourses(e.target.value) }}></input>
-        </Link>
-      </div>
+        <Link to='/' ><img src={logo} className='logo' ></img></Link>
+        <h4>Categories</h4>
+        <div className='search'>
+          <img src={search}></img>
+          <Link to='/result'>
+            <input to='/result' placeholder='Search for anything'
+              onKeyPress={(e) => { if (e.key === 'Enter') searchCourses(e.target.value) }}></input>
+          </Link>
+        </div>
       </nav>
       <Route path='/result'><Result result={result} /></Route>
     </Router>
