@@ -5,10 +5,33 @@ import goal3 from './pics/goals3.png';
 
 const Goals = () => {
 	return (
-		<div>
-			
+		<div className='goals'>
+			<h1>Achieve your goals with Grade-A</h1>
+			<div className='boxes'>
+				<div className='box'>
+					<img src={goal1}></img>
+					<h2>Learn the latest skills</h2>
+					<h4>like business analytics,</h4>
+					<h4> graphic design,Python,</h4>
+					<h4> and more</h4>
+				</div>
+				<div className='box'>
+					<img src={goal2}></img>
+					<h2>Get ready for a career</h2>
+					<h4>in high-demand fields</h4>
+					<h4> like IT, AI and cloud </h4>
+					<h4>engineering</h4>
+				</div>
+				<div className='box'>
+					<img src={goal3}></img>
+					<h2>Upskill your organization</h2>
+					<h4>with on-demand training</h4>
+					<h4> and development</h4>
+					<h4> programs</h4>
+				</div>
+			</div>
 		</div>
-	)
+	);
 }
 
 export default Goals

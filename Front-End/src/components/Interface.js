@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router ,Link } from 'react-router-dom';
 import wlc from './pics/wlc.jpg';
 
 const wlcStyle = {
@@ -9,11 +10,17 @@ const wlcStyle = {
 };
 
 const Interface = () => {
-  return (
-	<div>
-	  
-	</div>
-  )
+	return (
+		<div style={wlcStyle} className='wlc'>
+			<div className='innerTxt'>
+				<h1>
+					For every student,<br></br>every classroom.<br></br>Real results.
+					</h1>
+				<h4>Build skills with courses, online from best instructors</h4>
+				<button><Link to='/join/signup' >Join For Free</Link></button>				
+			</div>
+		</div>
+	)
 }
 
 export default Interface

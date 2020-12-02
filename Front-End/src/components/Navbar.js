@@ -13,7 +13,6 @@ const Navbar = () => {
   const getAllCourses = () => {
     axios.get('http://localhost:5000/students/courses')
       .then((res) => {
-        console.log('res.data', res.data)
         setCourses(res.data);
       })
       .catch((err) => {
@@ -24,7 +23,6 @@ const Navbar = () => {
   const searchCourses = (i) => {
     axios.get(`http://localhost:5000/students/search/${i}`)
       .then((res) => {
-        console.log('res.data', res.data)
         setResult(res.data);
       })
       .catch((err) => {
@@ -33,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <Router>
+    <d>
       <nav className='navbar'>
         <Link to='/' ><img src={logo} className='logo' ></img></Link>
         <h4>Categories</h4>
@@ -44,9 +42,12 @@ const Navbar = () => {
               onKeyPress={(e) => { if (e.key === 'Enter') searchCourses(e.target.value) }}></input>
           </Link>
         </div>
+        <h4><Link to='/join/instructor-signup' >Teach On Grade-A</Link></h4>
+        <button className='log'><Link to='/join/login' >Log in</Link></button>
+        <button className='sign'><Link to='/join/signup' >Sign up</Link></button>
       </nav>
-      <Route path='/result'><Result result={result} /></Route>
-    </Router>
+      <Route exact path='/result'><Result result={result}/></Route>
+    </d>
   )
 }
 

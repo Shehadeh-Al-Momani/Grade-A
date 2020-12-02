@@ -1,6 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import BecomeInstructor from './BecomeInstructor';
 import Goals from './Goals';
 import Interface from './Interface';
@@ -11,14 +10,17 @@ import TopCategories from './TopCategories';
 const Home = () => {
 
 	return (
-		<Route path='/'>
+		<Router>
 			<Navbar />
-			<Interface />
-			<Goals />
-			<TopCategories />
-			<BecomeInstructor />
-			<Team />
-		</Route>
+			<Route exact path='/'>
+				<Interface />
+				<Goals />
+				<TopCategories />
+				<BecomeInstructor />
+				<Team />
+			</Route>
+		</Router>
+
 	);
 }
 
