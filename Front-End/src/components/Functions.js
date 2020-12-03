@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class Functions extends Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <div className="functions">
                     <button>Add Category</button>
                     <button>Students Details</button>
