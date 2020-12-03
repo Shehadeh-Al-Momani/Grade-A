@@ -2,7 +2,7 @@ const connection = require('../../db');
 const bcrypt = require('bcrypt');
 
 const  register =(req,res)=>{
-  const{name,adress,email,password,phone} =req.body
+const{name,adress,email,password,phone} =req.body
   let role_id =0
 
     //setting the role for the registered account
@@ -29,8 +29,6 @@ const  register =(req,res)=>{
      const hashPassword =  bcrypt.hashSync(password,Number(process.env.SALT),(err,result)=>{
        if(err) throw err
      });
-      console.log(hashPassword)
-      console.log(password)
      // Adding new user to Database
      
      //const query =`INSERT INTO users (name,adress,email,password,phone,role_id) VALUES('${name}','${adress}','${email}','${hashPassword}','${phone}','${role_id}');`

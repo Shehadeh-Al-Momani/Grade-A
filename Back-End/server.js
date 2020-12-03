@@ -3,7 +3,6 @@ require("dotenv").config();
 const mainRouter = require("./routes/main-route");
 const registerRouter = require('./routes/registration.route')
 const cors = require("cors");
-
 const db = require("./db");
 const app = express();
 

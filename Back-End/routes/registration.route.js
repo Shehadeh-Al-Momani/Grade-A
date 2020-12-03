@@ -4,9 +4,6 @@ const {login} =require('../controllers/registration_controllers/login_controller
 const registerRouter = express.Router();
 
 registerRouter.post("/register/:role",register);
-
 registerRouter.post("/login",login);
 
 module.exports = registerRouter;
-
-
