@@ -5,17 +5,11 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 
 const App = () => {
-
-  return (
-    <Router>
-      <Home/>
-    </Router>
-  );
+	return (
+		<Router>
+			<Home />
+		</Router>
+	);
 };
 
 export default App;
-
-
-
-
-
