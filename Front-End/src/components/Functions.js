@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class Functions extends Component {
-    render() {
-        return (
-            <div className="container">
-                <div className="functions">
-                    <button>Add Category</button>
-                    <button>Students Details</button>
-                    <button>Disable User</button>
-                    <button>Instructors Details</button>                    
-                </div>
-            </div>
+const Functions = () => {
+    return (
+        <div className="container">
+        <div className="functions">
+            <button>Add Category</button>
+            <button>Students Details</button>
+            <button>Disable User</button>
+            <button>Instructors Details</button>                    
+        </div>
+    </div>
     )
-    }
 }
 
 export default Functions
