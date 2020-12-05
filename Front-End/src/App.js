@@ -8,7 +8,10 @@ const App = () => {
 
   return (
     <Router>
-      <AdminPage/>
+      <Route exact path='/admin'>
+        <AdminPage/>
+      </Route>
+      
     </Router>
   );
 };

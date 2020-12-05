@@ -8,13 +8,13 @@ const AdminPage = () => {
     return (
         <div>
             <Router>
-                <Route path='/'>
+                <Route path='/admin'>
                     <Functions/> 
                 </Route> 
-                <Route path='/'>
+                <Route path='/admin'>
                     <AddCategory/>
                 </Route>
-                <Route path='/disable'>
+                <Route exact path='/admin/disable'>
                     <Disable/>
                 </Route>
             </Router>
