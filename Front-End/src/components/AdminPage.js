@@ -2,6 +2,7 @@ import React from 'react'
 import Functions from '../components/Functions'
 import { BrowserRouter as Router, Route, Link  } from 'react-router-dom';
 import AddCategory from './AddCategory'
+import  Disable  from './Disable';
 
 const AdminPage = () => {
     return (
@@ -10,8 +11,11 @@ const AdminPage = () => {
                 <Route path='/'>
                     <Functions/> 
                 </Route> 
-                <Route path='/addcat'>
+                <Route path='/'>
                     <AddCategory/>
+                </Route>
+                <Route path='/disable'>
+                    <Disable/>
                 </Route>
             </Router>
         </div>
