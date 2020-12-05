@@ -277,3 +277,23 @@
 	height: 270px;
 	justify-content: space-evenly;
 }
+
+.course {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 470px;
+    margin-top: 30px;
+    justify-content: space-evenly;
+}
+.course .course-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 470px;
+    justify-content: space-evenly;
+}
+.course h3,
+h2 {
+    border: #54534F solid 1px;
+}

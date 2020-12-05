@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router ,Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import wlc from './pics/wlc.jpg';
 
 const wlcStyle = {
@@ -17,7 +17,7 @@ const Interface = () => {
 					For every student,<br></br>every classroom.<br></br>Real results.
 					</h1>
 				<h4>Build skills with courses, online from best instructors</h4>
-				<button><Link to='/join/signup' >Join For Free</Link></button>				
+				<button onClick={() => window.location.reload()} ><Link to='/join/signup' >Join For Free</Link></button>				
 			</div>
 		</div>
 	)
