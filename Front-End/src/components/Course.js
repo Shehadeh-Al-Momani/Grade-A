@@ -2,7 +2,6 @@ import React from 'react';
 import logo from './pics/logo.png';
 
 const Course = (props) => {
-	console.log(props);
 	return (
 		<div className='course'>
 			<div>
