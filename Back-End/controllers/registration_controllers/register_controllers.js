@@ -18,10 +18,10 @@ const{name,adress,email,password,phone} =req.body
        if(err) throw err;
        if(result.length){
             if(result[0].email===email){
-              res.json("Email is used..")
+             return res.json("Email is used..")
             };
             if(result[0].name===name){
-              res.json("User name is used..")
+             return res.json("User name is used..")
             }; 
        };
 
