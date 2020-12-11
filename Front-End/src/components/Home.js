@@ -22,6 +22,7 @@ const Home = () => {
 	const [catCourses, setCatCourses] = useState([]);
 	const [categoryName, setCategoryName] = useState([]);
 	const [allCourses, setAllCourses] = useState([]);
+	const [course, setCourse] = useState([]);
 	const history = useHistory();
 
 	const getAllCategories = () => {
@@ -52,6 +53,15 @@ const Home = () => {
 			.catch((err) => {});
 	};
 
+	const courseDetails = (id) => {
+		axios
+			.get(`http://localhost:5000/students/details/${id}`)
+			.then((response) => {
+				setCourse(response.data);
+			})
+			.catch((err) => {});
+	};
+
 	useEffect(() => {
 		getAllCategories();
 	}, []);
@@ -70,7 +80,10 @@ const Home = () => {
 						/>
 					)}
 				/>
-				<Route path='/courses/:id' render={(props) => <Course {...props} />} />
+				<Route
+					path='/courses/:id'
+					render={(props) => <Course {...props} course={course} />}
+				/>
 
 				{/* <Interface />
 				<Goals /> */}
@@ -93,12 +106,20 @@ const Home = () => {
 							{...props}
 							catCourses={catCourses}
 							categoryName={categoryName}
+							courseDetails={courseDetails}
 						/>
 					)}
 				/>
 				<Route
+					exact
 					path='/courses'
-					render={(props) => <AllCourses {...props} allCourses={allCourses} />}
+					render={(props) => (
+						<AllCourses
+							{...props}
+							courseDetails={courseDetails}
+							allCourses={allCourses}
+						/>
+					)}
 				/>
 				<BecomeInstructor />
 				<Team />

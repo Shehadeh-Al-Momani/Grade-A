@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import android from './pics/android.jpg';
 import networks from './pics/networks.png';
 import webdesign from './pics/webdesign.jpg';
@@ -8,9 +9,14 @@ import webdev from './pics/webdev.jpg';
 
 const CategoryCourses = (props) => {
 	const course = props.catCourses.map((elem, i) => (
-		<div className='card' key={i}>
-			<img src={android}></img>
-			<h2>{elem.name}</h2>
+		<div
+			className='card'
+			key={i}
+			onClick={props.courseDetails.bind(this, elem.id)}>
+			<Link to={`/courses/${elem.id}`}>
+				<img src={android}></img>
+				<h2>{elem.name}</h2>
+			</Link>
 		</div>
 	));
 	return (
