@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import logo from './pics/logo.png';
 
-const Course = (props) => {
+const Course = ({ match }) => {
     const [course, setCourse] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:5000/students/details/${props.match.params.id}`)
+        axios.get(`http://localhost:5000/students/details/${match.params.id}`)
             .then((res) => {
                 setCourse(...res.data);
             })
             .catch((err) => {
                 console.log('ERR: ', err);
             })
-    }, [props.match.params.id]);
+    }, [match.params.id]);
 
     return (
         <div className='course'>

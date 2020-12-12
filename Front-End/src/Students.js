@@ -8,6 +8,7 @@ import Signup from './components/Signup';
 import LogIn from './components/LogIn';
 import Course from './components/Course ';
 import CategoryCourses from './components/Category_courses';
+import PageNotFound from './components/PageNotFound';
 
 const App = () => {
 	return (
@@ -19,6 +20,7 @@ const App = () => {
 				<Route path='/join/signup' render={(props) => <Signup  {...props} />} />
 				<Route path='/categories/:id' render={(props) => <CategoryCourses  {...props} />} />
 				<Route path='/courses/:id' render={(props) => <Course  {...props} />} />
+				<Route render={(props) => <PageNotFound  {...props} />} />
 			</Switch>
 		</Router>
 	);

@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import Course from './Course '
-const CategoryCourses = (props) => {
+const CategoryCourses = ({ match :{params}}) => {
   const [category, setCategory] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:5000/students/category_courses/${props.match.params.id}`)
+    axios.get(`http://localhost:5000/students/category_courses/${params.id}`)
       .then((res) => {
         setCategory(res.data);
       })
       .catch((err) => {
         console.log('ERR: ', err);
       });
-  }, [props.match.params]);
+  }, [params]);
 
   return (
     <div className="product-list">

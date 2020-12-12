@@ -20,7 +20,7 @@ const Navbar = () => {
       })
   }
 
-   return (
+  return (
     <div>
       <nav className='navbar'>
         <Link to='/' ><img src={logo} className='logo' alt=''></img></Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
           <Link to='/result' >
             <input to='/result'
               placeholder='Search for anything'
-              onKeyPress={(e) => { if (e.key === 'Enter') resultSearched(e.target.value)}}
+              onKeyPress={(e) => { if (e.key === 'Enter') resultSearched(e.target.value) }}
             ></input>
           </Link>
         </div>
@@ -38,7 +38,7 @@ const Navbar = () => {
         <button className='log'><Link to='/join/login'>Log in</Link></button>
         <button className='sign'><Link to='/join/signup' >Sign up</Link></button>
       </nav>
-      <Route path='/result' render={(props) => <Result {...props} result={result} input={key} />} />
+        <Route exact path='/result' render={(props) => <Result {...props} result={result} input={key} />} />
     </div>
   )
 }
