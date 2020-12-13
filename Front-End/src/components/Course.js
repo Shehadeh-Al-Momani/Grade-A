@@ -1,34 +1,27 @@
-import React from 'react';
-import android from './pics/android.jpg';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
-const Course = (props) => {
-	const courseDetails = props.course.map((elem, i) => (
-		<div className='course-details'>
-			<h2>
-				<span>Course Name : </span>
-				{elem.name}
-			</h2>
-			<h3>
-				<span>Course Description : </span>
-				{elem.description}
-			</h3>
-			<h3>
-				<span>Price: </span>
-				{elem.price}
-			</h3>
-			<h3></h3>
-			<h3></h3>
-			<h3></h3>
-			<h3></h3>
-			<h3></h3>
-		</div>
-	));
+const Course = ({ match: { params: { id } } }) => {
+	const [course, setCourse] = useState([]);
+	useEffect(() => {
+		axios.get(`http://localhost:5000/students/details/${id}`)
+			.then((res) => {
+				setCourse(...res.data);
+			})
+			.catch((err) => {
+				console.log('ERR: ', err);
+			})
+	}, [id]);
 	return (
 		<div className='course'>
 			<div>
-				<img src={android}></img>
+				<img src={`${course.img_url}`} alt={`${course.name}`}/>
 			</div>
-			{courseDetails}
+			<div className='course-details'>
+				<h2> <span>Course Name : </span> {course.name} </h2>
+				<h3> <span>Course Description : </span> {course.description}</h3>
+				<h3> <span>Price: </span> {course.price + ' $'} </h3>
+			</div>
 		</div>
 	);
 };

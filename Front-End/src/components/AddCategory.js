@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import axios from 'axios'
 
 const AddCategory = () => {
-
     const [name,setname]=useState('')
 
     const nameHandler =(e)=>{

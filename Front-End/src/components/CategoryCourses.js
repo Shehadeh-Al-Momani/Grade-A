@@ -1,30 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import { Link } from 'react-router-dom';
-import android from './pics/android.jpg';
-import networks from './pics/networks.png';
-import webdesign from './pics/webdesign.jpg';
-import support from './pics/support.jpg';
-import ios from './pics/ios.png';
-import webdev from './pics/webdev.jpg';
 
 const CategoryCourses = (props) => {
-	const course = props.catCourses.map((elem, i) => (
-		<div
-			className='card'
-			key={i}
-			onClick={props.courseDetails.bind(this, elem.id)}>
-			<Link to={`/courses/${elem.id}`}>
-				<img src={android}></img>
-				<h2>{elem.name}</h2>
-			</Link>
-		</div>
-	));
+	const { match: { params: { id } } } = props
+	const [category, setCategory] = useState([]);
+	useEffect(() => {
+		axios.get(`http://localhost:5000/students/category_courses/${id}`)
+			.then((res) => {
+				setCategory(res.data);
+			})
+			.catch((err) => {
+				console.log('ERR: ', err);
+			});
+	}, [id]);
 	return (
 		<div className='cards'>
-			<h1 className='tt'>{props.categoryName}</h1>
-			{course}
+			<div className='tt'>{props.categoryName}</div>
+			{
+				category.map((e, i) => {
+					return <div key={i}>
+						<div className='card_course' key={i}>
+							<Link to={`/courses/${e.id}`}>
+								<img src={`${e.img_url}`} alt={`${e.name}`} />
+								<h2>{e.name}</h2>
+							</Link>
+						</div>
+					</div>
+				})
+			}
 		</div>
 	);
 };
 
 export default CategoryCourses;
+
