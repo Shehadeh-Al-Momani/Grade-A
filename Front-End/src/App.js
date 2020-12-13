@@ -1,29 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
-import Signup from './components/Signup';
-import LogIn from './components/LogIn';
+import TopCategories from './components/TopCategories';
 import Course from './components/Course ';
-import CategoryCourses from './components/Category_courses';
-import PageNotFound from './components/PageNotFound';
+import CategoryCourses from './components/CategoryCourses';
+import AllCourses from './components/AllCourses';
+import LogIn from './components/LogIn';
+import Signup from './components/Signup';
+import Result from './components/Result';
+import Functions from './components/Functions';
+import AddCategory from './components/AddCategory';
+import Disable from './components/Disable';
 
 const App = () => {
-	return (
-		<Router>
-			<Navbar />
-			<Switch>
-				<Route exact path='/' render={(props) => <Home  {...props} />} />
-				<Route path='/join/login' render={(props) => <LogIn  {...props} />} />
-				<Route path='/join/signup' render={(props) => <Signup  {...props} />} />
-				<Route path='/categories/:id' render={(props) => <CategoryCourses  {...props} />} />
-				<Route path='/courses/:id' render={(props) => <Course  {...props} />} />
-				<Route render={(props) => <PageNotFound  {...props} />} />
-			</Switch>
-		</Router>
-	);
+  const [key, setKey] = useState('');
+  const [result, setResult] = useState([]);
+  return (
+    <Router>
+      <Route path='/admin' render={(props) => <Functions  {...props} />} />
+      <Route path='/admin' render={(props) => <AddCategory  {...props} />} />
+      <Route path='/admin/disable' render={(props) => <Disable  {...props} />} />
+      <Route render={(props) => <Navbar  {...props} setKey={setKey} setResult={setResult} />} />
+      <Switch>
+        <Route exact path='/' render={(props) => <Home  {...props} />} />
+        <Route path='/result' render={(props) => <Result {...props} result={result} input={key} />} />
+        <Route exact path='/join/login' render={(props) => <LogIn  {...props} />} />
+        <Route exact path='/join/signup' render={(props) => <Signup  {...props} />} />
+        <Route exact path='/courses/:id' render={(props) => <Course {...props} />} />
+        <Route exact path='/categories' render={(props) => (<TopCategories {...props} />)} />
+        <Route exact path='/categories/:id' render={(props) => (<CategoryCourses {...props} />)} />
+        <Route exact path='/courses' render={(props) => (<AllCourses {...props} />)} />
+      </Switch>
+    </Router>
+  );
 };
 
 export default App;
+

@@ -1,14 +1,19 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const Result = ({ result, input }) => {
     const count = result.reduce((acc) => acc + 1, 0)
     if (result.length) return (
-        <div>
+        <div className='cards'>
             <h1>{count} results for "{input}"</h1>
             {
                 result.map((course, i) => {
                     return <div key={i}>
-                        {course.name}
+                        <Link to={`/courses/${course.id}`}>
+                            <div className="card_course" >
+                                <img src={`${course.img_url}`} alt={`${course.name}`} />
+                                <h2>{course.name}</h2>
+                            </div>
+                        </Link>
                     </div>
                 })
             }
