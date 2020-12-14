@@ -1,55 +1,68 @@
-import React from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Link,
-	Redirect,
-} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import logo from './pics/logo.png';
 import search from './pics/search.png';
 
 const Navbar = (props) => {
-	const categoryList = props.categories.map((e, i) => {
-		if (i == 0) {
-			return (
-				<Link to={`/courses/`} key={i} onClick={props.getAllCourses}>
-					{e}
-				</Link>
-			);
-		} else if (i == 1) {
-			return (
-				<Link to={`/categories/`} key={i}>
-					{e}
-				</Link>
-			);
-		}
+	const [categories, setCategories] = useState([]);
 
-		return (
-			<Link
-				to={`/categories/${e.id}`}
-				onClick={props.categoryCourses.bind(this, e.id, e.name)}
-				category={e.name}
-				key={i}>
-				{e.name}
-			</Link>
-		);
-	});
+	const getAllCategories = () => {
+		axios
+			.get(`http://localhost:5000/students/categories`)
+			.then((response) => {
+				setCategories(response.data);
+			})
+			.catch((err) => { console.log('err :', err) });
+	};
+
+	const resultSearched = (i) => {
+		axios.get(`http://localhost:5000/students/search/${i}`)
+			.then((res) => {
+				props.setKey(i)
+				props.setResult(res.data);
+			})
+			.catch((err) => {
+				console.log('ERR: ', err);
+			})
+	}
+
+	useEffect(() => {
+		getAllCategories();
+	}, []);
 
 	return (
 		<div>
 			<nav className='navbar'>
-				<img src={logo} className='logo'></img>
+				<Link to='/' ><img src={logo} className='logo' alt=''></img></Link>
 				<div className='dropdown'>
 					<div className='drop-button'>Categories</div>
-					<div className='dropdown-content'>{categoryList}</div>
+					<div className='dropdown-content'>
+						{<Link to={`/courses/`} > All Courses </Link>}
+						{<Link to={`/categories/`} > All Categories </Link>}
+						{
+							categories.map((e, i) => {
+								return (
+									<Link to={`/categories/${e.id}`} key={i}>
+										{e.name}
+									</Link>
+								);
+							})
+						}
+					</div>
 				</div>
 				<div className='search'>
-					<img src={search}></img>
-					<input placeholder='Search for anything'></input>
+					<img src={search} alt=''></img>
+					<Link to={`/result`} >
+						<input
+							placeholder='Search for anything'
+							onKeyPress={(e) => { if (e.key === 'Enter') resultSearched(e.target.value) }}
+						></input>
+					</Link>
 				</div>
-				<h4>Teach On Grade-A</h4>
-				<button className='log'>Log in</button>
-				<button className='sign'>Sign up</button>
+				<h4><Link to='/join/instructor-signup' >Teach On Grade-A</Link></h4>
+				<button className='log'><Link to='/join/login'>Log in</Link></button>
+				<button className='sign'><Link to='/join/signup' >Sign up</Link></button>
 			</nav>
 		</div>
 	);

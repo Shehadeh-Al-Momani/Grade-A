@@ -107,4 +107,3 @@ INSERT INTO rating (student_id,course_id,rating_value) values(5,1,4),(5,2,4.5),(
 
 INSERT INTO registration (student_id,course_id) values(5,1),(5,2),(5,11),(6,3),(6,4),(6,12),(7,5),(7,10),(8,6),(8,7),(9,8),(9,9); 
 
-  

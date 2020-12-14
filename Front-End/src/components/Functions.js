@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 const Functions = () => {
     const history = useHistory();
-
     return (
         <div className="container">
         <div className="functions">
