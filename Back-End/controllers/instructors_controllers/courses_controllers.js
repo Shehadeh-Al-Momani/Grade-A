@@ -1,5 +1,14 @@
 const db = require('../../db');
 
+const registeredCoursesInstructor = (req, res) => {
+	const query = `SELECT * FROM courses c JOIN registration r ON c.id = r.course_id AND instructor_id = ?`;
+	const data = req.params.id;
+	db.query(query, data, (err, result) => {
+		if (err) throw err;
+		res.json(result);
+	});
+};
+
 const visiblityCourse = (req, res) => {
     const query = `UPDATE courses SET isDisabled = !isDisabled WHERE  id = ?`;
     const data = req.params.id;
@@ -32,5 +41,6 @@ module.exports = {
     visiblityCourse,
     addCourse,
     updateCourse,
+    registeredCoursesInstructor,
 };
 
