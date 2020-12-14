@@ -14,21 +14,8 @@ export default function GitAllCourse({ courses }) {
           flexWrap: "wrap",
         }}
       >
-        <CourseItem
-          //   style={courseItemStyle}
-          course={course}
-          Key={course.id}
-        ></CourseItem>
+        <CourseItem course={course} Key={course.id}></CourseItem>
       </div>
     );
   });
 }
-
-const courseItemStyle = {
-  width: "30%",
-  height: " 300px",
-  border: " 1px solid black",
-  display: "flex",
-  flexdirection: "column",
-  flexWrap: "wrap",
-};

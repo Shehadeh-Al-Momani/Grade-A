@@ -1,6 +1,6 @@
 const instructorsRouter = require("express").Router();
-var multer = require("multer");
-let fs = require("fs-extra");
+const multer = require("multer");
+const fs = require("fs-extra");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 
 const storageVideo = multer.diskStorage({
   destination: function (req, file, cb) {
-    let path = "public/video";
+    const path = "public/video";
     fs.mkdirsSync(path);
     cb(null, path);
   },
@@ -39,7 +39,7 @@ const {
   update_user,
   getAllCategories,
   getAllCourses,
-  getAllLessons
+  getAllLessons,
 } = require("../controllers/admin_controllers/instructors_controllers");
 
 // Show a hidden course

@@ -5,40 +5,6 @@ import AddNewCourse from "./AddNewCourse";
 import GitAllCourse from "./GitAllCourse";
 export default function Courses() {
   const [courses, setCourses] = useState();
-  // [
-  //   {
-  //     id: "1",
-  //     name: "React",
-  //     price: "50",
-  //     decription: "info",
-  //     category: "web",
-  //     image: "../images/page_1.jpg",
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "React",
-  //     price: "50",
-  //     decription: "info",
-  //     category: "web",
-  //     image: "../images/reinsurance-service-solution-banner-mob.jpg",
-  //   },
-  //   {
-  //     id: "3",
-  //     name: "React",
-  //     price: "50",
-  //     decription: "info",
-  //     category: "web",
-  //     image: "../images/reinsurance-service-solution-banner-mob.jpg",
-  //   },
-  //   {
-  //     id: "4",
-  //     name: "React",
-  //     price: "50",
-  //     decription: "info",
-  //     category: "web",
-  //     image: "../images/reinsurance-service-solution-banner-mob.jpg",
-  //   },
-  // ]
   useEffect(() => {
     axios
       .get("http://localhost:5000/instructors/courses")
@@ -51,14 +17,14 @@ export default function Courses() {
     <Router>
       <div>
         <div>
-          <ul style={unOrderListStyle}>
-            <li style={listItemStyle}>
-              <Link style={linkStyle} to="/courses" href="#about">
+          <ul className="unOrderListStyle">
+            <li className="listItemStyle">
+              <Link className="linkStyle" to="/courses" href="#about">
                 Get All courses
               </Link>
             </li>
-            <li style={listItemStyle}>
-              <Link style={linkStyle} to="/newcourse" href="#about">
+            <li className="listItemStyle">
+              <Link className="linkStyle" to="/newcourse" href="#about">
                 Add Course
               </Link>
             </li>
@@ -79,23 +45,3 @@ export default function Courses() {
     </Router>
   );
 }
-
-const unOrderListStyle = {
-  listStyleType: "none",
-  margin: "0",
-  padding: "0",
-  overflow: "hidden",
-  backgroundColor: "#333333",
-};
-
-const listItemStyle = {
-  float: "left",
-};
-
-const linkStyle = {
-  display: "block",
-  color: "white",
-  textAlign: "center",
-  padding: "16px",
-  textDecoration: "none",
-};

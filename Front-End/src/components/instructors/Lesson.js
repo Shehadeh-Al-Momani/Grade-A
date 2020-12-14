@@ -6,15 +6,6 @@ import GitAllLessons from "./GitAllLessons";
 export default function Lesson() {
   const [lessons, setLessons] = useState([]);
 
-  // [
-  //   {
-  //     id: "1",
-  //     name: "React",
-  //     courses: "course name",
-  //     videoUrl: "video",
-  //     createdAt: "08//2020",
-  //   },
-  // ]
   useEffect(() => {
     axios
       .get("http://localhost:5000/instructors/lessons")
@@ -27,14 +18,14 @@ export default function Lesson() {
     <Router>
       <div>
         <div>
-          <ul style={unOrderListStyle}>
-            <li style={listItemStyle}>
-              <Link style={linkStyle} to="/lessons">
+          <ul className="unOrderListStyle">
+            <li className="listItemStyle">
+              <Link className="linkStyle" to="/lessons">
                 Get All Lessons
               </Link>
             </li>
-            <li style={listItemStyle}>
-              <Link style={linkStyle} to="/newLesson">
+            <li className="listItemStyle">
+              <Link className="linkStyle" to="/newLesson">
                 New Lesson
               </Link>
             </li>
@@ -49,7 +40,6 @@ export default function Lesson() {
               border: " 1px solid black",
               width: "100%",
               display: "flex",
-              // flexdirection: "row",
               flexWrap: "wrap",
             }}
           >
@@ -65,23 +55,3 @@ export default function Lesson() {
     </Router>
   );
 }
-
-const unOrderListStyle = {
-  listStyleType: "none",
-  margin: "0",
-  padding: "0",
-  overflow: "hidden",
-  backgroundColor: "#333333",
-};
-
-const listItemStyle = {
-  float: "left",
-};
-
-const linkStyle = {
-  display: "block",
-  color: "white",
-  textAlign: "center",
-  padding: "16px",
-  textDecoration: "none",
-};

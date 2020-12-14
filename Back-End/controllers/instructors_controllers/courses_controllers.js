@@ -34,6 +34,7 @@ const addCourse = (req, res) => {
     res.json(result);
   });
 };
+
 const addLesson = (req, res) => {
   const { name, video_url, course_id, created_at } = req.body;
   const query = `INSERT INTO videos (name,vide_url,course_id,created_at) values (?,?,?,?)`;

@@ -1,0 +1,150 @@
+/* 
+Instructor Style
+*/
+
+.sidenav {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.linkStyle {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.main {
+  margin-left: 260px /* Same as the width of the sidenav */;
+  font-size: 28px;
+  padding: 0px 10px;
+}
+
+.lessonItemStyle {
+  flex: 1;
+  width: 150px;
+}
+
+.optionStyle {
+  width: 160px;
+  height: 30px;
+  border: 3px solid;
+  margin-left: 20px;
+}
+
+.inputStyle {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitStyle {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.unOrderListStyle {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+.listItemStyle {
+  float: left;
+}
+
+.linkStyle {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.lessonItemStyle {
+  width: 30%;
+  height: 350px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.courseItemStyle {
+  display: flex;
+  width: 150px;
+  margin: 10px;
+}
+
+.secondDevStyle {
+  margin: 20px;
+}
+
+.optionStyle {
+  width: 160px;
+  height: 30px;
+  border: 3px solid;
+  margin-left: 20px;
+}
+
+.inputStyle {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitStyle {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inputStyle {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitStyle {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

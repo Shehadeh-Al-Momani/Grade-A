@@ -8,32 +8,31 @@ export default function Instructors() {
   return (
     <Router>
       <div>
-        <p>instructor</p>
-        <div style={sidenav}>
+        <div className="sidenav">
           <ul style={{ listStyleType: "none" }}>
             <li>
-              <Link to="/account" style={linkStyle} href="#about">
+              <Link to="/account" className="linkStyle" href="#about">
                 Account
               </Link>
             </li>
             <li>
-              <Link to="/mycourse" style={linkStyle} href="#clients">
+              <Link to="/mycourse" className="linkStyle" href="#clients">
                 My Courses
               </Link>
             </li>
             <li>
-              <Link to="/lesson" style={linkStyle} href="#contact">
+              <Link to="/lesson" className="linkStyle" href="#contact">
                 Lesson
               </Link>
             </li>
             <li>
-              <Link to="/logout" style={linkStyle} href="#services">
+              <Link to="/logout" className="linkStyle" href="#services">
                 LogOut
               </Link>
             </li>
           </ul>
         </div>
-        <div style={main}>
+        <div className="main">
           <Route path="/account">
             <div>
               <Account></Account>
@@ -59,29 +58,3 @@ export default function Instructors() {
     </Router>
   );
 }
-
-const sidenav = {
-  height: "100%",
-  width: "260px",
-  position: "fixed",
-  zIndex: "1",
-  top: "0",
-  left: "0",
-  backgroundColor: " #111",
-  overflowX: "hidden",
-  paddingTop: "20px",
-};
-
-const linkStyle = {
-  padding: "6px 8px 6px 16px",
-  textDecoration: "none",
-  fontSize: "25px",
-  color: "#818181",
-  display: "block",
-};
-
-const main = {
-  marginLeft: "260px" /* Same as the width of the sidenav */,
-  fontSize: "28px", //ncreased text to enable scrolling */
-  padding: "0px 10px",
-};

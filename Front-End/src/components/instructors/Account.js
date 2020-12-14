@@ -9,7 +9,6 @@ export default function Account() {
   const [phone, setPhone] = useState("0790320149");
 
   const handleSubmit = (e) => {
-    console.log(e.target[0].value);
     const body = {
       name: e.target[0].value,
       address: e.target[1].value,
@@ -19,12 +18,8 @@ export default function Account() {
     };
     axios
       .put(`http://localhost:5000/instructors/update_instructor/4`, body)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((res) => {})
+      .catch((err) => {});
     e.preventDefault();
   };
 
@@ -62,7 +57,7 @@ export default function Account() {
       <form onSubmit={handleSubmit}>
         <label>User Name</label>
         <input
-          style={inputStyle}
+          className="inputStyle"
           type="text"
           id="userName"
           name="userName"
@@ -71,7 +66,7 @@ export default function Account() {
         />
         <label>Address</label>
         <input
-          style={inputStyle}
+          className="inputStyle"
           type="text"
           id="address"
           name="address"
@@ -80,7 +75,7 @@ export default function Account() {
         />
         <label>Email</label>
         <input
-          style={inputStyle}
+          className="inputStyle"
           type="email"
           id="email"
           name="email"
@@ -89,7 +84,7 @@ export default function Account() {
         />
         <label>New Password</label>
         <input
-          style={inputStyle}
+          className="inputStyle"
           type="password"
           id="password"
           name="password"
@@ -97,7 +92,7 @@ export default function Account() {
         />
         <label>Phone</label>
         <input
-          style={inputStyle}
+          className="inputStyle"
           type="phone"
           id="phone"
           name="phone"
@@ -107,7 +102,7 @@ export default function Account() {
         {/* <label for=""></label>
         <input type="text" id="" name="" /> */}
         <input
-          style={submitStyle}
+          className="submitStyle"
           type="submit"
           name="Submit"
           value="update and save"
@@ -117,23 +112,3 @@ export default function Account() {
   );
 }
 
-const inputStyle = {
-  width: "100%",
-  padding: "12px 20px",
-  margin: " 8px 0",
-  display: "inline-block",
-  border: "1px solid #ccc",
-  borderRadius: "4px",
-  boxSizing: "border-box",
-};
-
-const submitStyle = {
-  width: "100%",
-  backgroundColor: " #4CAF50",
-  color: "white",
-  padding: "14px 20px",
-  margin: "8px 0",
-  border: "none",
-  borderRadius: "4px",
-  cursor: "pointer",
-};

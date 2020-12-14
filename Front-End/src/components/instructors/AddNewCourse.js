@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-//name,price,description,instructor_id,created_at,category_id
+
 export default function AddNewCourse() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -15,7 +15,6 @@ export default function AddNewCourse() {
       .get("http://localhost:5000/instructors/categories")
       .then((res) => {
         setCategorys(res.data);
-        console.log(res.data);
       })
       .catch((err) => {});
   }, []);
@@ -29,21 +28,13 @@ export default function AddNewCourse() {
       })
       .then((res) => {
         // then print response status
-        console.log(res.statusText);
       });
   };
-
-  // const onChangeCategoryHandler = (e) => {
-  //   const index = e.target.selectedIndex;
-  //   const el = e.target.childNodes[index];
-  //   const option = el.getAttribute("id");
-  // };
 
   const handleSubmit = (e) => {
     const index = e.target[4].selectedIndex;
     const el = e.target[4].childNodes[index];
     const option = el.getAttribute("id");
-    console.log(option);
     axios
       .post("http://localhost:5000/instructors/course", {
         name: e.target[0].value,
@@ -57,9 +48,7 @@ export default function AddNewCourse() {
     e.preventDefault();
   };
 
-  useEffect(() => {
-    //
-  }, []);
+  useEffect(() => {}, []);
   const onNameChange = (value) => {
     setName(value);
   };
@@ -90,14 +79,14 @@ export default function AddNewCourse() {
       <form onSubmit={handleSubmit}>
         <label>name</label>
         <input
-          style={inputStyle}
+          className="inputStyle"
           type="text"
           id="name"
           onChange={(e) => onNameChange(e.target.value)}
         />
         <label>price</label>
         <input
-          style={inputStyle}
+          className="inputStyle"
           type="text"
           id="price"
           name="price"
@@ -105,7 +94,7 @@ export default function AddNewCourse() {
         />
         <label>description</label>
         <input
-          style={inputStyle}
+          className="inputStyle"
           type="text"
           id="description"
           name="description"
@@ -114,62 +103,21 @@ export default function AddNewCourse() {
         <label>image Url </label>
         <input type="file" name="file" onChange={onChangeHandler} />
         <br></br>
-        {/* <input
-          style={inputStyle}
-          type="text"
-          id="image"
-          name="image"
-          onChange={(e) => onImgeUrlChange(e.target.value)}
-        /> */}
         <label>Category</label>
-        {/* onChange={onChangeCategoryHandler} */}
-        <select style={optionStyle}>
+        <select className="optionStyle">
           {categorys.map((category) => (
             <option key={category.id} id={category.id} value={category.name}>
               {category.name}
             </option>
           ))}
         </select>
-
-        {/* <input
-          style={inputStyle}
-          type="text"
-          id="Category"
-          name="Category"
-          onChange={(e) => onCategoryIdChange(e.target.value)}
-        /> */}
-        {/* <label for=""></label>
-  <input type="text" id="" name="" /> */}
-        <input style={submitStyle} type="submit" name="Submit" value="save" />
+        <input
+          className="submitStyle"
+          type="submit"
+          name="Submit"
+          value="save"
+        />
       </form>
     </div>
   );
 }
-
-const optionStyle = {
-  width: "160px",
-  height: "30px",
-  border: "3px solid",
-  marginLeft: "20px",
-};
-
-const inputStyle = {
-  width: "100%",
-  padding: "12px 20px",
-  margin: " 8px 0",
-  display: "inline-block",
-  border: "1px solid #ccc",
-  borderRadius: "4px",
-  boxSizing: "border-box",
-};
-
-const submitStyle = {
-  width: "100%",
-  backgroundColor: " #4CAF50",
-  color: "white",
-  padding: "14px 20px",
-  margin: "8px 0",
-  border: "none",
-  borderRadius: "4px",
-  cursor: "pointer",
-};

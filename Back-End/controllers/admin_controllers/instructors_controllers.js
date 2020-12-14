@@ -17,7 +17,6 @@ const instructor_details = (req, res) => {
   });
 };
 const update_user = (req, res) => {
-  // const query = `update users set name = ? , adress= {req.body.address},email={req.body.email},phone={req.body.phone} ,password={req.body.password}  where ID = ?`;
   const query = `update users set name = ? , adress= ? ,email=? ,phone= ? ,password= ? where ID = ?`;
 
   const data = [
@@ -49,6 +48,7 @@ const getAllCourses = (req, res) => {
     res.json(result);
   });
 };
+
 const getAllLessons = (req, res) => {
   const query = "SELECT * FROM videos";
   db.query(query, (err, result) => {
