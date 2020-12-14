@@ -1,7 +1,7 @@
 const socket = io();
 
 const chat = document.querySelector(".chat-form");
-const Input = document.querySelector(".chat-input");
+const input = document.querySelector(".chat-input");
 const chatWindow = document.querySelector(".chat-window");
 
 chat.addEventListener("submit", (event) => {
@@ -18,6 +18,5 @@ const renderMessage = (message) => {
 };
 
 socket.on("chat", (message) => {
-  console.log("From server: ", message);
   renderMessage(message);
 });

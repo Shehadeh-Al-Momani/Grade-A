@@ -83,7 +83,6 @@ CREATE TABLE `message` (
 );
 
 INSERT INTO roles (type)values('admin'),('instructor'),('student');
-
 INSERT INTO users (name,credentials,adress,email,password,phone,role_id,created_at) values
 ('admin',null,'Bridgeport','admin@gmail.com','admin1234','504-621-8927',1,now())
 ,('instructor one','10 years experience CE','Anchorage','instructor1@gmail.com','instructorone1234','504-621-8937',2,now())
@@ -95,10 +94,7 @@ INSERT INTO users (name,credentials,adress,email,password,phone,role_id,created_
 ,('student four',null,'Sioux Falls','student4@gmail.com','sad4as56d461','907-385-4412',3,now())
 ,('student five',null,'Los Angeles','student5@gmail.com','sad4as56d462','513-570-1893',3,now())
 ,('student six',null,'Chagrin Falls','student6@gmail.com','sad4as56d464','419-503-2484',3,now());
-
-
 INSERT INTO categories (name) values('Web design'),('Web development'),('Networks'),('IT support'),('Android development'),('ios development');
-
 INSERT INTO courses (name,price,description,instructor_id,created_at,category_id) values
 ('React.js',9.99,'Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux, React Routing, Animations, Next.js and way more!',2,now(),1),
 ('Angular.js',9.99,'Master Angular 10 (formerly "Angular 2") and build awesome, reactive web apps with the successor of Angular.js',2,now(),1),
@@ -114,8 +110,5 @@ INSERT INTO courses (name,price,description,instructor_id,created_at,category_id
 ('Flutter',9.99,'Officially created in collaboration with the Google Flutter team.',4,now(),6);
 
 INSERT INTO rating (student_id,course_id,rating_value) values(5,1,4),(5,2,4.5),(5,3,4),(6,4,4.5),(6,5,4),(6,6,4.5),(7,7,4),(7,8,4.5),(7,9,4),(8,10,4.5),(8,11,4),(8,1,4.5),(9,2,4),(9,3,4),(9,4,4);
-
 INSERT INTO registration (student_id,course_id) values(5,1),(5,2),(5,11),(6,3),(6,4),(6,12),(7,5),(7,10),(8,6),(8,7),(9,8),(9,9); 
 
-
-  
