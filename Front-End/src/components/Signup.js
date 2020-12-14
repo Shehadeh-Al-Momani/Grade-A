@@ -3,7 +3,7 @@ import logo from './pics/logo.png'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom';
 
-const Register = () => {
+const Signup = () => {
 
 const history = useHistory();    
 const [userName,setuserName]=useState('')
@@ -81,5 +81,5 @@ const signup=(name,email,adress,password,phone,confPassword)=>{
     )
 }
 
-export default Register
+export default Signup
 

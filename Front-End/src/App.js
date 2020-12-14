@@ -7,12 +7,13 @@ import TopCategories from './components/TopCategories';
 import Course from './components/Course';
 import CategoryCourses from './components/CategoryCourses';
 import AllCourses from './components/AllCourses';
-import LogIn from './components/LogIn';
+import Login from './components/Login';
 import Signup from './components/Signup';
 import Result from './components/Result';
 import Functions from './components/Functions';
 import AddCategory from './components/AddCategory';
 import Disable from './components/Disable';
+import PageNotFound from './components/PageNotFound';
 
 const App = () => {
   const [key, setKey] = useState('');
@@ -26,12 +27,13 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={(props) => <Home  {...props} />} />
         <Route path='/result' render={(props) => <Result {...props} result={result} input={key} />} />
-        <Route exact path='/join/login' render={(props) => <LogIn  {...props} />} />
-        <Route exact path='/join/signup' render={(props) => <Signup  {...props} />} />
+        <Route exact path='/login' render={(props) => <Login  {...props} />} />
+        <Route exact path='/signup' render={(props) => <Signup  {...props} />} />
         <Route exact path='/courses/:id' render={(props) => <Course {...props} />} />
         <Route exact path='/categories' render={(props) => (<TopCategories {...props} />)} />
         <Route exact path='/categories/:id' render={(props) => (<CategoryCourses {...props} />)} />
         <Route exact path='/courses' render={(props) => (<AllCourses {...props} />)} />
+        <Route render={(props) => (<PageNotFound {...props} />)} />
       </Switch>
     </Router>
   );

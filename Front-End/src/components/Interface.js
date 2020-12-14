@@ -11,7 +11,7 @@ const Interface = () => {
 					For every student,<br></br>every classroom.<br></br>Real results.
 					</h1>
 				<h4>Build skills with courses, online from best instructors</h4>
-				<button ><Link to='/join/signup' >Join For Free</Link></button>
+				<button ><Link to='/signup' >Join For Free</Link></button>
 			</div>
 		</div>
 	)
