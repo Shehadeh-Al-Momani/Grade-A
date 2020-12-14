@@ -34,4 +34,3 @@ const CategoryCourses = (props) => {
 };
 
 export default CategoryCourses;
-

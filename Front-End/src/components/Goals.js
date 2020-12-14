@@ -37,4 +37,3 @@ export class Goals extends Component {
 }
 
 export default Goals;
-
