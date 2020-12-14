@@ -2,26 +2,29 @@ const connection = require('../../db');
 const bcrypt = require('bcrypt');
 
 const  register =(req,res)=>{
-const{name,adress,email,password,phone} =req.body
+const{name,adress,email,password,phone,confPassword} =req.body
   let role_id =0
 
     //setting the role for the registered account
-    if(req.params.role ==="instructor"){
+    if(req.params.role === "instructor"){
         role_id = 2
-     }else if(req.params.role ==="student"){
+     }else if(req.params.role === "student"){
         role_id = 3
      };
+     if(password!==confPassword){
+       return res.json("Passwords don't match..")
+     }
 
       //Checking if there is  same data in database with the request data
     const query = `SELECT * FROM users WHERE email ='${email}' OR  name = '${name}' `;
     connection.query(query,(err,result)=>{
        if(err) throw err;
        if(result.length){
-            if(result[0].email===email){
-              res.json("Email is used..")
+            if(result[0].email === email){
+             return res.json("Email is used..")
             };
-            if(result[0].name===name){
-              res.json("User name is used..")
+            if(result[0].name === name){
+             return res.json("User name is used..")
             }; 
        };
 
