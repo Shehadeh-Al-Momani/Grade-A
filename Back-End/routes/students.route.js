@@ -1,7 +1,7 @@
 const studentsRouter = require("express").Router();
 const { getAllCourses,courseDetails,getAllCategories,searchCourses,
-    filterCourses, historyCourses,enrollmentCourse,getCategoryCourses,
-    evaluate,getRating} = require('../controllers/main-controller');
+    filterCourses, historyCourses,enrollmentCourse,getCategoryCourses, evaluate,getRating,
+    getAllInstructors, getAllCoursesByInstructor, getInstructor} = require('../controllers/main-controller');
 
 // View all courses
 studentsRouter.get('/courses',getAllCourses);
@@ -32,6 +32,15 @@ studentsRouter.post('/evaluate/:c/:s/:r', evaluate); //send "course_id" in :c pa
 
 // Show all rating courses
 studentsRouter.get('/rating/:id',getRating); // id = "rating_value"
+
+// View all instructors
+studentsRouter.get('/instructors/:id',getAllInstructors); // in our project id=2 for instructors
+
+// View all courses by instructors
+studentsRouter.get('/instructor_courses/:id',getAllCoursesByInstructor); // id=instructor_id 
+
+// View one instructor
+studentsRouter.get('/instructor_datails/:id',getInstructor); // id=instructor_id 
 
 // Chat integration with instructors
 

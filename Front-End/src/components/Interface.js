@@ -6,7 +6,7 @@ const Interface = () => {
 	return (
 		<div className='wlc' >
 			<div className='innerTxt'>
-			<img src={wlc}></img>
+				<img src={wlc} alt=''></img>
 				<h1>
 					For every student,<br></br>every classroom.<br></br>Real results.
 					</h1>
@@ -18,4 +18,3 @@ const Interface = () => {
 }
 
 export default Interface
-

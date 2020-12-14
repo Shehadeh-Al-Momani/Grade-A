@@ -17,7 +17,6 @@ import Disable from './components/Disable';
 const App = () => {
   const [key, setKey] = useState('');
   const [result, setResult] = useState([]);
-
   return (
     <Router>
       <Route path='/admin' render={(props) => <Functions  {...props} />} />
