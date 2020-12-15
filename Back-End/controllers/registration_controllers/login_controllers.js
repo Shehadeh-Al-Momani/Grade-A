@@ -13,7 +13,12 @@ const login = (req,res)=>{
             if(password){
                 const payload = {
                     id:result[0].id,
-                    role_id:result[0].role_id
+                    role_id:result[0].role_id,
+                    name:result[0].name,
+                    adress:result[0].adress,
+                    email:result[0].email,
+                    password:result[0].password,
+                    phone:result[0].phone
                 };
                 const options ={
                     expiresIn:process.env.TOKEN_EXPIRATION
