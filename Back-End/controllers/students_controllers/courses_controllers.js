@@ -55,7 +55,7 @@ const enrollmentCourse = (req, res) => {
 };
 
 const getAllCoursesInstructorsCategories = (req, res) => {
-	const query = 'SELECT * FROM courses';
+	const query = 'SELECT c.id courseId ,u.id instructorID,cat.id categoryId,c.name course,c.price,c.description,c.img_url img_course,c.created_at,u.name instructor,u.adress,u.email,u.phone,cat.name category,cat.img_url img_category FROM courses c JOIN users u ON u.id=c.instructor_id JOIN roles r ON u.role_id=r.id AND r.type LIKE "instructor" JOIN categories cat ON c.category_id =cat.id';
 	db.query(query, (err, result) => {
 		if (err) throw err;
 		res.json(result);

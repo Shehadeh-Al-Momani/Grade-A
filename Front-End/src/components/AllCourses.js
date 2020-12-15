@@ -14,7 +14,7 @@ const AllCourses = () => {
 	}, [])
 
 	const getAllCourses = () => {
-		axios.get(`http://localhost:5000/students/courses`)
+		axios.get(`http://localhost:5000/students/allCourses`)
 			.then((response) => {
 				console.log('setAllCourses :', response.data)
 				setAllCourses(response.data);
@@ -49,8 +49,8 @@ const AllCourses = () => {
 					allCourses.map((e, i) => (
 						<div className='card_course' key={i}>
 							<Link to={`/courses/${e.id}`}>
-								<img src={`${e.img_url}`} alt={`${e.name}`} />
-								<h2>{e.name}</h2>
+								<img src={`${e.img_course}`} alt={`${e.course}`} />
+								<h2>{e.course}</h2>
 							</Link>
 						</div>
 					))
