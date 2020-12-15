@@ -217,26 +217,27 @@
   font-family: "Roboto", sans-serif;
 }
 
-.navbar h4 a{
-	color: #767A7A;
-	text-decoration: none;
+.navbar h4 a {
+  color: #767a7a;
+  text-decoration: none;
 }
 
-.navbar h4 a:hover{
-	color: #2896a9;
+.navbar h4 a:hover {
+  color: #2896a9;
 }
 
-.sign :link,.log :link{
-	text-decoration: none;
-	color: #ffffff;
+.sign :link,
+.log :link {
+  text-decoration: none;
+  color: #ffffff;
 }
 
-.sign a{
-	color: #ffffff;
+.sign a {
+  color: #ffffff;
 }
 
-.log a{
-	color: #46ADCD;
+.log a {
+  color: #46adcd;
 }
 
 .navbar {
@@ -260,15 +261,16 @@
   cursor: pointer;
 }
 
-.sign,.log{
-	outline: none;
+.sign,
+.log {
+  outline: none;
 }
 
 /* ------------------- Navbar dropdown list ---------------------------- */
 
 .drop-button {
   background-color: white;
-  color: #767A7A;
+  color: #767a7a;
   font-weight: bold;
   padding: 23px;
   font-size: 16px;
@@ -399,9 +401,9 @@
   margin-left: 100px;
 }
 
-.innerTxt h1{
-	padding-left: 100px;
-	margin-top: -330px;
+.innerTxt h1 {
+  padding-left: 100px;
+  margin-top: -330px;
 }
 
 .innerTxt button {
@@ -423,15 +425,14 @@
   cursor: pointer;
 }
 
-.innerTxt button a{
-	text-decoration: none;
-	padding: 15px 17px 15px 15px;
-	color: #54534F;
-
+.innerTxt button a {
+  text-decoration: none;
+  padding: 15px 17px 15px 15px;
+  color: #54534f;
 }
 
-.innerTxt button a:hover{
-	color: #ffffff;
+.innerTxt button a:hover {
+  color: #ffffff;
 }
 
 /* ----------------------------------------------- Goals ----------------------------------------------*/
@@ -507,7 +508,6 @@
   display: flex;
 
   flex-wrap: wrap;
-
 }
 
 .card {
@@ -544,17 +544,16 @@
   width: 170px;
 }
 
-.all-cards{
+.all-cards {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
-.all-cards a{
+.all-cards a {
   text-decoration: none;
   color: #3c3b37;
 }
-
 
 /* ---------------------------------------------------- Become Instructor -----------------------*/
 .smile {
@@ -877,4 +876,15 @@ input::-webkit-inner-spin-button {
   height: 50vh;
   width: 60%;
   position: relative;
+}
+
+.welcome {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: 3%;
+}
+
+.wel {
+  height: 10vh;
+  width: 30vh;
 }

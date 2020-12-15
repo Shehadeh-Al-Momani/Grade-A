@@ -19,12 +19,12 @@ export default function Courses() {
         <div>
           <ul className="unOrderListStyle">
             <li className="listItemStyle">
-              <Link className="linkStyle" to="/courses" href="#about">
+              <Link className="linkStyle" to="/instructors/courses" href="#about">
                 Get All courses
               </Link>
             </li>
             <li className="listItemStyle">
-              <Link className="linkStyle" to="/newcourse" href="#about">
+              <Link className="linkStyle" to="/instructors/newcourse" href="#about">
                 Add Course
               </Link>
             </li>
@@ -33,12 +33,12 @@ export default function Courses() {
       </div>
 
       <div>
-        <Route path="/courses">
+        <Route path="/instructors/courses">
           <div>
             <GitAllCourse courses={courses}></GitAllCourse>
           </div>
         </Route>
-        <Route path="/newcourse">
+        <Route path="/instructors/newcourse">
           <AddNewCourse></AddNewCourse>
         </Route>
       </div>

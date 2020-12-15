@@ -20,12 +20,12 @@ export default function Lesson() {
         <div>
           <ul className="unOrderListStyle">
             <li className="listItemStyle">
-              <Link className="linkStyle" to="/lessons">
+              <Link className="linkStyle" to="/instructors/lessons">
                 Get All Lessons
               </Link>
             </li>
             <li className="listItemStyle">
-              <Link className="linkStyle" to="/newLesson">
+              <Link className="linkStyle" to="/instructors/newLesson">
                 New Lesson
               </Link>
             </li>
@@ -34,7 +34,7 @@ export default function Lesson() {
       </div>
 
       <div>
-        <Route path="/lessons">
+        <Route path="/instructors/lessons">
           <div
             style={{
               border: " 1px solid black",
@@ -46,7 +46,7 @@ export default function Lesson() {
             <GitAllLessons lessons={lessons}></GitAllLessons>
           </div>
         </Route>
-        <Route path="/newLesson">
+        <Route path="/instructors/newLesson">
           <div>
             <AddNewCourse></AddNewCourse>
           </div>

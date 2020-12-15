@@ -34,12 +34,12 @@ const Navbar = (props) => {
 	return (
 		<div>
 			<nav className='navbar'>
-				<Link to='/' ><img src={logo} className='logo' alt=''></img></Link>
+				<Link to='/students' ><img src={logo} className='logo' alt=''></img></Link>
 				<div className='dropdown'>
 					<div className='drop-button'>Categories</div>
 					<div className='dropdown-content'>
-						{<Link to={`/courses/`} > All Courses </Link>}
-						{<Link to={`/categories/`} > All Categories </Link>}
+						{<Link to={`/students/courses/`} > All Courses </Link>}
+						{<Link to={`/students/categories/`} > All Categories </Link>}
 						{
 							categories.map((e, i) => {
 								return (
@@ -53,7 +53,7 @@ const Navbar = (props) => {
 				</div>
 				<div className='search'>
 					<img src={search} alt=''></img>
-					<Link to={`/result`} >
+					<Link to={`/students/result`} >
 						<input
 							placeholder='Search for anything'
 							onKeyPress={(e) => { if (e.key === 'Enter') resultSearched(e.target.value) }}
