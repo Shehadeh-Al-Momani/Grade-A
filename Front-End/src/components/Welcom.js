@@ -4,12 +4,13 @@ import omar from './pics/omar.png';
 import fadi from './pics/fadi.png';
 import shehadeh from './pics/shehadeh.png';
 import { useHistory } from "react-router-dom";
+import { FaRegSmileBeam, FaRegHandScissors } from "react-icons/fa";
 
 const Welcom = () => {
 	const history = useHistory();
 	return (
 		<div className='team'>
-			<h1> Welcom to our project</h1>
+			<h1> <FaRegSmileBeam /> Welcom to our project <FaRegHandScissors /></h1>
 			<div className='welcome'>
 				<button className='wel' onClick={() => history.push('/admin')}>Admin Page</button>
 				<button className='wel' onClick={() => history.push('/students')}>Home Page</button>
