@@ -112,3 +112,4 @@ INSERT INTO courses (name,price,description,instructor_id,created_at,category_id
 INSERT INTO rating (student_id,course_id,rating_value) values(5,1,4),(5,2,4.5),(5,3,4),(6,4,4.5),(6,5,4),(6,6,4.5),(7,7,4),(7,8,4.5),(7,9,4),(8,10,4.5),(8,11,4),(8,1,4.5),(9,2,4),(9,3,4),(9,4,4);
 INSERT INTO registration (student_id,course_id) values(5,1),(5,2),(5,11),(6,3),(6,4),(6,12),(7,5),(7,10),(8,6),(8,7),(9,8),(9,9); 
 
+id AS,name AS courseName,price,description,instructor_id,img_url,

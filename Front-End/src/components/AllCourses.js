@@ -4,15 +4,19 @@ import { Link } from 'react-router-dom';
 
 const AllCourses = () => {
 	const [allCourses, setAllCourses] = useState([]);
+	const [enrollmentCourses, setEnrollmentCourses] = useState([]);
+	const [allInstructors, setAllInstructors] = useState([]);
 
 	useEffect(() => {
 		getAllCourses()
 		getEnrollmentCourses()
+		getAllInstructors()
 	}, [])
 
 	const getAllCourses = () => {
 		axios.get(`http://localhost:5000/students/courses`)
 			.then((response) => {
+				console.log('setAllCourses :', response.data)
 				setAllCourses(response.data);
 			})
 			.catch((err) => { console.log('err :', err) });
@@ -21,25 +25,37 @@ const AllCourses = () => {
 	const getEnrollmentCourses = () => {
 		axios.get(`http://localhost:5000/students/history/5`)
 			.then((response) => {
-				console.log('response.data :', response.data)
-				setAllCourses(response.data);
+				console.log('setEnrollmentCourses :', response.data)
+				setEnrollmentCourses(response.data);
+			})
+			.catch((err) => { console.log('err :', err) });
+	};
+
+	const getAllInstructors = () => {
+		axios.get(`http://localhost:5000/students/instructors/2`)
+			.then((response) => {
+				console.log('getAllInstructors :', response.data)
+				setAllInstructors(response.data);
 			})
 			.catch((err) => { console.log('err :', err) });
 	};
 
 	return (
-		<div className='cards'>
-			<h1 className='tt'>All Courses</h1>
-			{
-				allCourses.map((e, i) => (
-					<div className='card_course' key={i}>
-						<Link to={`/courses/${e.id}`}>
-							<img src={`${e.img_url}`} alt={`${e.name}`} />
-							<h2>{e.name}</h2>
-						</Link>
-					</div>
-				))
-			}
+		<div className='courses'>
+			<div className='courses_side'></div>
+			<div className='cards'>
+				<h1 className='tt'>All Courses</h1>
+				{
+					allCourses.map((e, i) => (
+						<div className='card_course' key={i}>
+							<Link to={`/courses/${e.id}`}>
+								<img src={`${e.img_url}`} alt={`${e.name}`} />
+								<h2>{e.name}</h2>
+							</Link>
+						</div>
+					))
+				}
+			</div>
 		</div>
 	);
 };

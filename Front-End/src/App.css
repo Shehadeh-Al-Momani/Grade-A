@@ -878,7 +878,7 @@ input::-webkit-inner-spin-button {
   position: relative;
 }
 
-.welcomePage{
+.welcomePage {
   background-color: rgb(212, 242, 255);
 }
 .welcome {
@@ -890,4 +890,14 @@ input::-webkit-inner-spin-button {
 .wel {
   height: 10vh;
   width: 30vh;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 0% 2%;
+}
+
+.courses_side {
+  background: rgb(66, 66, 66);
 }

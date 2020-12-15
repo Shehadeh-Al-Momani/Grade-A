@@ -54,13 +54,11 @@ const enrollmentCourse = (req, res) => {
 	});
 };
 
-const registerCourse = (req, res) => {
-	const query = `SELECT * FROM registration WHERE student_id =(?)`;
-	const data = req.params.id;
-	db.query(query, data, (err, result) => {
+const getAllCoursesInstructorsCategories = (req, res) => {
+	const query = 'SELECT * FROM courses';
+	db.query(query, (err, result) => {
 		if (err) throw err;
-		res.send('enrollment course');
-		// res.json(result)
+		res.json(result);
 	});
 };
 
@@ -71,5 +69,6 @@ module.exports = {
 	filterCourses,
 	historyCourses,
 	enrollmentCourse,
-	registerCourse
+	getAllCoursesInstructorsCategories,
 };
+
