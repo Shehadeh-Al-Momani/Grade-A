@@ -57,5 +57,6 @@ module.exports = {
   visiblityCourse,
   addCourse,
   updateCourse,
-  registeredCoursesInstructor
+  registeredCoursesInstructor,
+  addLesson
 };
