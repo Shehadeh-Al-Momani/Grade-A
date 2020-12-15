@@ -15,6 +15,8 @@ import AddCategory from './components/AddCategory';
 import Disable from './components/Disable';
 import StudentsDetails from './components/StudentsDetails';
 import InstructorsDetails from './components/InstructorsDetails';
+import PageNotFound from './components/PageNotFound';
+import Instructors from "./components/Instructors";
 
 const App = () => {
   const [key, setKey] = useState('');

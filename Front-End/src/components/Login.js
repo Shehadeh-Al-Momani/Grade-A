@@ -9,7 +9,7 @@ const Login = () => {
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [logErr, setlogErr] = useState('')
-    const [token, settoken] = useState('')
+
 
     const emailHandler = (e) => {
         setemail(e.target.value)
@@ -26,8 +26,8 @@ const Login = () => {
                 if (response.data === "Invalid Email or password..") {
                     setlogErr(true)
                 } else {
-                    const stoken = response.data
-                    settoken(stoken);
+                    const token = response.data
+                    localStorage.setItem('token',token)
                     history.push("/");
                 }
             })

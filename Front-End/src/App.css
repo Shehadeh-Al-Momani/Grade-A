@@ -1,3 +1,152 @@
+/* Instructor Style */
+
+.sidenav {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.linkStyle {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.main {
+  margin-left: 260px /* Same as the width of the sidenav */;
+  font-size: 28px;
+  padding: 0px 10px;
+}
+
+.lessonItemStyle {
+  flex: 1;
+  width: 150px;
+}
+
+.optionStyle {
+  width: 160px;
+  height: 30px;
+  border: 3px solid;
+  margin-left: 20px;
+}
+
+.inputStyle {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitStyle {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.unOrderListStyle {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+.listItemStyle {
+  float: left;
+}
+
+.linkStyle {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.lessonItemStyle {
+  width: 30%;
+  height: 350px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.courseItemStyle {
+  display: flex;
+  width: 150px;
+  margin: 10px;
+}
+
+.secondDevStyle {
+  margin: 20px;
+}
+
+.optionStyle {
+  width: 160px;
+  height: 30px;
+  border: 3px solid;
+  margin-left: 20px;
+}
+
+.inputStyle {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitStyle {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inputStyle {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitStyle {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /*------------------------- Function ----------------------------*/
 
 .container {
@@ -68,6 +217,28 @@
   font-family: "Roboto", sans-serif;
 }
 
+.navbar h4 a{
+	color: #767A7A;
+	text-decoration: none;
+}
+
+.navbar h4 a:hover{
+	color: #2896a9;
+}
+
+.sign :link,.log :link{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.sign a{
+	color: #ffffff;
+}
+
+.log a{
+	color: #46ADCD;
+}
+
 .navbar {
   height: 70px;
   display: flex;
@@ -89,11 +260,15 @@
   cursor: pointer;
 }
 
+.sign,.log{
+	outline: none;
+}
+
 /* ------------------- Navbar dropdown list ---------------------------- */
 
 .drop-button {
   background-color: white;
-  color: black;
+  color: #767A7A;
   font-weight: bold;
   padding: 23px;
   font-size: 16px;
@@ -209,26 +384,31 @@
 
 .wlc img {
   height: 400px;
-  position: relative;
+  width: 100%;
 }
 
 .innerTxt {
   color: #54534f;
   font-weight: bolder;
   font-size: 25px;
-  padding: 70px;
-  padding-left: 100px;
 }
 
 .innerTxt h4 {
   margin-top: 20px;
   font-size: 20px;
+  margin-left: 100px;
+}
+
+.innerTxt h1{
+	padding-left: 100px;
+	margin-top: -330px;
 }
 
 .innerTxt button {
+  margin-left: 100px;
   margin-top: 20px;
   height: 60px;
-  width: 200px;
+  width: 180px;
   font-size: 25px;
   color: #18294d;
   background-color: white;
@@ -241,6 +421,17 @@
   background-color: #18294d;
   color: white;
   cursor: pointer;
+}
+
+.innerTxt button a{
+	text-decoration: none;
+	padding: 15px 17px 15px 15px;
+	color: #54534F;
+
+}
+
+.innerTxt button a:hover{
+	color: #ffffff;
 }
 
 /* ----------------------------------------------- Goals ----------------------------------------------*/
@@ -314,8 +505,9 @@
   width: 85%;
   margin-left: 7%;
   display: flex;
-  justify-content: space-between;
+
   flex-wrap: wrap;
+
 }
 
 .card {
@@ -323,6 +515,8 @@
   margin-right: 2px;
   border: 1px solid silver;
   height: 350px;
+  width: 380px;
+  margin: 12px;
 }
 
 .card:hover {
@@ -349,6 +543,18 @@
   height: 180px;
   width: 170px;
 }
+
+.all-cards{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.all-cards a{
+  text-decoration: none;
+  color: #3c3b37;
+}
+
 
 /* ---------------------------------------------------- Become Instructor -----------------------*/
 .smile {

@@ -16,11 +16,11 @@ const CategoryCourses = (props) => {
 	}, [id]);
 	return (
 		<div className='cards'>
-			<div className='tt'>{props.categoryName}</div>
+			<div className='all-cards'>{props.categoryName}</div>
 			{
 				category.map((e, i) => {
 					return <div key={i}>
-						<div className='card_course' key={i}>
+						<div className='card' key={i}>
 							<Link to={`/courses/${e.id}`}>
 								<img src={`${e.img_url}`} alt={`${e.name}`} />
 								<h2>{e.name}</h2>
