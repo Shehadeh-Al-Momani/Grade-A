@@ -9,7 +9,8 @@ import { FaRegSmileBeam, FaRegHandScissors } from "react-icons/fa";
 const Welcom = () => {
 	const history = useHistory();
 	return (
-		<div className='team'>
+		<div className='welcomePage'>
+			<div className='team'>
 			<h1> <FaRegSmileBeam /> Welcom to our project <FaRegHandScissors /></h1>
 			<div className='welcome'>
 				<button className='wel' onClick={() => history.push('/admin')}>Admin Page</button>
@@ -36,6 +37,7 @@ const Welcom = () => {
 					<h3>Alaa Khalila</h3>
 				</div>
 			</div>
+		</div>
 		</div>
 	)
 }

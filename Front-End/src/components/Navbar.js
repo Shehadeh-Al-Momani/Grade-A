@@ -36,7 +36,7 @@ const Navbar = (props) => {
 			<nav className='navbar'>
 				<Link to='/students' ><img src={logo} className='logo' alt=''></img></Link>
 				<div className='dropdown'>
-					<div className='drop-button'>Categories</div>
+					<div className='drop-button'>Classifications</div>
 					<div className='dropdown-content'>
 						{<Link to={`/students/courses/`} > All Courses </Link>}
 						{<Link to={`/students/categories/`} > All Categories </Link>}

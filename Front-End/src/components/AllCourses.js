@@ -6,14 +6,26 @@ const AllCourses = () => {
 	const [allCourses, setAllCourses] = useState([]);
 
 	useEffect(() => {
-		axios
-			.get(`http://localhost:5000/students/courses`)
+		getAllCourses()
+		getEnrollmentCourses()
+	}, [])
+
+	const getAllCourses = () => {
+		axios.get(`http://localhost:5000/students/courses`)
 			.then((response) => {
 				setAllCourses(response.data);
 			})
 			.catch((err) => { console.log('err :', err) });
+	};
 
-	}, [])
+	const getEnrollmentCourses = () => {
+		axios.get(`http://localhost:5000/students/history/5`)
+			.then((response) => {
+				console.log('response.data :', response.data)
+				setAllCourses(response.data);
+			})
+			.catch((err) => { console.log('err :', err) });
+	};
 
 	return (
 		<div className='cards'>

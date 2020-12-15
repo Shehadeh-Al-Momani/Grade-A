@@ -55,7 +55,7 @@ const enrollmentCourse = (req, res) => {
 };
 
 const registerCourse = (req, res) => {
-	const query = `INSERT INTO registration WHERE student_id =(?)`;
+	const query = `SELECT * FROM registration WHERE student_id =(?)`;
 	const data = req.params.id;
 	db.query(query, data, (err, result) => {
 		if (err) throw err;
