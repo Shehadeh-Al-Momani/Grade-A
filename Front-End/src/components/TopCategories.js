@@ -17,16 +17,19 @@ const TopCategories = () => {
 	return (
 		<div className='cards'>
 			<h1 className='tt'>Top categories</h1>
-			{
-				categories.map((e, i) => (
-					<Link to={`/categories/${e.id}`} key={i}>
-						<div className='card'  >
-							<img src={`${e.img_url}`} alt={`${e.name}`} />
-							<h2>{e.name}</h2>
-						</div>
-					</Link>
-				))
-			}
+			<div className='all-cards'>
+				{
+					categories.map((e, i) => (
+						<Link to={`/categories/${e.id}`} key={i}>
+							<div className='card'  >
+								<img src={`${e.img_url}`} alt={`${e.name}`} />
+								<h2>{e.name}</h2>
+							</div>
+						</Link>
+					))}
+			</div>
+
+
 		</div>
 	);
 };
