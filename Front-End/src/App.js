@@ -1,13 +1,41 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import axios from "axios";
+import React, { useState } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import TopCategories from './components/TopCategories';
+import Course from './components/Course';
+import CategoryCourses from './components/CategoryCourses';
+import AllCourses from './components/AllCourses';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Result from './components/Result';
+import Functions from './components/Functions';
+import AddCategory from './components/AddCategory';
+import Disable from './components/Disable';
+import PageNotFound from './components/PageNotFound';
 import Instructors from "./components/Instructors";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const App = () => {
+  const [key, setKey] = useState('');
+  const [result, setResult] = useState([]);
   return (
     <Router>
-      <Instructors />
+      <Route path='/admin' render={(props) => <Functions  {...props} />} />
+      <Route path='/admin' render={(props) => <AddCategory  {...props} />} />
+      <Route path='/admin/disable' render={(props) => <Disable  {...props} />} />
+      <Route render={(props) => <Navbar  {...props} setKey={setKey} setResult={setResult} />} />
+      <Switch>
+        <Route exact path='/' render={(props) => <Home  {...props} />} />
+        <Route path='/result' render={(props) => <Result {...props} result={result} input={key} />} />
+        <Route exact path='/login' render={(props) => <Login  {...props} />} />
+        <Route exact path='/signup' render={(props) => <Signup  {...props} />} />
+        <Route exact path='/courses/:id' render={(props) => <Course {...props} />} />
+        <Route exact path='/categories' render={(props) => (<TopCategories {...props} />)} />
+        <Route exact path='/categories/:id' render={(props) => (<CategoryCourses {...props} />)} />
+        <Route exact path='/courses' render={(props) => (<AllCourses {...props} />)} />
+        <Route render={(props) => (<PageNotFound {...props} />)} />
+      </Switch>
     </Router>
   );
 };
