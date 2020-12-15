@@ -14,6 +14,7 @@ import Functions from './components/Functions';
 import AddCategory from './components/AddCategory';
 import Disable from './components/Disable';
 import PageNotFound from './components/PageNotFound';
+import Instructors from "./components/Instructors";
 
 const App = () => {
   const [key, setKey] = useState('');

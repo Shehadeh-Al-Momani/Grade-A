@@ -1,4 +1,4 @@
-const db = require('../db');
+const db = require("../db");
 
 const { getAllCourses, courseDetails, searchCourses, filterCourses, historyCourses, enrollmentCourse } = require('./students_controllers/courses_controllers');
 const { getAllCategories, getCategoryCourses } = require('./students_controllers/categories_controllers');
@@ -24,6 +24,7 @@ module.exports = {
   getRating,
   visiblityCourse,
   addCourse,
+  addLesson,
   updateCourse,
   courseRating,
   addCategory,
