@@ -58,9 +58,5 @@ module.exports = {
   addCourse,
   updateCourse,
   registeredCoursesInstructor,
-<<<<<<< HEAD
   addLesson,
-=======
-  addLesson
->>>>>>> 15158a7b55d6c49b4451bc7603a1ab5dea1b089f
 };
