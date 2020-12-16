@@ -42,7 +42,23 @@ const Login = () => {
                     <img src={logo} alt=""></img>
                     <p>Log In as student or Instructor</p>
                     <div className="l-border"></div>
+                    </div>
+                <div className="inputs">
+                    <input placeholder="Email" name="email" onChange={emailHandler} required />
+                    <input placeholder="Password" name="password" type="password" onChange={passHandler} required />
+                    <h5>{logErr ? (<span>Invalid Email or password..</span>) : ""}</h5>
+                </div>
+                <div className="signup">
+                    <button onClick={() => login(email, password)} >Login</button>
+                    <p>Login to enroll in courses and more . </p>
+                </div>
+            </div>
+            <div className="not-sign">
+                <p>Don't have an account?</p><a href="http://localhost:3000/signup">Sign up</a>
+            </div>
+        </div>
+    )
+}
+export default Login
 
-
-export default LogIn
 
