@@ -6,7 +6,6 @@ import {
 	Route,
 	Switch,
 } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import TopCategories from './components/TopCategories';
@@ -30,7 +29,6 @@ const App = () => {
 	const [result, setResult] = useState([]);
 
 	if (!token) {
-		console.log('No Token!');
 
 		return (
 			<Router>
@@ -45,7 +43,6 @@ const App = () => {
 		const decoded = jwt_decode(token);
 		const role_id = decoded.role_id;
 		if (role_id === 1) {
-			console.log('This is an ADMIN');
 			return (
 				<Router>
 					<Route exact path='/login' render={(props) => <Login {...props} />} />
@@ -68,7 +65,6 @@ const App = () => {
 				</Router>
 			);
 		} else if (role_id === 3) {
-			console.log('This is a STUDENT');
 			return (
 				<Router>
 					<Route
@@ -115,7 +111,6 @@ const App = () => {
 				</Router>
 			);
 		} else if (role_id === 2) {
-			console.log('This is an INSTRUCTOR');
 			return (
 				<Router>
 					<Route exact path='/login' render={(props) => <Login {...props} />} />

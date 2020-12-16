@@ -217,6 +217,28 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+.navbar h4 a{
+	color: #767A7A;
+	text-decoration: none;
+}
+
+.navbar h4 a:hover{
+	color: #2896a9;
+}
+
+.sign :link,.log :link{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.sign a{
+	color: #ffffff;
+}
+
+.log a{
+	color: #46ADCD;
+}
+
 .navbar {
 	height: 70px;
 	display: flex;
@@ -236,6 +258,10 @@
 
 .logo:hover {
 	cursor: pointer;
+}
+
+.sign,.log{
+	outline: none;
 }
 
 /* ------------------- Navbar dropdown list ---------------------------- */
@@ -285,6 +311,36 @@
 	cursor: pointer;
 }
 
+.course-list{
+  padding: 90px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.all-courses{
+  display: flex;
+}
+
+.one-course a{
+  border-bottom: 1px solid silver;
+  width: 50%;
+  display: flex;
+  text-decoration: none;
+}
+
+.one-course img{
+  height: 150px;
+}
+
+.course-info h2{
+  margin: 12px 0 0 40px;
+}
+
+.single{
+  margin: 50px;
+}
+
 /* --------------------------- Search ---------------------- */
 
 .search {
@@ -308,6 +364,14 @@
 	margin-left: 1px;
 	outline: none;
 	border: none;
+}
+
+.search-rs{
+  margin: 100px;
+}
+
+.search-rs h2,.search-rs h3{
+  margin-bottom: 18px;
 }
 
 .navbar h4:hover {
@@ -383,12 +447,55 @@
 	font-weight: bold;
 	border: none;
 	border-radius: 3px;
+  height: 400px;
+  width: 100%;
+}
+
+.innerTxt {
+  color: #54534f;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.innerTxt h4 {
+  margin-top: 20px;
+  font-size: 20px;
+  margin-left: 100px;
+}
+
+.innerTxt h1{
+	padding-left: 100px;
+	margin-top: -330px;
+}
+
+.innerTxt button {
+  margin-left: 100px;
+  margin-top: 20px;
+  height: 60px;
+  width: 180px;
+  font-size: 25px;
+  color: #18294d;
+  background-color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
 }
 
 .innerTxt button:hover {
 	background-color: #18294d;
 	color: white;
 	cursor: pointer;
+}
+
+.innerTxt button a{
+	text-decoration: none;
+	padding: 15px 17px 15px 15px;
+	color: #54534F;
+
+}
+
+.innerTxt button a:hover{
+	color: #ffffff;
 }
 
 /* ----------------------------------------------- Goals ----------------------------------------------*/
@@ -471,6 +578,13 @@
 	margin-right: 2px;
 	border: 1px solid silver;
 	height: 350px;
+  color: #3c3b37;
+  width: 85%;
+  margin-left: 7%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 }
 
 .card:hover {
@@ -497,6 +611,18 @@
 	height: 180px;
 	width: 170px;
 }
+
+.all-cards{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.all-cards a{
+  text-decoration: none;
+  color: #3c3b37;
+}
+
 
 /* ---------------------------------------------------- Become Instructor -----------------------*/
 .smile {
@@ -820,3 +946,4 @@ input::-webkit-inner-spin-button {
 	width: 60%;
 	position: relative;
 }
+

@@ -20,7 +20,7 @@ const Result = ({ result, input }) => {
         </div>
     )
     return (
-        <div>
+        <div className="search-rs">
             <h2>Sorry, we couldn't find any results for "{input}"</h2>
             <h3>Try adjusting your search. Here are some ideas:</h3>
             <li>Make sure all words are spelled correctly</li>

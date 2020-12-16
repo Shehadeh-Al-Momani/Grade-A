@@ -31,7 +31,12 @@ const CategoryCourses = (props) => {
 						<div className='card_course' key={i}>
 							<Link to={`/courses/${e.id}`}>
 								<img src={`${e.img_url}`} alt={`${e.name}`} />
-								<h2>{e.name}</h2>
+								<div className="course-info">
+									<h2>{e.name}</h2>
+									<h2>{e.instructor_id}</h2>
+									<h2>rate</h2>
+								</div>
+								
 							</Link>
 						</div>
 					</div>

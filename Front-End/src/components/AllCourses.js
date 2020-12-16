@@ -20,7 +20,7 @@ const AllCourses = () => {
 	}, []);
 
 	return (
-		<div className='cards'>
+		<div className='course-list'>
 			<h1 className='tt'>All Courses</h1>
 			{allCourses.map((e, i) => (
 				<div className='card_course' key={i}>
