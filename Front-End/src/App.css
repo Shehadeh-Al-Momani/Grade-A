@@ -180,7 +180,7 @@
 .AddCat {
   position: fixed;
   top: 35%;
-  left: 30%;
+  left: 24%;
   border: 1px solid;
   height: 25%;
   width: 50%;
@@ -209,6 +209,22 @@
   cursor: pointer;
 }
 
+/*-------------------student details -------------*/
+
+.std-details{
+  border: 1px solid;
+  margin: 20px;
+  font-size: large;
+  background-color: #D7D7D6;
+}
+
+.std-details span{
+  color: red;
+}
+
+.names-ad{
+  margin:60px 0 60px 42%;
+}
 /* ------------ Navbar -----------*/
 * {
   padding: 0px;

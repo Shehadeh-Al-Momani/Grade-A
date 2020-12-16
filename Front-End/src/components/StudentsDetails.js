@@ -18,11 +18,11 @@ const StudentsDetails = () => {
 	};
 	return (
 		<div >
-			<h1 className='tt'>All Students</h1>
+			<h1 className='names-ad'>All Students</h1>
 			{
 				users.map((e, i) => (
-					<div key={i}>
-						<div>{e.name} || {e.email} || {e.phone}  || {e.isDisabled}</div>
+					<div key={i} className="std-details">
+						<div><span>Name:</span> {e.name} | <span>Email:</span> {e.email} |<span>Phone:</span>  {e.phone} |<span>Banned:</span>  {e.isDisabled}</div>
 					</div>
 				))
 			}
