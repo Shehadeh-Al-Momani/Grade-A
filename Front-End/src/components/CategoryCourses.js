@@ -15,15 +15,20 @@ const CategoryCourses = (props) => {
 			});
 	}, [id]);
 	return (
-		<div className='cards'>
-			<div className='tt'>{props.categoryName}</div>
+		<div className='course-list'>
+			<div className='all-courses'>{props.categoryName}</div>
 			{
 				category.map((e, i) => {
 					return <div key={i}>
-						<div className='card_course' key={i}>
+						<div className='one-course' key={i}>
 							<Link to={`/courses/${e.id}`}>
 								<img src={`${e.img_url}`} alt={`${e.name}`} />
-								<h2>{e.name}</h2>
+								<div className="course-info">
+									<h2>{e.name}</h2>
+									<h2>{e.instructor_id}</h2>
+									<h2>rate</h2>
+								</div>
+								
 							</Link>
 						</div>
 					</div>

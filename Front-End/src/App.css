@@ -217,6 +217,28 @@
   font-family: "Roboto", sans-serif;
 }
 
+.navbar h4 a{
+	color: #767A7A;
+	text-decoration: none;
+}
+
+.navbar h4 a:hover{
+	color: #2896a9;
+}
+
+.sign :link,.log :link{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.sign a{
+	color: #ffffff;
+}
+
+.log a{
+	color: #46ADCD;
+}
+
 .navbar {
   height: 70px;
   display: flex;
@@ -238,11 +260,15 @@
   cursor: pointer;
 }
 
+.sign,.log{
+	outline: none;
+}
+
 /* ------------------- Navbar dropdown list ---------------------------- */
 
 .drop-button {
   background-color: white;
-  color: black;
+  color: #767A7A;
   font-weight: bold;
   padding: 23px;
   font-size: 16px;
@@ -284,6 +310,36 @@
 .dropdown:hover .drop-button {
   color: #2896a9;
   cursor: pointer;
+}
+
+.course-list{
+  padding: 90px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.all-courses{
+  display: flex;
+}
+
+.one-course a{
+  border-bottom: 1px solid silver;
+  width: 50%;
+  display: flex;
+  text-decoration: none;
+}
+
+.one-course img{
+  height: 150px;
+}
+
+.course-info h2{
+  margin: 12px 0 0 40px;
+}
+
+.single{
+  margin: 50px;
 }
 
 /* --------------------------- Search ---------------------- */
@@ -358,26 +414,31 @@
 
 .wlc img {
   height: 400px;
-  position: relative;
+  width: 100%;
 }
 
 .innerTxt {
   color: #54534f;
   font-weight: bolder;
   font-size: 25px;
-  padding: 70px;
-  padding-left: 100px;
 }
 
 .innerTxt h4 {
   margin-top: 20px;
   font-size: 20px;
+  margin-left: 100px;
+}
+
+.innerTxt h1{
+	padding-left: 100px;
+	margin-top: -330px;
 }
 
 .innerTxt button {
+  margin-left: 100px;
   margin-top: 20px;
   height: 60px;
-  width: 200px;
+  width: 180px;
   font-size: 25px;
   color: #18294d;
   background-color: white;
@@ -390,6 +451,17 @@
   background-color: #18294d;
   color: white;
   cursor: pointer;
+}
+
+.innerTxt button a{
+	text-decoration: none;
+	padding: 15px 17px 15px 15px;
+	color: #54534F;
+
+}
+
+.innerTxt button a:hover{
+	color: #ffffff;
 }
 
 /* ----------------------------------------------- Goals ----------------------------------------------*/
@@ -463,7 +535,6 @@
   width: 85%;
   margin-left: 7%;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -472,6 +543,8 @@
   margin-right: 2px;
   border: 1px solid silver;
   height: 350px;
+  width: 380px;
+  margin: 12px;
 }
 
 .card:hover {
@@ -498,6 +571,18 @@
   height: 180px;
   width: 170px;
 }
+
+.all-cards{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.all-cards a{
+  text-decoration: none;
+  color: #3c3b37;
+}
+
 
 /* ---------------------------------------------------- Become Instructor -----------------------*/
 .smile {
@@ -821,3 +906,4 @@ input::-webkit-inner-spin-button {
   width: 60%;
   position: relative;
 }
+

@@ -15,19 +15,24 @@ import AddCategory from './components/AddCategory';
 import Disable from './components/Disable';
 import PageNotFound from './components/PageNotFound';
 import Instructors from "./components/Instructors";
+import StudentsDetails from './components/StudentsDetails';
+import InstructorsDetails from './components/InstructorsDetails';
 
 const App = () => {
   const [key, setKey] = useState('');
   const [result, setResult] = useState([]);
   return (
     <Router>
-      <Route path='/admin' render={(props) => <Functions  {...props} />} />
-      <Route path='/admin' render={(props) => <AddCategory  {...props} />} />
-      <Route path='/admin/disable' render={(props) => <Disable  {...props} />} />
+
       <Route render={(props) => <Navbar  {...props} setKey={setKey} setResult={setResult} />} />
       <Switch>
+        <Route exact path='/admin' render={(props) => <Functions  {...props} />} />
+        <Route exact path='/admin/addCategory' render={(props) => <AddCategory  {...props} />} />
+        <Route path='/admin/disable' render={(props) => <Disable  {...props} />} />
+        <Route path='/admin/students_details' render={(props) => <StudentsDetails  {...props} />} />
+        <Route path='/admin/instructors_details' render={(props) => <InstructorsDetails  {...props} />} />
         <Route exact path='/' render={(props) => <Home  {...props} />} />
-        <Route path='/result' render={(props) => <Result {...props} result={result} input={key} />} />
+        <Route exact path='/result' render={(props) => <Result {...props} result={result} input={key} />} />
         <Route exact path='/login' render={(props) => <Login  {...props} />} />
         <Route exact path='/signup' render={(props) => <Signup  {...props} />} />
         <Route exact path='/courses/:id' render={(props) => <Course {...props} />} />
