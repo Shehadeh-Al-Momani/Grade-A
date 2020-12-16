@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import {
-	BrowserRouter as Router,
-	Redirect,
-	Route,
-	Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch, } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import TopCategories from './components/TopCategories';
@@ -34,9 +29,7 @@ const App = () => {
 
 		return (
 			<Router>
-				<Route exact path='/'>
-					<Redirect to='/login' />
-				</Route>
+				<Route exact path='/'> <Redirect to='/login' /> </Route>
 				<Route exact path='/login' render={(props) => <Login {...props} />} />
 				<Route exact path='/signup' render={(props) => <Signup {...props} />} />
 			</Router>
@@ -48,66 +41,27 @@ const App = () => {
 			return (
 				<Router>
 					<Route exact path='/login' render={(props) => <Login {...props} />} />
-					<Route
-						exact
-						path='/signup'
-						render={(props) => <Signup {...props} />}
-					/>
+					<Route exact path='/signup' render={(props) => <Signup {...props} />} />
 					<Switch>
 						<Route path='/admin' render={(props) => <Functions {...props} />} />
-						<Route
-							path='/admin'
-							render={(props) => <AddCategory {...props} />}
-						/>
-						<Route
-							path='/admin/disable'
-							render={(props) => <Disable {...props} />}
-						/>
+						<Route path='/admin' render={(props) => <AddCategory {...props} />} />
+						<Route path='/admin/disable' render={(props) => <Disable {...props} />} />
 					</Switch>
 				</Router>
 			);
 		} else if (role_id === 3) {
 			return (
 				<Router>
-					<Route
-						render={(props) => (
-							<Navbar {...props} setKey={setKey} setResult={setResult} />
-						)}
-					/>
+					<Route render={(props) => (<Navbar {...props} setKey={setKey} setResult={setResult} />)} />
 					<Route exact path='/login' render={(props) => <Login {...props} />} />
-					<Route
-						exact
-						path='/signup'
-						render={(props) => <Signup {...props} />}
-					/>
+					<Route exact path='/signup' render={(props) => <Signup {...props} />} />
 					<Switch>
-						<Route exact path='/' render={(props) => <Home {...props} />} />
-						<Route
-							path='/result'
-							render={(props) => (
-								<Result {...props} result={result} input={key} />
-							)}
-						/>
-						<Route
-							exact
-							path='/courses/:id'
-							render={(props) => <Course {...props} />}
-						/>
-						<Route
-							exact
-							path='/categories'
-							render={(props) => <TopCategories {...props} />}
-						/>
-						<Route
-							exact
-							path='/categories/:id'
-							render={(props) => <CategoryCourses {...props} />}
-						/>
-						<Route
-							exact
-							path='/courses'
-							render={(props) => <AllCourses {...props} />}
-						/>
+						<Route exact path='/students' render={(props) => <Home {...props} />} />
+						<Route path='/students/result' render={(props) => (<Result {...props} result={result} input={key} />)} />
+						<Route exact path='/students/courses/:id' render={(props) => <Course {...props} />} />
+						<Route exact path='/students/categories' render={(props) => <TopCategories {...props} />} />
+						<Route exact path='/students/categories/:id' render={(props) => <CategoryCourses {...props} />} />
+						<Route exact path='/students/courses' render={(props) => <AllCourses {...props} />} />
 						<Route render={(props) => <PageNotFound {...props} />} />
 					</Switch>
 				</Router>
@@ -116,16 +70,8 @@ const App = () => {
 			return (
 				<Router>
 					<Route exact path='/login' render={(props) => <Login {...props} />} />
-					<Route
-						exact
-						path='/signup'
-						render={(props) => <Signup {...props} />}
-					/>
-					<Route
-						exact
-						path='/instructors'
-						render={(props) => <Instructors {...props} />}
-					/>
+					<Route exact path='/signup' render={(props) => <Signup {...props} />} />
+					<Route exact path='/instructors' render={(props) => <Instructors {...props} />} />
 				</Router>
 			);
 		} else {

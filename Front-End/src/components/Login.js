@@ -88,8 +88,6 @@ const Login = () => {
 	);
 };
 
-
-
 // return (
 // 	<div className="loginCont">
 // 		<div className="login">

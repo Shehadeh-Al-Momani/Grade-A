@@ -26,18 +26,9 @@ const Course = ({
 				<img src={`${course.img_url}`} alt={`${course.name}`} />
 			</div>
 			<div className='course-details'>
-				<h2>
-					{' '}
-					<span>Course Name : </span> {course.name}{' '}
-				</h2>
-				<h3>
-					{' '}
-					<span>Course Description : </span> {course.description}
-				</h3>
-				<h3>
-					{' '}
-					<span>Price: </span> {course.price + ' $'}{' '}
-				</h3>
+				<h2> {' '} <span>Course Name : </span> {course.name}{' '} </h2>
+				<h3> {' '} <span>Course Description : </span> {course.description} </h3>
+				<h3> {' '} <span>Price: </span> {course.price + ' $'}{' '} </h3>
 			</div>
 		</div>
 	);
