@@ -905,13 +905,20 @@ input::-webkit-inner-spin-button {
 .coursesCards {
   display: grid;
   grid-template-columns: 1fr;
+  padding: 3%;
 }
+
+.countResults {
+  display: inline;
+  float: right;
+  font-size: 2.5vh;
+ }
 
 .oneCourse {
   display: grid;
   grid-template-columns: 2fr 5fr 1fr;
   border-bottom: 1px solid silver;
-} 
+}
 
 .imgCourse img {
   display: flex;

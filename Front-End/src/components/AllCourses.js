@@ -40,11 +40,18 @@ const AllCourses = () => {
 			.catch((err) => { console.log('err :', err) });
 	};
 
+	const countResults = allCourses.reduce((acc) => acc + 1, 0)
 	return (
 		<div className='coursesMain'>
 			<div className='coursesSide'></div>
 			<div className='coursesCards'>
-				<h1 className='tt'>Courses</h1>
+				{/* <div className='countResults'>{countResults} results</div> */}
+				<h1 className='tt'>
+					Courses
+				<div className='countResults'>
+						{countResults} results
+					</div>
+				</h1>
 				{
 					allCourses.map((e, i) => (
 						<Link to={`/students/courses/${e.courseId}`} key={i}>
