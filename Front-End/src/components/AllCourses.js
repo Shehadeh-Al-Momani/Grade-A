@@ -81,6 +81,7 @@ const AllCourses = () => {
 									</div>
 									<div className='oneCourse3'>
 										<div> $ {e.price} </div>
+										<div> more details... </div>
 									</div>
 								</div>
 							</Link>

@@ -20,7 +20,7 @@ const TopCategories = () => {
 			<div className='all-cards'>
 				{
 					categories.map((e, i) => (
-						<Link to={`/categories/${e.id}`} key={i}>
+						<Link to={`/students/categories/${e.id}`} key={i}>
 							<div className='card'  >
 								<img src={`${e.img_url}`} alt={`${e.name}`} />
 								<h2>{e.name}</h2>

@@ -43,7 +43,7 @@ const Navbar = (props) => {
 						{
 							categories.map((e, i) => {
 								return (
-									<Link to={`/categories/${e.id}`} key={i}>
+									<Link to={`/students/categories/${e.id}`} key={i}>
 										{e.name}
 									</Link>
 								);

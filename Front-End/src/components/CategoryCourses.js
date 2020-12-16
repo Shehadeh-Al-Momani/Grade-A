@@ -21,7 +21,7 @@ const CategoryCourses = (props) => {
 				category.map((e, i) => {
 					return <div key={i}>
 						<div className='card' key={i}>
-							<Link to={`/courses/${e.id}`}>
+							<Link to={`/students/courses/${e.id}`}>
 								<img src={`${e.img_url}`} alt={`${e.name}`} />
 								<h2>{e.name}</h2>
 							</Link>
