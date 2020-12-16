@@ -28,6 +28,7 @@ const App = () => {
       <Route exact path='/admin/disable' render={(props) => <Disable  {...props} />} />
       <Route exact path='/admin/students_details' render={(props) => <StudentsDetails  {...props} />} />
       <Route exact path='/admin/instructors_details' render={(props) => <InstructorsDetails  {...props} />} />
+
       <Route render={(props) => <Navbar  {...props} setKey={setKey} setResult={setResult} />} />
       <Switch>
         <Route exact path='/' render={(props) => <Home  {...props} />} />
@@ -38,6 +39,7 @@ const App = () => {
         <Route exact path='/categories' render={(props) => (<TopCategories {...props} />)} />
         <Route exact path='/categories/:id' render={(props) => (<CategoryCourses {...props} />)} />
         <Route exact path='/courses' render={(props) => (<AllCourses {...props} />)} />
+        {/* <Route render={(props) => (<PageNotFound {...props} />)} /> */}
       </Switch>
     </Router>
   );
