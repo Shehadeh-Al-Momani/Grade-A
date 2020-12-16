@@ -20,12 +20,11 @@ import InstructorsDetails from './components/InstructorsDetails';
 import Account from './components/instructors/Account';
 import InstructorCourses from "./components/instructors/InstructorCourses";
 import Lesson from "./components/instructors/Lesson";
-import PageNotFound from './components/PageNotFound';
 import jwt_decode from 'jwt-decode';
 import Welcom from './components/Welcom';
 import Courses from './components/Courses';
 const token = localStorage.getItem('token');
-console.log(token);
+console.log(jwt_decode(token));
 
 const App = () => {
   const [key, setKey] = useState('');
@@ -33,9 +32,11 @@ const App = () => {
   if (!token) {
     return (
       <Router>
-        <Route exact path='/'> <Redirect to='/login' /> </Route>
-        <Route exact path='/login' render={(props) => <Login {...props} />} />
-        <Route exact path='/signup' render={(props) => <Signup {...props} />} />
+        <Switch>
+          <Route exact path='/'> <Redirect to='/login' /> </Route>
+          <Route exact path='/login' render={(props) => <Login {...props} />} />
+          <Route exact path='/signup' render={(props) => <Signup {...props} />} />
+        </Switch>
       </Router>
     );
   } else {
@@ -44,9 +45,9 @@ const App = () => {
     if (role_id === 1) {
       return (
         <Router>
-          <Route exact path='/login' render={(props) => <Login {...props} />} />
-          <Route exact path='/signup' render={(props) => <Signup {...props} />} />
           <Switch>
+            <Route exact path='/login' render={(props) => <Login {...props} />} />
+            <Route exact path='/signup' render={(props) => <Signup {...props} />} />
             <Route exact path='/admin' render={(props) => <Functions  {...props} />} />
             <Route exact path='/admin/addCategory' render={(props) => <AddCategory  {...props} />} />
             <Route path='/admin/disable' render={(props) => <Disable  {...props} />} />
@@ -58,9 +59,9 @@ const App = () => {
     } else if (role_id === 2) {
       return (
         <Router>
-          <Route exact path='/login' render={(props) => <Login {...props} />} />
-          <Route exact path='/signup' render={(props) => <Signup {...props} />} />
           <Switch>
+            <Route exact path='/login' render={(props) => <Login {...props} />} />
+            <Route exact path='/signup' render={(props) => <Signup {...props} />} />
             <Route path='/instructors/account' render={(props) => <Instructors  {...props} />} />
           </Switch>
         </Router>
@@ -69,12 +70,12 @@ const App = () => {
       return (
         <Router>
           <Route render={(props) => (<Navbar {...props} setKey={setKey} setResult={setResult} />)} />
-          <Route exact path='/login' render={(props) => <Login {...props} />} />
-          <Route exact path='/signup' render={(props) => <Signup {...props} />} />
           <Switch>
+            <Route exact path='/login' render={(props) => <Login {...props} />} />
+            <Route exact path='/signup' render={(props) => <Signup {...props} />} />
             <Route exact path='/welcom' render={(props) => <Welcom  {...props} />} />
             <Route exact path='/students' render={(props) => <Home {...props} />} />
-            <Route path='/students/result' render={(props) => (<Result {...props} result={result} input={key} />)} />
+            <Route exact path='/students/result' render={(props) => (<Result {...props} result={result} input={key} />)} />
             <Route exact path='/students/courses/:id' render={(props) => <Course {...props} />} />
             <Route exact path='/students/categories' render={(props) => <TopCategories {...props} />} />
             <Route exact path='/students/categories/:id' render={(props) => <CategoryCourses {...props} />} />

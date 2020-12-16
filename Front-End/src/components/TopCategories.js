@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from "axios";
+import axios from 'axios';
+const token = localStorage.getItem('token');
 
 const TopCategories = () => {
 	const [categories, setCategories] = useState([]);
-	useEffect(() => { getTopCategory() }, []);
+	useEffect(() => {
+		getTopCategory();
+	}, []);
 	const getTopCategory = () => {
-		axios.get('http://localhost:5000/students/categories')
+		axios
+			.get('http://localhost:5000/students/categories', {
+				headers: { authorization: token },
+			})
 			.then((res) => {
 				setCategories(res.data);
 			})
 			.catch((err) => {
 				console.log('ERR: ', err);
-			})
+			});
 	};
 	return (
 		<div className='cards'>
