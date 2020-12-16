@@ -21,6 +21,7 @@ import Account from './components/instructors/Account';
 import InstructorCourses from "./components/instructors/InstructorCourses";
 import Lesson from "./components/instructors/Lesson";
 import Welcom from './components/Welcom';
+import Courses from './components/Courses';
 
 const App = () => {
   const [key, setKey] = useState('');
@@ -44,6 +45,7 @@ const App = () => {
         <Route exact path='/students/categories' render={(props) => (<TopCategories {...props} />)} />
         <Route exact path='/students/categories/:id' render={(props) => (<CategoryCourses {...props} />)} />
         <Route exact path='/students/courses' render={(props) => (<AllCourses {...props} />)} />
+        <Route exact path='/students/coursesFilter' render={(props) => (<Courses {...props} />)} />
         <Route render={(props) => (<PageNotFound {...props} />)} />
       </Switch>
     </Router>

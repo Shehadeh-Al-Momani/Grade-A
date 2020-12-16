@@ -899,7 +899,7 @@ input::-webkit-inner-spin-button {
 }
 
 .coursesSide {
-  background: rgb(66, 66, 66);
+  background: rgb(177, 177, 177);
 }
 
 .coursesCards {
@@ -912,7 +912,7 @@ input::-webkit-inner-spin-button {
   display: inline;
   float: right;
   font-size: 2.5vh;
- }
+}
 
 .oneCourse {
   display: grid;
@@ -941,4 +941,11 @@ input::-webkit-inner-spin-button {
   grid-template-rows: auto;
   padding: 10%;
   margin: 10%;
+}
+
+.filter button {
+  height: 10vh;
+  width: 18vh;
+  margin: 3vh;
+  margin-top: 7vh;
 }

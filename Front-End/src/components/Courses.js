@@ -48,14 +48,13 @@ const AllCourses = () => {
 		<div>
 			<div className='filter'>
 				{
-					(toggle) ? (
+					(!toggle) ? (
 						<button onClick={() => { history.push('/students/courses') }}><RiFilter3Line /> Filter</button>
 					) : (
 							<button onClick={() => { history.push('/students/coursesFilter') }}><RiFilter3Line /> Filter</button>
 						)
 				}
 			</div>
-			<div className='coursesMain'>
 				<div className='coursesSide'>
 				</div>
 				<div className='coursesCards'>
@@ -87,7 +86,6 @@ const AllCourses = () => {
 						))
 					}
 				</div>
-			</div>
 		</div>
 	);
 };
