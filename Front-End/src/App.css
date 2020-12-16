@@ -312,6 +312,36 @@
   cursor: pointer;
 }
 
+.course-list{
+  padding: 90px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.all-courses{
+  display: flex;
+}
+
+.one-course a{
+  border-bottom: 1px solid silver;
+  width: 50%;
+  display: flex;
+  text-decoration: none;
+}
+
+.one-course img{
+  height: 150px;
+}
+
+.course-info h2{
+  margin: 12px 0 0 40px;
+}
+
+.single{
+  margin: 50px;
+}
+
 /* --------------------------- Search ---------------------- */
 
 .search {
@@ -505,9 +535,7 @@
   width: 85%;
   margin-left: 7%;
   display: flex;
-
   flex-wrap: wrap;
-
 }
 
 .card {
@@ -878,3 +906,4 @@ input::-webkit-inner-spin-button {
   width: 60%;
   position: relative;
 }
+
