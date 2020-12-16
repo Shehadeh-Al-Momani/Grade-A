@@ -15,7 +15,7 @@ const Course = ({ match: { params: { id } } }) => {
 	return (
 		<div className='course'>
 			<div>
-				<img src={`${course.img_url}`} alt={`${course.name}`}/>
+				<img src={`${course.img_url}`} alt={`${course.name}`} />
 			</div>
 			<div className='course-details'>
 				<h2> <span>Course Name : </span> {course.name} </h2>

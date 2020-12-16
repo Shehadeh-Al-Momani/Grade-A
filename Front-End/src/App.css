@@ -892,12 +892,46 @@ input::-webkit-inner-spin-button {
   width: 30vh;
 }
 
-.courses {
+.coursesMain {
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin: 0% 2%;
 }
 
-.courses_side {
+.coursesSide {
   background: rgb(66, 66, 66);
+}
+
+.coursesCards {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.oneCourse {
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr;
+  border-bottom: 1px solid silver;
+} 
+
+.imgCourse img {
+  display: flex;
+  height: 22vh;
+  width: 70%;
+  margin: 0% 0% 0% 17%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.oneCourse2 {
+  display: grid;
+  grid-template-rows: auto;
+  padding: 2%;
+}
+
+.oneCourse3 {
+  display: grid;
+  grid-template-rows: auto;
+  padding: 10%;
+  margin: 10%;
 }
