@@ -9,4 +9,5 @@ adminRouter.put('/disable', disable_user);
 // // View all instructors accounts details
 adminRouter.get('/instructors_details', instructors_details);
 
+
 module.exports = adminRouter;

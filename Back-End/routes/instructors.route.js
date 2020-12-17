@@ -1,22 +1,6 @@
 const instructorsRouter = require("express").Router();
 const multer = require("multer");
 const fs = require("fs-extra");
-const {
-  registeredCoursesInstructor,
-  visiblityCourse,
-  addCourse,
-  addLesson,
-  updateCourse,
-  courseRating,
-} = require("../controllers/main-controller");
-
-const {
-  instructor_details,
-  update_user,
-  getAllCategories,
-  getAllCourses,
-  getAllLessons,
-} = require("../controllers/admin_controllers/instructors_controllers");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -41,6 +25,23 @@ const storageVideo = multer.diskStorage({
 const upload = multer({ storage: storage }).single("file");
 const uploadVideo = multer({ storage: storageVideo }).single("file");
 
+const {
+  registeredCoursesInstructor,
+  visiblityCourse,
+  addCourse,
+  addLesson,
+  updateCourse,
+  courseRating,
+} = require("../controllers/main-controller");
+
+const {
+  instructor_details,
+  update_user,
+  getAllCategories,
+  getAllCourses,
+  getAllLessons,
+} = require("../controllers/admin_controllers/instructors_controllers");
+
 // Show a hidden course
 instructorsRouter.put("/visiblity/:id", visiblityCourse);
 
@@ -60,7 +61,7 @@ instructorsRouter.put("/course:id/:i", updateCourse); // id = courses.id , i = c
 instructorsRouter.get("/registeredCourses/:id", registeredCoursesInstructor);
 
 // View course rating
-instructorsRouter.get('/course_rating/:id', courseRating); // id = courses.id 
+instructorsRouter.get("/course_rating/:id", courseRating); // id = courses.id
 
 // Add live videos
 // instructorsRouter.get('/',)
