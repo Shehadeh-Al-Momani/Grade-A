@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 const token = localStorage.getItem('token');
 
-const Course = ({
-	match: {
-		params: { id },
-	},
-}) => {
+const Course = ({ match: { params: { id }, }, }) => {
 	const [course, setCourse] = useState([]);
 	useEffect(() => {
 		axios
