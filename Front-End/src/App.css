@@ -970,3 +970,38 @@ input::-webkit-inner-spin-button {
   display: inline;
 
 }
+
+.search-rs{
+  margin: 3% 0 0 6%;
+}
+
+.search-rs h2,.search-rs h3{
+  margin-bottom: 18px;
+} 
+
+
+.search-rst{
+  display: flex;
+  flex-direction: column;
+  margin: 50px;  
+}
+.real-rs {
+  margin-top: 40px;
+}
+
+.cs{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid silver;
+}
+
+.cs img{
+  height: 160px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.real-rs a{
+  text-decoration: none;
+  color: #464644;
+}
