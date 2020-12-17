@@ -58,7 +58,6 @@ const AllCourses = () => {
 			<div className='coursesSide'>
 			</div>
 			<div className='coursesCards'>
-				{/* <div className='countResults'>{countResults} results</div> */}
 				<h1 className='tt'>
 					Courses
 				<div className='countResults'>

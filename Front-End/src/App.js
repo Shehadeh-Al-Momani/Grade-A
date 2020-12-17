@@ -23,6 +23,7 @@ import Lesson from "./components/instructors/Lesson";
 import jwt_decode from 'jwt-decode';
 import Welcom from './components/Welcom';
 import Courses from './components/Courses';
+import CoursesByInstructor from './components/CoursesByInstructor';
 let token = localStorage.getItem('token');
 console.log(jwt_decode(token));
 
@@ -84,6 +85,7 @@ const App = () => {
             <Route exact path='/students/categories/:id' render={(props) => <CategoryCourses {...props} />} />
             <Route exact path='/students/courses' render={(props) => <AllCourses {...props} />} />
             <Route exact path='/students/coursesFilter' render={(props) => (<Courses {...props} />)} />
+            <Route exact path='/students/coursesInstructor/:id' render={(props) => (<CoursesByInstructor {...props} />)} />
             <Route render={(props) => <PageNotFound {...props} />} />
           </Switch>
         </Router>
