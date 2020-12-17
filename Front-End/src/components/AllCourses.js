@@ -59,6 +59,48 @@ const AllCourses = () => {
 			</div>
 			<div className='coursesMain'>
 				<div className='coursesSide'>
+					<div className='dropdown'>
+						<div className='drop-button'>Classifications</div>
+						<div className='dropdown-content'>
+							{
+								enrollmentCourses.map((e, i) => {
+									return (
+										<Link to={`/students/categories/${e.id}`} key={i}>
+											{e.name}
+										</Link>
+									);
+								})
+							}
+						</div>
+					</div>
+					<div className='dropdown'>
+						<div className='drop-button'>Classifications</div>
+						<div className='dropdown-content'>
+							{
+								allInstructors.map((e, i) => {
+									return (
+										<Link to={`/students/categories/${e.id}`} key={i}>
+											{e.name}
+										</Link>
+									);
+								})
+							}
+						</div>
+					</div>
+					<div className='dropdown'>
+						<div className='drop-button'>Classifications</div>
+						<div className='dropdown-content'>
+							{
+								allCourses.map((e, i) => {
+									return (
+										<Link to={`/students/categories/${e.id}`} key={i}>
+											{e.name}
+										</Link>
+									);
+								})
+							}
+						</div>
+					</div>
 				</div>
 				<div className='coursesCards'>
 					{/* <div className='countResults'>{countResults} results</div> */}
