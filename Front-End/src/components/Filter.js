@@ -20,6 +20,7 @@ const Filter = () => {
 	const getEnrollmentCourses = () => {
 		axios.get(`http://localhost:5000/students/history/${id}`)
 			.then((response) => {
+				console.log('re :', response.data)
 				setEnrollmentCourses(response.data);
 			})
 			.catch((err) => { console.log('err :', err) });
@@ -28,7 +29,6 @@ const Filter = () => {
 	const getAllInstructors = () => {
 		axios.get(`http://localhost:5000/students/instructors/2`)
 			.then((response) => {
-				console.log('re :', response.data)
 				setAllInstructors(response.data);
 			})
 			.catch((err) => { console.log('err :', err) });
@@ -53,7 +53,7 @@ const Filter = () => {
 							enrollmentCourses.map((e, i) => {
 								return (
 									<div>
-										<Link to={`/students/categories/${e.id}`} key={i}>
+										<Link to={`/students/courses/${e.courses_id}`} key={i}>
 											{e.name}
 										</Link>
 									</div>

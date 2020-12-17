@@ -36,7 +36,7 @@ const filterCourses = (req, res) => {
 };
 
 const historyCourses = (req, res) => {
-	const query = `SELECT * FROM courses JOIN registration ON courses.id=registration.course_id AND registration.student_id =?`;
+	const query = `SELECT *,courses.id courses_id FROM courses JOIN registration ON courses.id=registration.course_id AND registration.student_id=?`;
 	const data = req.params.id;
 	db.query(query, data, (err, result) => {
 		if (err) throw err;
