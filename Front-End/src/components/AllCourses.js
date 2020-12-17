@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, } from "react-router-dom";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
@@ -7,7 +6,6 @@ import Filter from "./Filter";
 import Courses from "./Courses";
 
 const AllCourses = () => {
-	const history = useHistory();
 	const [toggle, setToggle] = useState(true);
 
 	if (toggle) {
