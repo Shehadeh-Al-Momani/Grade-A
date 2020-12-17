@@ -43,11 +43,11 @@ const Filter = () => {
 	};
 
 	return (
-		<div>
-			<div className='coursesSide' style={(!toggle) ? { visibility: 'hidden' } : { visibility: 'visible' }}>
-				<div className='dropdown'>
-					<div className='drop-button'>My Courses</div>
-					<div >
+		<div >
+			<div className='coursesSide' >
+				<div>
+					<div className='drop-button'> My Courses</div>
+					<div  >
 						{
 							enrollmentCourses.map((e, i) => {
 								return (
@@ -61,9 +61,9 @@ const Filter = () => {
 						}
 					</div>
 				</div>
-				<div className='dropdown'>
+				<div>
 					<div className='drop-button'>Instructors</div>
-					<div >
+					<div   >
 						{
 							allInstructors.map((e, i) => {
 								return (
@@ -77,9 +77,9 @@ const Filter = () => {
 						}
 					</div>
 				</div>
-				<div className='dropdown'>
+				<div>
 					<div className='drop-button'>Categories</div>
-					<div>
+					<div  >
 						{
 							categories.map((e, i) => {
 								return (
