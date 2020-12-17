@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, } from "react-router-dom";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
 import Filter from './Filter';
-import Courses from './Courses';
-import Course from './Course';
 
 const token = localStorage.getItem('token');
 
 const AllCourses = ({ match: { params: { id } } }) => {
-	const history = useHistory();
 	const [allCourses, setAllCourses] = useState([]);
+	const [details, setDetails] = useState([]);
 	const [toggle, setToggle] = useState(true);
 
 	useEffect(() => {
 		getAllCoursesByInstructor()
+		getInstructor_datails()
 	}, [id])
 
 	const getAllCoursesByInstructor = () => {
@@ -26,10 +24,25 @@ const AllCourses = ({ match: { params: { id } } }) => {
 			.catch((err) => { console.log('err :', err) });
 	};
 
+	const getInstructor_datails = () => {
+		axios.get(`http://localhost:5000/students/instructor_datails/${id}`, { headers: { authorization: token }, })
+			.then((response) => {
+				console.log('response.data :', response.data)
+				setDetails(...response.data);
+			})
+			.catch((err) => { console.log('err :', err) });
+	};
+
 	const countResults = allCourses.reduce((acc) => acc + 1, 0)
 	const div = (
 		<>
 			<div className='coursesCards'>
+				<h2>Instructor info</h2>
+				<h5>name: {details.name}</h5>
+				<h5>credentials: {details.credentials}</h5>
+				<h5>email: {details.email}</h5>
+				<h5>phone: {details.phone}</h5>
+				<h5>adress: {details.adress}</h5>
 				<h1 className='tt'>
 					Courses
 				<div className='countResults'>
