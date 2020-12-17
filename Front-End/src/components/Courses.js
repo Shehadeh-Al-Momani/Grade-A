@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
-const token = localStorage.getItem('token');
-
 const AllCourses = () => {
 	const history = useHistory();
 	const [allCourses, setAllCourses] = useState([]);
@@ -19,7 +17,7 @@ const AllCourses = () => {
 	}, [])
 
 	const getAllCourses = () => {
-		axios.get(`http://localhost:5000/students/allCourses`, { headers: { authorization: token }, })
+		axios.get(`http://localhost:5000/students/allCourses`)
 			.then((response) => {
 				console.log('setAllCourses :', response.data)
 				setAllCourses(response.data);
@@ -50,14 +48,13 @@ const AllCourses = () => {
 		<div>
 			<div className='filter'>
 				{
-					(toggle) ? (
+					(!toggle) ? (
 						<button onClick={() => { history.push('/students/courses') }}><RiFilter3Line /> Filter</button>
 					) : (
 							<button onClick={() => { history.push('/students/coursesFilter') }}><RiFilter3Line /> Filter</button>
 						)
 				}
 			</div>
-			<div className='coursesMain'>
 				<div className='coursesSide'>
 				</div>
 				<div className='coursesCards'>
@@ -83,14 +80,12 @@ const AllCourses = () => {
 									</div>
 									<div className='oneCourse3'>
 										<div> $ {e.price} </div>
-										<div> more details... </div>
 									</div>
 								</div>
 							</Link>
 						))
 					}
 				</div>
-			</div>
 		</div>
 	);
 };

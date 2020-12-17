@@ -1,7 +1,7 @@
 const studentsRouter = require("express").Router();
-const { getAllCourses, courseDetails, getAllCategories, searchCourses,
+const { getAllCourses, courseDetails, getAllCategories, searchCourses,getAllCoursesInstructorsCategories,
     filterCourses, historyCourses, enrollmentCourse, getCategoryCourses, evaluate, getRating,
-    getAllInstructors, getAllCoursesByInstructor, getInstructor, registerCourse } = require('../controllers/main-controller');
+    getAllInstructors, getAllCoursesByInstructor, getInstructor } = require('../controllers/main-controller');
 
 // View all courses
 studentsRouter.get('/courses', getAllCourses);
@@ -42,8 +42,8 @@ studentsRouter.get('/instructor_courses/:id', getAllCoursesByInstructor); // id=
 // View one instructor
 studentsRouter.get('/instructor_datails/:id', getInstructor); // id=instructor_id 
 
-// View all registered courses 
-studentsRouter.get('/registerCourse/:id', registerCourse); // id=students_id 
+// View all courses instructors categories
+studentsRouter.get('/allCourses', getAllCoursesInstructorsCategories); 
 
 // Chat integration with instructors
 
