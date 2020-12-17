@@ -6,7 +6,8 @@ import Filter from './Filter';
 
 const token = localStorage.getItem('token');
 
-const AllCourses = ({ match: { params: { id } } }) => {
+const AllCourses = (props) => {
+	const { match: { params: { id } } } = props;
 	const [allCourses, setAllCourses] = useState([]);
 	const [details, setDetails] = useState([]);
 	const history = useHistory();
@@ -40,7 +41,7 @@ const AllCourses = ({ match: { params: { id } } }) => {
 			<div className='coursesMain'>
 				<Filter />
 				<div className='coursesCards'>
-					<h2>Instructor info <button onClick={() => history.push('/chat')}>Chat with {details.name}</button></h2>
+					<h2>Instructor info <button onClick={() => history.push(`/chat/${details.id}`)}>Chat with {details.name}</button></h2>
 					<h5>name: {details.name}</h5>
 					<h5>credentials: {details.credentials}</h5>
 					<h5>email: {details.email}</h5>
@@ -64,7 +65,7 @@ const AllCourses = ({ match: { params: { id } } }) => {
 										<div> {e.description} </div>
 										<div> {e.category} </div>
 										<div> {e.instructor} </div>
-										<div> {Number(e.rating).toFixed(1) } </div>
+										<div> {Number(e.rating).toFixed(1)} </div>
 									</div>
 									<div className='oneCourse3'>
 										<div> $ {e.price} </div>
@@ -74,8 +75,8 @@ const AllCourses = ({ match: { params: { id } } }) => {
 							</Link>
 						))
 					}
-				</div>				
 				</div>
+			</div>
 		</div>
 	);
 };

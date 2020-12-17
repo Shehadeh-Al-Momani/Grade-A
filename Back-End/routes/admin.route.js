@@ -1,5 +1,5 @@
 const adminRouter = require("express").Router();
-const { addCategory, students_details, disable_user, instructors_details} = require('../controllers/main-controller');
+const { addCategory, students_details, disable_user, instructors_details ,instructor_details} = require('../controllers/main-controller');
 
 adminRouter.post('/category',addCategory) // req.body.name
 
@@ -8,6 +8,8 @@ adminRouter.get('/students_details', students_details);
 adminRouter.put('/disable', disable_user);
 // // View all instructors accounts details
 adminRouter.get('/instructors_details', instructors_details);
+
+adminRouter.get('/instructor_details', instructor_details);
 
 
 module.exports = adminRouter;
