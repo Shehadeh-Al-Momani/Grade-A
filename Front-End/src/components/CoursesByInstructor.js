@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, } from "react-router-dom";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
+import Filter from './Filter';
+
 const token = localStorage.getItem('token');
 
 const AllCourses = ({ match: { params: { id } } }) => {
-	const history = useHistory();
 	const [allCourses, setAllCourses] = useState([]);
-	const [categories, setCategories] = useState([]);
-	const [enrollmentCourses, setEnrollmentCourses] = useState([]);
-	const [allInstructors, setAllInstructors] = useState([]);
+	const [details, setDetails] = useState([]);
 	const [toggle, setToggle] = useState(true);
+	const history = useHistory();
 
 	useEffect(() => {
 		getAllCoursesByInstructor()
-		getAllCategories()
-		getEnrollmentCourses()
-		getAllInstructors()
-	}, [])
+		getInstructor_datails()
+	}, [id])
 
 	const getAllCoursesByInstructor = () => {
 		axios.get(`http://localhost:5000/students/instructor_courses/${id}`, { headers: { authorization: token }, })
@@ -28,28 +25,11 @@ const AllCourses = ({ match: { params: { id } } }) => {
 			.catch((err) => { console.log('err :', err) });
 	};
 
-	const getEnrollmentCourses = () => {
-		axios.get(`http://localhost:5000/students/history/5`)
+	const getInstructor_datails = () => {
+		axios.get(`http://localhost:5000/students/instructor_datails/${id}`, { headers: { authorization: token }, })
 			.then((response) => {
-				setEnrollmentCourses(response.data);
-			})
-			.catch((err) => { console.log('err :', err) });
-	};
-
-	const getAllInstructors = () => {
-		axios.get(`http://localhost:5000/students/instructors/2`)
-			.then((response) => {
-				console.log('re :', response.data)
-				setAllInstructors(response.data);
-			})
-			.catch((err) => { console.log('err :', err) });
-	};
-
-	const getAllCategories = () => {
-		axios
-			.get(`http://localhost:5000/students/categories`)
-			.then((response) => {
-				setCategories(response.data);
+				console.log('response.data :', response.data)
+				setDetails(...response.data);
 			})
 			.catch((err) => { console.log('err :', err) });
 	};
@@ -57,51 +37,13 @@ const AllCourses = ({ match: { params: { id } } }) => {
 	const countResults = allCourses.reduce((acc) => acc + 1, 0)
 	const div = (
 		<>
-			<div className='coursesSide' style={(!toggle) ? { visibility: 'hidden' } : { visibility: 'visible' }}>
-				<div className='dropdown'>
-					<div className='drop-button'>My Courses</div>
-					<div className='dropdown-content'>
-						{
-							enrollmentCourses.map((e, i) => {
-								return (
-									<Link to={`/students/categories/${e.id}`} key={i}>
-										{e.name}
-									</Link>
-								);
-							})
-						}
-					</div>
-				</div>
-				<div className='dropdown'>
-					<div className='drop-button'>Instructors</div>
-					<div className='dropdown-content'>
-						{
-							allInstructors.map((e, i) => {
-								return (
-									<Link to={`/students/coursesInstructor/${e.instructor_id}`} key={i} >
-										{e.name}
-									</Link>
-								);
-							})
-						}
-					</div>
-				</div>
-				<div className='dropdown'>
-					<div className='drop-button'>Categories</div>
-					<div className='dropdown-content'>
-						{
-							categories.map((e, i) => {
-								return (
-									<Link to={`/students/categories/${e.id}`} key={i}>
-										{e.name}
-									</Link>
-								);
-							})
-						}
-					</div>
-				</div>
-			</div>
 			<div className='coursesCards'>
+				<h2>Instructor info <button onClick={() => history.push('/chat')}>Chat with {details.name}</button></h2>
+				<h5>name: {details.name}</h5>
+				<h5>credentials: {details.credentials}</h5>
+				<h5>email: {details.email}</h5>
+				<h5>phone: {details.phone}</h5>
+				<h5>adress: {details.adress}</h5>
 				<h1 className='tt'>
 					Courses
 				<div className='countResults'>
@@ -141,6 +83,7 @@ const AllCourses = ({ match: { params: { id } } }) => {
 					<button onClick={() => { setToggle(!toggle) }}><RiFilter3Line /> Filter</button>
 				</div>
 				<div className='coursesMain'>
+					<Filter />
 					{div}
 				</div>
 			</div>
@@ -152,6 +95,7 @@ const AllCourses = ({ match: { params: { id } } }) => {
 				<button onClick={() => { setToggle(!toggle) }}><RiFilter3Line /> Filter</button>
 			</div>
 			<div >
+				<Filter />
 				{div}
 			</div>
 		</div>

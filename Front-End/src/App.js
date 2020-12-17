@@ -24,6 +24,7 @@ import jwt_decode from 'jwt-decode';
 import Welcom from './components/Welcom';
 import Courses from './components/Courses';
 import CoursesByInstructor from './components/CoursesByInstructor';
+import Filter from './components/Filter';
 let token = localStorage.getItem('token');
 console.log(jwt_decode(token));
 
@@ -65,7 +66,8 @@ const App = () => {
           <Switch>
             <Route exact path='/login' render={(props) => <Login {...props} />} />
             <Route exact path='/signup' render={(props) => <Signup {...props} />} />
-            <Route  path='/instructors' render={(props) => <Instructors  {...props} />} />
+            <Route path='/instructors' render={(props) => <Instructors  {...props} />} />
+            {/* <Route path='/chat' render={(props) => <Chat  {...props} />} /> */}
           </Switch>
         </Router>
       );
@@ -73,7 +75,7 @@ const App = () => {
       return (
         <Router>
           <Route exact path='/'> <Redirect to='/login' /> </Route>
-          <Route path='/students'render={(props) => (<Navbar {...props} setKey={setKey} setResult={setResult} />)} />
+          <Route path='/students' render={(props) => (<Navbar {...props} setKey={setKey} setResult={setResult} />)} />
           <Switch>
             <Route exact path='/login' render={(props) => <Login {...props} />} />
             <Route exact path='/signup' render={(props) => <Signup {...props} />} />
@@ -84,8 +86,8 @@ const App = () => {
             <Route exact path='/students/categories' render={(props) => <TopCategories {...props} />} />
             <Route exact path='/students/categories/:id' render={(props) => <CategoryCourses {...props} />} />
             <Route exact path='/students/courses' render={(props) => <AllCourses {...props} />} />
-            <Route exact path='/students/coursesFilter' render={(props) => (<Courses {...props} />)} />
             <Route exact path='/students/coursesInstructor/:id' render={(props) => (<CoursesByInstructor {...props} />)} />
+            {/* <Route path='/chat' render={(props) => <Chat  {...props} />} /> */}
             <Route render={(props) => <PageNotFound {...props} />} />
           </Switch>
         </Router>
