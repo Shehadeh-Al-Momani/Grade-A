@@ -9,7 +9,6 @@ const token = localStorage.getItem('token');
 const AllCourses = ({ match: { params: { id } } }) => {
 	const [allCourses, setAllCourses] = useState([]);
 	const [details, setDetails] = useState([]);
-	const [toggle, setToggle] = useState(true);
 	const history = useHistory();
 
 	useEffect(() => {
@@ -35,69 +34,48 @@ const AllCourses = ({ match: { params: { id } } }) => {
 	};
 
 	const countResults = allCourses.reduce((acc) => acc + 1, 0)
-	const div = (
-		<>
-			<div className='coursesCards'>
-				<h2>Instructor info <button onClick={() => history.push('/chat')}>Chat with {details.name}</button></h2>
-				<h5>name: {details.name}</h5>
-				<h5>credentials: {details.credentials}</h5>
-				<h5>email: {details.email}</h5>
-				<h5>phone: {details.phone}</h5>
-				<h5>adress: {details.adress}</h5>
-				<h1 className='tt'>
-					Courses
-				<div className='countResults'>
-						{countResults} results
-					</div>
-				</h1>
-				{
-					allCourses.map((e, i) => (
-						<Link to={`/students/courses/${e.courseId}`} key={i}>
-							<div className='oneCourse' >
-								<div className='imgCourse'>
-									<img className='imgCourse' src={`${e.img_course}`} alt={`${e.course}`} />
-								</div>
-								<div className='oneCourse2'>
-									<div> {e.course} </div>
-									<div> {e.description} </div>
-									<div> {e.category} </div>
-									<div> {e.instructor} </div>
-									<div> {e.rating} </div>
-								</div>
-								<div className='oneCourse3'>
-									<div> $ {e.price} </div>
-									<div> more details... </div>
-								</div>
-							</div>
-						</Link>
-					))
-				}
-			</div>
-		</>
-	)
 
-	if (toggle) {
-		return (
-			<div>
-				<div className='filter'>
-					<button onClick={() => { setToggle(!toggle) }}><RiFilter3Line /> Filter</button>
-				</div>
-				<div className='coursesMain'>
-					<Filter />
-					{div}
-				</div>
-			</div>
-		);
-	}
 	return (
 		<div>
-			<div className='filter'>
-				<button onClick={() => { setToggle(!toggle) }}><RiFilter3Line /> Filter</button>
-			</div>
-			<div >
+			<div className='coursesMain'>
 				<Filter />
-				{div}
-			</div>
+				<div className='coursesCards'>
+					<h2>Instructor info <button onClick={() => history.push('/chat')}>Chat with {details.name}</button></h2>
+					<h5>name: {details.name}</h5>
+					<h5>credentials: {details.credentials}</h5>
+					<h5>email: {details.email}</h5>
+					<h5>phone: {details.phone}</h5>
+					<h5>adress: {details.adress}</h5>
+					<h1 className='tt'>
+						Courses
+				<div className='countResults'>
+							{countResults} results
+					</div>
+					</h1>
+					{
+						allCourses.map((e, i) => (
+							<Link to={`/students/courses/${e.courseId}`} key={i}>
+								<div className='oneCourse' >
+									<div className='imgCourse'>
+										<img className='imgCourse' src={`${e.img_course}`} alt={`${e.course}`} />
+									</div>
+									<div className='oneCourse2'>
+										<div> {e.course} </div>
+										<div> {e.description} </div>
+										<div> {e.category} </div>
+										<div> {e.instructor} </div>
+										<div> {Number(e.rating).toFixed(1) } </div>
+									</div>
+									<div className='oneCourse3'>
+										<div> $ {e.price} </div>
+										<div> more details... </div>
+									</div>
+								</div>
+							</Link>
+						))
+					}
+				</div>				
+				</div>
 		</div>
 	);
 };

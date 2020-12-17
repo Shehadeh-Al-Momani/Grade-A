@@ -6,7 +6,6 @@ import { RiFilter3Line } from "react-icons/ri";
 const Courses = () => {
 	const history = useHistory();
 	const [allCourses, setAllCourses] = useState([]);
-	const [toggle, setToggle] = useState(false);
 
 	useEffect(() => {
 		getAllCourses()
