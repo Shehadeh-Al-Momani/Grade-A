@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory,BrowserRouter as Router, Route  } from "react-router-dom";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
@@ -24,7 +24,7 @@ const Courses = () => {
 	const countResults = allCourses.reduce((acc) => acc + 1, 0)
 
 	return (
-		<>
+		<div>
 			<div className='coursesCards'>
 				<h1 className='tt'>
 					Courses
@@ -53,7 +53,7 @@ const Courses = () => {
 					))
 				}
 			</div>
-		</>
+		</div>
 	);
 };
 

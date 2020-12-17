@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { RiFilter3Line } from "react-icons/ri";
 import Filter from "./Filter";
 import Courses from "./Courses";
+import CoursesByInstructor from "./CoursesByInstructor";
 
 const AllCourses = () => {
 	const [toggle, setToggle] = useState(true);
 
 	if (toggle) {
 		return (
-			<div>
+			<>
 				<div className='filter'>
 					<button onClick={() => { setToggle(!toggle) }}><RiFilter3Line /> Filter</button>
 				</div>
@@ -16,17 +17,17 @@ const AllCourses = () => {
 					<Filter />
 					<Courses />
 				</div>
-			</div>
+			</>
 		);
 	}
 	return (
-		<div>
+		<>
 			<div className='filter'>
 				<button onClick={() => { setToggle(!toggle) }}><RiFilter3Line /> Filter</button>
 			</div>
 			<Filter />
 			<Courses />
-		</div>
+		</>
 	);
 };
 export default AllCourses;

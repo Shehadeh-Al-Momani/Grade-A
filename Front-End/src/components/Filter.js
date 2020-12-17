@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 let token = localStorage.getItem('token');
 const decoded = jwt_decode(token);
@@ -20,7 +20,6 @@ const Filter = () => {
 	const getEnrollmentCourses = () => {
 		axios.get(`http://localhost:5000/students/history/${id}`)
 			.then((response) => {
-				console.log('re :', response.data)
 				setEnrollmentCourses(response.data);
 			})
 			.catch((err) => { console.log('err :', err) });
@@ -44,7 +43,7 @@ const Filter = () => {
 	};
 
 	return (
-		<>
+		<div>
 			<div className='coursesSide' style={(!toggle) ? { visibility: 'hidden' } : { visibility: 'visible' }}>
 				<div className='dropdown'>
 					<div className='drop-button'>My Courses</div>
@@ -95,7 +94,7 @@ const Filter = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

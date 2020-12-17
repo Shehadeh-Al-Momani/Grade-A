@@ -3,22 +3,20 @@ import { useHistory, } from "react-router-dom";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
+import Filter from './Filter';
+import Courses from './Courses';
+import Course from './Course';
+
 const token = localStorage.getItem('token');
 
 const AllCourses = ({ match: { params: { id } } }) => {
 	const history = useHistory();
 	const [allCourses, setAllCourses] = useState([]);
-	const [categories, setCategories] = useState([]);
-	const [enrollmentCourses, setEnrollmentCourses] = useState([]);
-	const [allInstructors, setAllInstructors] = useState([]);
 	const [toggle, setToggle] = useState(true);
 
 	useEffect(() => {
 		getAllCoursesByInstructor()
-		getAllCategories()
-		getEnrollmentCourses()
-		getAllInstructors()
-	}, [])
+	}, [id])
 
 	const getAllCoursesByInstructor = () => {
 		axios.get(`http://localhost:5000/students/instructor_courses/${id}`, { headers: { authorization: token }, })
@@ -28,79 +26,9 @@ const AllCourses = ({ match: { params: { id } } }) => {
 			.catch((err) => { console.log('err :', err) });
 	};
 
-	const getEnrollmentCourses = () => {
-		axios.get(`http://localhost:5000/students/history/5`)
-			.then((response) => {
-				setEnrollmentCourses(response.data);
-			})
-			.catch((err) => { console.log('err :', err) });
-	};
-
-	const getAllInstructors = () => {
-		axios.get(`http://localhost:5000/students/instructors/2`)
-			.then((response) => {
-				console.log('re :', response.data)
-				setAllInstructors(response.data);
-			})
-			.catch((err) => { console.log('err :', err) });
-	};
-
-	const getAllCategories = () => {
-		axios
-			.get(`http://localhost:5000/students/categories`)
-			.then((response) => {
-				setCategories(response.data);
-			})
-			.catch((err) => { console.log('err :', err) });
-	};
-
 	const countResults = allCourses.reduce((acc) => acc + 1, 0)
 	const div = (
 		<>
-			<div className='coursesSide' style={(!toggle) ? { visibility: 'hidden' } : { visibility: 'visible' }}>
-				<div className='dropdown'>
-					<div className='drop-button'>My Courses</div>
-					<div className='dropdown-content'>
-						{
-							enrollmentCourses.map((e, i) => {
-								return (
-									<Link to={`/students/categories/${e.id}`} key={i}>
-										{e.name}
-									</Link>
-								);
-							})
-						}
-					</div>
-				</div>
-				<div className='dropdown'>
-					<div className='drop-button'>Instructors</div>
-					<div className='dropdown-content'>
-						{
-							allInstructors.map((e, i) => {
-								return (
-									<Link to={`/students/coursesInstructor/${e.instructor_id}`} key={i} >
-										{e.name}
-									</Link>
-								);
-							})
-						}
-					</div>
-				</div>
-				<div className='dropdown'>
-					<div className='drop-button'>Categories</div>
-					<div className='dropdown-content'>
-						{
-							categories.map((e, i) => {
-								return (
-									<Link to={`/students/categories/${e.id}`} key={i}>
-										{e.name}
-									</Link>
-								);
-							})
-						}
-					</div>
-				</div>
-			</div>
 			<div className='coursesCards'>
 				<h1 className='tt'>
 					Courses
@@ -141,6 +69,7 @@ const AllCourses = ({ match: { params: { id } } }) => {
 					<button onClick={() => { setToggle(!toggle) }}><RiFilter3Line /> Filter</button>
 				</div>
 				<div className='coursesMain'>
+					<Filter />
 					{div}
 				</div>
 			</div>
@@ -152,6 +81,7 @@ const AllCourses = ({ match: { params: { id } } }) => {
 				<button onClick={() => { setToggle(!toggle) }}><RiFilter3Line /> Filter</button>
 			</div>
 			<div >
+				<Filter />
 				{div}
 			</div>
 		</div>
