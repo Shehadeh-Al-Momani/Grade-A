@@ -23,7 +23,7 @@ import Lesson from "./components/instructors/Lesson";
 import jwt_decode from 'jwt-decode';
 import Welcom from './components/Welcom';
 import Courses from './components/Courses';
-const token = localStorage.getItem('token');
+let token = localStorage.getItem('token');
 console.log(jwt_decode(token));
 
 const App = () => {
@@ -45,6 +45,7 @@ const App = () => {
     if (role_id === 1) {
       return (
         <Router>
+          <Route exact path='/'> <Redirect to='/login' /> </Route>
           <Switch>
             <Route exact path='/login' render={(props) => <Login {...props} />} />
             <Route exact path='/signup' render={(props) => <Signup {...props} />} />
@@ -59,6 +60,7 @@ const App = () => {
     } else if (role_id === 2) {
       return (
         <Router>
+          <Route exact path='/'> <Redirect to='/login' /> </Route>
           <Switch>
             <Route exact path='/login' render={(props) => <Login {...props} />} />
             <Route exact path='/signup' render={(props) => <Signup {...props} />} />
@@ -69,7 +71,8 @@ const App = () => {
     } else if (role_id === 3) {
       return (
         <Router>
-          <Route render={(props) => (<Navbar {...props} setKey={setKey} setResult={setResult} />)} />
+          <Route exact path='/'> <Redirect to='/login' /> </Route>
+          <Route path='/students'render={(props) => (<Navbar {...props} setKey={setKey} setResult={setResult} />)} />
           <Switch>
             <Route exact path='/login' render={(props) => <Login {...props} />} />
             <Route exact path='/signup' render={(props) => <Signup {...props} />} />
