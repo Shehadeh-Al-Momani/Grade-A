@@ -3,17 +3,13 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
-const AllCourses = () => {
+const Courses = () => {
 	const history = useHistory();
 	const [allCourses, setAllCourses] = useState([]);
-	const [enrollmentCourses, setEnrollmentCourses] = useState([]);
-	const [allInstructors, setAllInstructors] = useState([]);
 	const [toggle, setToggle] = useState(false);
 
 	useEffect(() => {
 		getAllCourses()
-		getEnrollmentCourses()
-		getAllInstructors()
 	}, [])
 
 	const getAllCourses = () => {
@@ -25,44 +21,14 @@ const AllCourses = () => {
 			.catch((err) => { console.log('err :', err) });
 	};
 
-	const getEnrollmentCourses = () => {
-		axios.get(`http://localhost:5000/students/history/5`)
-			.then((response) => {
-				console.log('setEnrollmentCourses :', response.data)
-				setEnrollmentCourses(response.data);
-			})
-			.catch((err) => { console.log('err :', err) });
-	};
-
-	const getAllInstructors = () => {
-		axios.get(`http://localhost:5000/students/instructors/2`)
-			.then((response) => {
-				console.log('getAllInstructors :', response.data)
-				setAllInstructors(response.data);
-			})
-			.catch((err) => { console.log('err :', err) });
-	};
-
 	const countResults = allCourses.reduce((acc) => acc + 1, 0)
+
 	return (
-		<div>
-			<div className='filter'>
-				{
-					(!toggle) ? (
-						<button onClick={() => { history.push('/students/courses') }}><RiFilter3Line /> Filter</button>
-					) : (
-							<button onClick={() => { history.push('/students/coursesFilter') }}><RiFilter3Line /> Filter</button>
-						)
-				}
-			</div>
-			<div className='coursesSide'>
-			</div>
+		<>
 			<div className='coursesCards'>
 				<h1 className='tt'>
 					Courses
-				<div className='countResults'>
-						{countResults} results
-					</div>
+	              <div className='countResults'> {countResults} results </div>
 				</h1>
 				{
 					allCourses.map((e, i) => (
@@ -87,8 +53,8 @@ const AllCourses = () => {
 					))
 				}
 			</div>
-		</div>
+		</>
 	);
 };
 
-export default AllCourses;
+export default Courses;
