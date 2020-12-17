@@ -1,7 +1,7 @@
 const db = require('../../db');
 
 const getAllInstructors = (req, res) => {
-	const query = 'SELECT * from users JOIN roles ON users.role_id=? AND roles.id=?';
+	const query = 'SELECT *,users.id instructor_id from users JOIN roles ON users.role_id=? AND roles.id=?';
 	const data = [req.params.id, req.params.id];
 	db.query(query, data, (err, result) => {
 		if (err) throw err;

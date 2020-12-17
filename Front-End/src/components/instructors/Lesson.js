@@ -23,12 +23,12 @@ export default function Lesson() {
 				<div>
 					<ul className='unOrderListStyle'>
 						<li className='listItemStyle'>
-							<Link className='linkStyle' to='/instructors/lessons'>
+							<Link className='linkStyle' to='/lessons'>
 								Get All Lessons
 							</Link>
 						</li>
 						<li className='listItemStyle'>
-							<Link className='linkStyle' to='/instructors/newLesson'>
+							<Link className='linkStyle' to='/newLesson'>
 								New Lesson
 							</Link>
 						</li>

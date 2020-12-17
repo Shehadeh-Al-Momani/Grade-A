@@ -65,7 +65,7 @@ const App = () => {
           <Switch>
             <Route exact path='/login' render={(props) => <Login {...props} />} />
             <Route exact path='/signup' render={(props) => <Signup {...props} />} />
-            <Route path='/instructors/account' render={(props) => <Instructors  {...props} />} />
+            <Route  path='/instructors' render={(props) => <Instructors  {...props} />} />
           </Switch>
         </Router>
       );

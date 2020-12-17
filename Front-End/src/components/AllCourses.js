@@ -8,12 +8,14 @@ const token = localStorage.getItem('token');
 const AllCourses = () => {
 	const history = useHistory();
 	const [allCourses, setAllCourses] = useState([]);
+	const [categories, setCategories] = useState([]);
 	const [enrollmentCourses, setEnrollmentCourses] = useState([]);
 	const [allInstructors, setAllInstructors] = useState([]);
-	const [toggle, setToggle] = useState(false);
+	const [toggle, setToggle] = useState(true);
 
 	useEffect(() => {
 		getAllCourses()
+		getAllCategories()
 		getEnrollmentCourses()
 		getAllInstructors()
 	}, [])
@@ -37,7 +39,17 @@ const AllCourses = () => {
 	const getAllInstructors = () => {
 		axios.get(`http://localhost:5000/students/instructors/2`)
 			.then((response) => {
+				console.log('re :', response.data)
 				setAllInstructors(response.data);
+			})
+			.catch((err) => { console.log('err :', err) });
+	};
+
+	const getAllCategories = () => {
+		axios
+			.get(`http://localhost:5000/students/categories`)
+			.then((response) => {
+				setCategories(response.data);
 			})
 			.catch((err) => { console.log('err :', err) });
 	};
@@ -47,14 +59,16 @@ const AllCourses = () => {
 		<>
 			<div className='coursesSide' style={(!toggle) ? { visibility: 'hidden' } : { visibility: 'visible' }}>
 				<div className='dropdown'>
-					<div className='drop-button'>Classifications</div>
-					<div className='dropdown-content'>
+					<div className='drop-button'>My Courses</div>
+					<div >
 						{
 							enrollmentCourses.map((e, i) => {
 								return (
-									<Link to={`/students/categories/${e.id}`} key={i}>
-										{e.name}
-									</Link>
+									<div>
+										<Link to={`/students/categories/${e.id}`} key={i}>
+											{e.name}
+										</Link>
+									</div>
 								);
 							})
 						}
@@ -62,13 +76,15 @@ const AllCourses = () => {
 				</div>
 				<div className='dropdown'>
 					<div className='drop-button'>Instructors</div>
-					<div className='dropdown-content'>
+					<div  >
 						{
 							allInstructors.map((e, i) => {
 								return (
-									<Link to={`/students/coursesInstructor/${e.id}`} key={i}>
-										{e.name}
-									</Link>
+									<div>
+										<Link to={`/students/coursesInstructor/${e.instructor_id}`} key={i} >
+											{e.name}
+										</Link>
+									</div>
 								);
 							})
 						}
@@ -76,13 +92,15 @@ const AllCourses = () => {
 				</div>
 				<div className='dropdown'>
 					<div className='drop-button'>Categories</div>
-					<div className='dropdown-content'>
+					<div >
 						{
-							allCourses.map((e, i) => {
+							categories.map((e, i) => {
 								return (
-									<Link to={`/students/categories/${e.id}`} key={i}>
-										{e.name}
-									</Link>
+									<div>
+										<Link to={`/students/categories/${e.id}`} key={i}>
+											{e.name}
+										</Link>
+									</div>
 								);
 							})
 						}
