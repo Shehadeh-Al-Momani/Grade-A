@@ -83,8 +83,8 @@ const Filter = () => {
 						{
 							categories.map((e, i) => {
 								return (
-									<div>
-										<Link to={`/students/categories/${e.id}`} key={i}>
+									<div >
+										<Link to={`/students/categories/${e.id}`} key={i} >
 											{e.name}
 										</Link>
 									</div>
@@ -99,6 +99,7 @@ const Filter = () => {
 }
 
 export default Filter
+
 
 
 

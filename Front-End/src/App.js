@@ -67,6 +67,7 @@ const App = () => {
             <Route exact path='/login' render={(props) => <Login {...props} />} />
             <Route exact path='/signup' render={(props) => <Signup {...props} />} />
             <Route path='/instructors' render={(props) => <Instructors  {...props} />} />
+            {/* <Route path='/chat' render={(props) => <Chat  {...props} />} /> */}
           </Switch>
         </Router>
       );
@@ -86,6 +87,7 @@ const App = () => {
             <Route exact path='/students/categories/:id' render={(props) => <CategoryCourses {...props} />} />
             <Route exact path='/students/courses' render={(props) => <AllCourses {...props} />} />
             <Route exact path='/students/coursesInstructor/:id' render={(props) => (<CoursesByInstructor {...props} />)} />
+            {/* <Route path='/chat' render={(props) => <Chat  {...props} />} /> */}
             <Route render={(props) => <PageNotFound {...props} />} />
           </Switch>
         </Router>

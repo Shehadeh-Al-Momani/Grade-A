@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
 import Filter from './Filter';
 
@@ -10,6 +10,7 @@ const AllCourses = ({ match: { params: { id } } }) => {
 	const [allCourses, setAllCourses] = useState([]);
 	const [details, setDetails] = useState([]);
 	const [toggle, setToggle] = useState(true);
+	const history = useHistory();
 
 	useEffect(() => {
 		getAllCoursesByInstructor()
@@ -37,7 +38,7 @@ const AllCourses = ({ match: { params: { id } } }) => {
 	const div = (
 		<>
 			<div className='coursesCards'>
-				<h2>Instructor info</h2>
+				<h2>Instructor info <button onClick={() => history.push('/chat')}>Chat with {details.name}</button></h2>
 				<h5>name: {details.name}</h5>
 				<h5>credentials: {details.credentials}</h5>
 				<h5>email: {details.email}</h5>
