@@ -1,10 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Account from "./instructors/Account";
 import InstructorCourses from "./instructors/InstructorCourses";
 import Lesson from "./instructors/Lesson";
+import { useHistory } from "react-router-dom";
+
 
 export default function Instructors() {
+  const history = useHistory();
+
   return (
     <Router>
       <div>
@@ -25,10 +29,8 @@ export default function Instructors() {
                 Lesson
               </Link>
             </li>
-            <li>
-              <Link to="/instructors/logout" className="linkStyle" href="#services">
-                LogOut
-              </Link>
+            <li className="linkStyle" onClick={() => { history.push('/login') }} >
+              <Link className="linkStyle" href="#contact"> Log out</Link>
             </li>
           </ul>
         </div>

@@ -55,37 +55,38 @@ const AllCourses = () => {
 						)
 				}
 			</div>
-				<div className='coursesSide'>
-				</div>
-				<div className='coursesCards'>
-					{/* <div className='countResults'>{countResults} results</div> */}
-					<h1 className='tt'>
-						Courses
+			<div className='coursesSide'>
+			</div>
+			<div className='coursesCards'>
+				<h1 className='tt'>
+					Courses
 				<div className='countResults'>
-							{countResults} results
+						{countResults} results
 					</div>
-					</h1>
-					{
-						allCourses.map((e, i) => (
-							<Link to={`/students/courses/${e.courseId}`} key={i}>
-								<div className='oneCourse' >
-									<div className='imgCourse'>
-										<img className='imgCourse' src={`${e.img_course}`} alt={`${e.course}`} />
-									</div>
-									<div className='oneCourse2'>
-										<div> {e.course} </div>
-										<div> {e.description} </div>
-										<div> {e.category} </div>
-										<div> {e.instructor} </div>
-									</div>
-									<div className='oneCourse3'>
-										<div> $ {e.price} </div>
-									</div>
+				</h1>
+				{
+					allCourses.map((e, i) => (
+						<Link to={`/students/courses/${e.courseId}`} key={i}>
+							<div className='oneCourse' >
+								<div className='imgCourse'>
+									<img className='imgCourse' src={`${e.img_course}`} alt={`${e.course}`} />
 								</div>
-							</Link>
-						))
-					}
-				</div>
+								<div className='oneCourse2'>
+									<div> {e.course} </div>
+									<div> {e.description} </div>
+									<div> {e.category} </div>
+									<div> {e.instructor} </div>
+									<div> {e.rating} </div>
+								</div>
+								<div className='oneCourse3'>
+									<div> $ {e.price} </div>
+									<div> more details... </div>
+								</div>
+							</div>
+						</Link>
+					))
+				}
+			</div>
 		</div>
 	);
 };

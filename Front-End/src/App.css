@@ -916,7 +916,8 @@ input::-webkit-inner-spin-button {
 }
 
 .coursesSide {
-  background: rgb(177, 177, 177);
+  background: rgb(245, 240, 240);
+  visibility: visible;
 }
 
 .coursesCards {
