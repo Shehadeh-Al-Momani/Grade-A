@@ -42,7 +42,7 @@ const Courses = () => {
 									<div> {e.description} </div>
 									<div> {e.category} </div>
 									<div> {e.instructor} </div>
-									<div> {e.rating} </div>
+									<div> {Number(e.rating).toFixed(1) } </div>
 								</div>
 								<div className='oneCourse3'>
 									<div> $ {e.price} </div>
