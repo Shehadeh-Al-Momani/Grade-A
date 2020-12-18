@@ -1,6 +1,6 @@
 const db = require("../db");
 
-const { getAllCourses, courseDetails, searchCourses, filterCourses, historyCourses, enrollmentCourse, getAllCoursesInstructorsCategories } = require('./students_controllers/courses_controllers');
+const { getAllCourses, courseDetails, searchCourses, filterCourses, historyCourses, enrollmentCourse, getAllCoursesInstructorsCategories ,getOneCourseInstructorsCategories } = require('./students_controllers/courses_controllers');
 const { getAllCategories, getCategoryCourses } = require('./students_controllers/categories_controllers');
 const { evaluate, getRating } = require('./students_controllers/rating_controllers');
 const { getAllInstructors, getAllCoursesByInstructor, getInstructor } = require('./students_controllers/instructors_controllers');
@@ -37,5 +37,6 @@ module.exports = {
   getAllCoursesByInstructor,
   getInstructor,
   getAllCoursesInstructorsCategories,
+  getOneCourseInstructorsCategories,
 };
 
