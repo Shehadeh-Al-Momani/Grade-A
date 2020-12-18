@@ -61,8 +61,7 @@ const Navbar = (props) => {
 					</Link>
 				</div>
 				<h4><Link to='/join/instructor-signup' >Teach On Grade-A</Link></h4>
-				<button className='log'><Link to='/login'>Log in</Link></button>
-				<button className='sign'><Link to='/signup' >Sign up</Link></button>
+				<button className='sign'><Link to='/login' >Log out</Link></button>
 			</nav>
 		</div>
 	);

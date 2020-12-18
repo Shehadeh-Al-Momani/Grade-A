@@ -1,38 +1,30 @@
 const express = require("express");
 require("dotenv").config();
+const cors = require("cors");
+const http = require('http');
+const app = express();
+const socketio = require('socket.io');
+const server = http.createServer(app);
+// We adde cors.origin because cors work with express not socket.io so to solve this proplem we write this commmand
+const io = socketio(server, {
+  cors: {
+    origin: '*',
+  }
+});
+
 const mainRouter = require("./routes/main-route");
 const registerRouter = require('./routes/registration.route')
-const cors = require("cors");
 const db = require("./db");
-
-const app = express();
-const server = require("http").createServer(app);
-const io = require("socket.io")(server);
 
 app.use(cors());
 app.use(express.json());
 app.use(mainRouter);
 app.use(registerRouter);
 
-// const path = require("path");
-// app.use(express.static(path.join(__dirname + "/public")));
-
-// app.get("/test", (req, res) => {
-//   res.status(200).send("Working");
-// });
-
-
-// io.on("connection", (socket) => {
-//   socket.on("chat", (message) => {
-//     console.log("From client: ", message);
-//     io.emit("chat", message);
-//   });
-// });
-
 app.post('/messeges', (req, res) => {
   const { stuID, insID, message, sender } = req.body;
-  const query = 'INSERT INTO messeges (stuID, insID, message, sender) VALUES (?,?,?,?)';
-  const data = [stuID, insID, message, sender];
+  const query = 'INSERT INTO messeges (stuID, insID, message, sender,created_at) VALUES (?,?,?,?,?)';
+  const data = [stuID, insID, message, sender, new Date];
   db.query(query, data, (err, result) => {
     if (err) throw err;
     res.json(result);
@@ -48,18 +40,26 @@ app.get('/:stuID/:insID', (req, res) => {
   });
 })
 
+app.get('/users/:id', (req, res) => {
+  const query = `SELECT * FROM users WHERE id =${req.params.id}`;
+  const data = req.params.id;
+  db.query(query, data, (err, result) => {
+    if (err) throw err;
+    res.json(result);
+  });
+})
+
 io.on("connection", (socket) => {
-  console.log(`Client ${socket.id} connected`);
-  const { otherUser, cuurentUser } = socket.handshake.query;
+  const { insID, stuId } = socket.handshake.query;
   // Join a conversation 
-  socket.join(otherUser);
+  socket.join(insID);
   // Listen for new messages from client
   socket.on('newMessage', (messageData) => {
-    io.in(otherUser).emit('newMessage', messageData);
+    io.in(insID).emit('newMessage', messageData);
   });
   // Leave the room if the user closes the socket
   socket.on("disconnect", () => {
-    socket.leave(otherUser);
+    socket.leave(insID);
   });
 });
 

@@ -1,7 +1,7 @@
 const db = require('../../db');
 
 const students_details = (req, res) => {
-	const query = `SELECT * FROM users u JOIN roles r WHERE u.role_id = r.id AND r.type LIKE 'student'`;
+	const query = `SELECT *,u.id sID FROM users u JOIN roles r WHERE u.role_id = r.id AND r.type LIKE 'student'`;
 
 	db.query(query, (err, result) => {
 		if (err) throw err;

@@ -22,15 +22,16 @@ import InstructorCourses from "./components/instructors/InstructorCourses";
 import Lesson from "./components/instructors/Lesson";
 import jwt_decode from 'jwt-decode';
 import Welcom from './components/Welcom';
-import Courses from './components/Courses';
+import Students from './components/Students';
 import CoursesByInstructor from './components/CoursesByInstructor';
-import Filter from './components/Filter';
+import Chat from './components/Chat';
 let token = localStorage.getItem('token');
 console.log(jwt_decode(token));
 
 const App = () => {
   const [key, setKey] = useState('');
   const [result, setResult] = useState([]);
+
   if (!token) {
     return (
       <Router>
@@ -67,7 +68,8 @@ const App = () => {
             <Route exact path='/login' render={(props) => <Login {...props} />} />
             <Route exact path='/signup' render={(props) => <Signup {...props} />} />
             <Route path='/instructors' render={(props) => <Instructors  {...props} />} />
-            {/* <Route path='/chat' render={(props) => <Chat  {...props} />} /> */}
+            <Route path='/students' render={(props) => <Students  {...props} />} />
+            <Route path='/chat/:id' render={(props) => <Chat  {...props} />} />
           </Switch>
         </Router>
       );
@@ -87,7 +89,7 @@ const App = () => {
             <Route exact path='/students/categories/:id' render={(props) => <CategoryCourses {...props} />} />
             <Route exact path='/students/courses' render={(props) => <AllCourses {...props} />} />
             <Route exact path='/students/coursesInstructor/:id' render={(props) => (<CoursesByInstructor {...props} />)} />
-            {/* <Route path='/chat' render={(props) => <Chat  {...props} />} /> */}
+            <Route path='/chat/:id' render={(props) => <Chat  {...props} />} />
             <Route render={(props) => <PageNotFound {...props} />} />
           </Switch>
         </Router>

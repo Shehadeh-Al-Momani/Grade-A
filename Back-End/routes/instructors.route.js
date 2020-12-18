@@ -31,6 +31,7 @@ const {
   addCourse,
   addLesson,
   updateCourse,
+  students_details,
   courseRating,
 } = require("../controllers/main-controller");
 
@@ -62,6 +63,8 @@ instructorsRouter.get("/registeredCourses/:id", registeredCoursesInstructor);
 
 // View course rating
 instructorsRouter.get("/course_rating/:id", courseRating); // id = courses.id
+
+instructorsRouter.get('/students_details', students_details);
 
 // Add live videos
 // instructorsRouter.get('/',)
