@@ -9,11 +9,11 @@ import TopCategories from './TopCategories';
 const Home = () => {
 	return (
 		<Route>
-				<Interface />
-				<Goals />
-				<TopCategories />
-				<BecomeInstructor />
-				<Team />
+			<Interface />
+			<Goals />
+			<TopCategories />
+			<BecomeInstructor />
+			<Team />
 		</Route>
 	);
 };

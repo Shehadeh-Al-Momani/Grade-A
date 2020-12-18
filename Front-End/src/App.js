@@ -17,16 +17,12 @@ import PageNotFound from './components/PageNotFound';
 import Instructors from "./components/Instructors";
 import StudentsDetails from './components/StudentsDetails';
 import InstructorsDetails from './components/InstructorsDetails';
-import Account from './components/instructors/Account';
-import InstructorCourses from "./components/instructors/InstructorCourses";
-import Lesson from "./components/instructors/Lesson";
 import jwt_decode from 'jwt-decode';
 import Welcom from './components/Welcom';
 import Students from './components/Students';
 import CoursesByInstructor from './components/CoursesByInstructor';
 import Chat from './components/Chat';
 let token = localStorage.getItem('token');
-console.log(jwt_decode(token));
 
 const App = () => {
   const [key, setKey] = useState('');

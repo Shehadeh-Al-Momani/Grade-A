@@ -15,7 +15,6 @@ const Course = ({ match: { params: { id }, }, }) => {
 				headers: { authorization: token },
 			})
 			.then((res) => {
-				console.log('res.data :', res.data)
 				setCourse(...res.data);
 			})
 			.catch((err) => {
@@ -26,7 +25,6 @@ const Course = ({ match: { params: { id }, }, }) => {
 	useEffect(() => {
 		axios.get(`http://localhost:5000/students/history/${stuId}`)
 			.then((res) => {
-				console.log('res.data :', res.data)
 				setEnrollmentCourses(res.data);
 			})
 			.catch((err) => { console.log('err :', err) });
