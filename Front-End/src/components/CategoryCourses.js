@@ -31,27 +31,29 @@ const CategoryCourses = (props) => {
 							{countResults} results
 					</div>
 					</h1>
-					{
-						allCourses.map((e, i) => (
-							<Link to={`/students/courses/${e.id}`} key={i}>
-								<div className='oneCourse' >
-									<div className='imgCourse'>
-										<img className='imgCourse' src={`${e.img_url}`} alt={`${e.name}`} />
+					<div className="real-rs">
+						{
+							allCourses.map((e, i) => (
+								<Link to={`/students/courses/${e.id}`} key={i}>
+									<div className='oneCourse' >
+										<div className='imgCourse'>
+											<img className='imgCourse' src={`${e.img_url}`} alt={`${e.name}`} />
+										</div>
+										<div className='oneCourse2'>
+											<div> {e.name} </div>
+											<div> {e.description} </div>
+											<div> {e.category} </div>
+											<div> {e.instructor} </div>
+										</div>
+										<div className='oneCourse3'>
+											<div> $ {e.price} </div>
+											<div> more details... </div>
+										</div>
 									</div>
-									<div className='oneCourse2'>
-										<div> {e.name} </div>
-										<div> {e.description} </div>
-										<div> {e.category} </div>
-										<div> {e.instructor} </div>
-									</div>
-									<div className='oneCourse3'>
-										<div> $ {e.price} </div>
-										<div> more details... </div>
-									</div>
-								</div>
-							</Link>
-						))
-					}
+								</Link>
+							))
+						}
+					</div>
 				</div>
 			</div>
 		</div>

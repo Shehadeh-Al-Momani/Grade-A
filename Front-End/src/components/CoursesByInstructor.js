@@ -53,28 +53,30 @@ const AllCourses = (props) => {
 							{countResults} results
 					</div>
 					</h1>
-					{
-						allCourses.map((e, i) => (
-							<Link to={`/students/courses/${e.courseId}`} key={i}>
-								<div className='oneCourse' >
-									<div className='imgCourse'>
-										<img className='imgCourse' src={`${e.img_course}`} alt={`${e.course}`} />
+					<div className="real-rs">
+						{
+							allCourses.map((e, i) => (
+								<Link to={`/students/courses/${e.courseId}`} key={i}>
+									<div className='oneCourse' >
+										<div className='imgCourse'>
+											<img className='imgCourse' src={`${e.img_course}`} alt={`${e.course}`} />
+										</div>
+										<div className='oneCourse2'>
+											<div> {e.course} </div>
+											<div> {e.description} </div>
+											<div> {e.category} </div>
+											<div> {e.instructor} </div>
+											<div> {Number(e.rating).toFixed(1)} </div>
+										</div>
+										<div className='oneCourse3'>
+											<div> $ {e.price} </div>
+											<div> more details... </div>
+										</div>
 									</div>
-									<div className='oneCourse2'>
-										<div> {e.course} </div>
-										<div> {e.description} </div>
-										<div> {e.category} </div>
-										<div> {e.instructor} </div>
-										<div> {Number(e.rating).toFixed(1)} </div>
-									</div>
-									<div className='oneCourse3'>
-										<div> $ {e.price} </div>
-										<div> more details... </div>
-									</div>
-								</div>
-							</Link>
-						))
-					}
+								</Link>
+							))
+						}
+					</div>
 				</div>
 			</div>
 		</div>
