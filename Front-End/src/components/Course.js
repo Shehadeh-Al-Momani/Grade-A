@@ -32,7 +32,16 @@ const Course = ({ match: { params: { id }, }, }) => {
 			.catch((err) => { console.log('err :', err) });
 	}, [stuId]);
 
+	const enrollmentCourse = (id, i,course) => {
+		axios.post(`http://localhost:5000/students/add_course${id}/${i}`)
+			.then((res) => {
+				alert(`Thank you for enrollment ${course}`);
+			})
+			.catch((err) => { console.log('err :', err) });
+	}
+
 	const enrollment = enrollmentCourses.filter((e) => { return e.course_id === course.courseId }).length > 0;
+
 	return (
 		<div>
 			<div className='course'>
@@ -49,7 +58,7 @@ const Course = ({ match: { params: { id }, }, }) => {
 					<div className='innerTxt'>
 						{
 							(!enrollment) ? (
-								<button> Enrollment</button>
+								<button onClick={() => enrollmentCourse(course.courseId, stuId ,course.course)}> Enrollment</button>
 							) : null
 						}
 					</div>
