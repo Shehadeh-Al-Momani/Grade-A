@@ -72,14 +72,14 @@ CREATE Table registration (
   FOREIGN KEY (course_id) REFERENCES courses(id)
 );
 
-CREATE TABLE `message` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `sender_id` int,
-  `reciver_id` int,
-  `content` varchar(255),
-  `created_at` timestamp,
-  FOREIGN KEY (sender_id) REFERENCES users(id),
-  FOREIGN KEY (reciver_id) REFERENCES users(id)
+CREATE TABLE messeges (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  stuID int,
+  insID int,
+  message varchar(255),
+  created_at timestamp,
+  FOREIGN KEY (stuID) REFERENCES users(id),
+  FOREIGN KEY (insID) REFERENCES users(id)
 );
 
 INSERT INTO roles (type)values('admin'),('instructor'),('student');
