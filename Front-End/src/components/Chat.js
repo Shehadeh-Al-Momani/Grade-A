@@ -8,50 +8,32 @@ let token = localStorage.getItem('token');
 const decoded = jwt_decode(token);
 let cuurentUser = decoded.id;
 
-const ChatRoom = (props) => {
+const Chat = (props) => {
   const { match: { params: { id } } } = props;
-  let otherUser = id;
-  const { messages, sendMessage } = useChat(otherUser, cuurentUser);
+  let otherUser = id, stuId, insID;
+
+  if (decoded.role_id === 3) { stuId = cuurentUser; insID = id }
+  if (decoded.role_id === 2) { stuId = id; insID = cuurentUser }
   const [newMessage, setNewMessage] = useState('');
+  const { messages, sendMessage } = useChat(newMessage, stuId, insID, cuurentUser);
+
   const [allMsg, setAllMsg] = useState([]);
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
-    getAllMsg()
     getUser()
-  }, [otherUser]);
+  }, [id]);
 
-  const getAllMsg = () => {
-    axios.get(`http://localhost:5000/${cuurentUser}/${otherUser}`)
+  console.log('id :', id)
+  const getUser = () => {
+    axios.get(`http://localhost:5000/users/${id}`)
       .then((res) => {
-        setAllMsg(res.data);
+        console.log('res.data :', res.data)
+        setUser(res.data);
       })
       .catch((err) => {
         console.log('ERR: ', err);
       })
-  };
-
-  const getUser = () => {
-    if (decoded.role_id === 3) {
-      axios.get(`http://localhost:5000/students/instructor_datails/${otherUser}`)
-        .then((res) => {
-          console.log('res.data :', res.data[0].name)
-          setUser(res.data[0].name);
-        })
-        .catch((err) => {
-          console.log('ERR: ', err);
-        })
-    }
-    else if (decoded.role_id === 2) {
-      axios.get(`http://localhost:5000/instructors/instructor_datails/${otherUser}`)
-        .then((res) => {
-          console.log('res.data :', res.data[0].name)
-          setUser(res.data[0].name);
-        })
-        .catch((err) => {
-          console.log('ERR: ', err);
-        })
-    }
   }
 
   return (
@@ -60,18 +42,20 @@ const ChatRoom = (props) => {
       <div className='messages-container'>
         <ol className='messages-list' >
           {messages.map((e, i) => (
-            <li key={i} className={`message-item ${(e.sender === 1) ? 'senderMsg' : 'receivedMsg'}`}>{e.message} </li>
+            <div>
+              <li key={i} className={`message-item ${(e.sender === 1) ? 'senderMsg' : 'receivedMsg'}`}>{e.message} </li>
+            </div>
           ))}
         </ol>
       </div>
       <div className='input-send'>
         <input value={newMessage} placeholder='Write message...' className='new-message-input-field' onChange={(e) => { setNewMessage(e.target.value) }}
         />
-        <button onClick={(e) => { sendMessage(newMessage, cuurentUser); setNewMessage('') }} className='send-message-button'> {'>'}</button>
+        <button onClick={(e) => { sendMessage(newMessage, stuId, insID, cuurentUser); setNewMessage('') }} className='send-message-button'> {'>'}</button>
       </div>
     </div>
   );
 };
 
-export default ChatRoom;
+export default Chat;
 

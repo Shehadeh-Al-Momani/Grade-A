@@ -4,6 +4,7 @@ import Account from "./instructors/Account";
 import InstructorCourses from "./instructors/InstructorCourses";
 import Lesson from "./instructors/Lesson";
 import { useHistory } from "react-router-dom";
+import Students from "./Students";
 
 
 export default function Instructors() {
@@ -29,6 +30,9 @@ export default function Instructors() {
                 Lesson
               </Link>
             </li>
+            <li className="linkStyle" onClick={() => { history.push('/instructors/students') }} >
+              <Link className="linkStyle" href="#contact"> Students</Link>
+            </li>
             <li className="linkStyle" onClick={() => { history.push('/login') }} >
               <Link className="linkStyle" href="#contact"> Log out</Link>
             </li>
@@ -53,6 +57,11 @@ export default function Instructors() {
           <Route path="/instructors/lesson">
             <div>
               <Lesson></Lesson>
+            </div>
+          </Route>
+          <Route path="/instructors/students">
+            <div>
+              <Students></Students>
             </div>
           </Route>
         </div>

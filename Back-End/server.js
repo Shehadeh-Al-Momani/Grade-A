@@ -23,8 +23,8 @@ app.use(registerRouter);
 
 app.post('/messeges', (req, res) => {
   const { stuID, insID, message, sender } = req.body;
-  const query = 'INSERT INTO messeges (stuID, insID, message, sender) VALUES (?,?,?,?)';
-  const data = [stuID, insID, message, sender];
+  const query = 'INSERT INTO messeges (stuID, insID, message, sender,created_at) VALUES (?,?,?,?,?)';
+  const data = [stuID, insID, message, sender, new Date];
   db.query(query, data, (err, result) => {
     if (err) throw err;
     res.json(result);
@@ -40,17 +40,26 @@ app.get('/:stuID/:insID', (req, res) => {
   });
 })
 
+app.get('/users/:id', (req, res) => {
+  const query = `SELECT * FROM users WHERE id =${req.params.id}`;
+  const data = req.params.id;
+  db.query(query, data, (err, result) => {
+    if (err) throw err;
+    res.json(result);
+  });
+})
+
 io.on("connection", (socket) => {
-  const { otherUser, cuurentUser } = socket.handshake.query;
+  const { insID, stuId } = socket.handshake.query;
   // Join a conversation 
-  socket.join(otherUser);
+  socket.join(insID);
   // Listen for new messages from client
   socket.on('newMessage', (messageData) => {
-    io.in(otherUser).emit('newMessage', messageData);
+    io.in(insID).emit('newMessage', messageData);
   });
   // Leave the room if the user closes the socket
   socket.on("disconnect", () => {
-    socket.leave(otherUser);
+    socket.leave(insID);
   });
 });
 
