@@ -32,7 +32,7 @@ const Course = ({ match: { params: { id }, }, }) => {
 			.catch((err) => { console.log('err :', err) });
 	}, [stuId]);
 
-	const enrollmentCourse = (id, i,course) => {
+	const enrollmentCourse = (id, i, course) => {
 		axios.post(`http://localhost:5000/students/add_course${id}/${i}`)
 			.then((res) => {
 				alert(`Thank you for enrollment ${course}`);
@@ -49,16 +49,16 @@ const Course = ({ match: { params: { id }, }, }) => {
 					<img src={`${course.img_course}`} alt={`${course.name}`} />
 				</div>
 				<div className='course-details'>
-					<h2> {' '} <span>Course Name : </span> {course.course}{' '} </h2>
-					<h2> {' '} <span>Category : </span> {course.category}{' '} </h2>
-					<h3> {' '} <span>Course Description : </span> {course.description} </h3>
+					<h1> {' '} {course.course}{' '} </h1>
+					<h3> {' '} {course.category}{' '} </h3>
+					<h4> {' '} <span> Description : </span> {course.description} </h4>
 					<h3> {' '} {course.instructor} </h3>
-					<h3> {' '} {course.rating} </h3>
+					<h3> {' '} {Number(course.rating).toFixed(1)} </h3>
 					<h3> {' '} {course.price + ' $'}{' '} </h3>
 					<div className='innerTxt'>
 						{
 							(!enrollment) ? (
-								<button onClick={() => enrollmentCourse(course.courseId, stuId ,course.course)}> Enrollment</button>
+								<button onClick={() => enrollmentCourse(course.courseId, stuId, course.course)}> Enrollment</button>
 							) : null
 						}
 					</div>
